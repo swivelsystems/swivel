@@ -4,12 +4,19 @@ class SideBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-    };
   }
 
+
   render() {
-    return <h1>Hello, World</h1>;
+    let courses = this.props.courses.map((course) => (
+       <div onClick={() => (this.props.handleClass(course))}>{course.name}</div>
+    ));
+
+    return (
+      <div className="col-md-3">
+        {courses}
+      </div>
+    );
   }
 
 }

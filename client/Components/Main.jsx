@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Chart from './ClassView/Chart.jsx';
 class Main extends React.Component {
 
   constructor(props) {
@@ -9,7 +9,12 @@ class Main extends React.Component {
   }
 
   render() {
-    return <h1>Hello, World</h1>;
+    return (
+      <div className="col-md-9">
+        I am MAIN I SWEAR!!!
+        <Chart />
+      </div>
+    );
   }
 
 }
