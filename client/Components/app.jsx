@@ -14,11 +14,16 @@ class App extends React.Component {
         { name: 'TrigonometryFall2015', students: ['lizzy', 'laura', 'andrew'] },
       ],
       currentCourse: {},
+      isHome: true,
     };
   }
 
   handleClass(course) {
     this.setState({ currentCourse: course });
+  }
+
+  handleHome(home) {
+    this.setState({ isHome: home });
   }
 
   render() {
@@ -29,7 +34,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <SideBar handleClass={this.handleClass.bind(this)} courses={this.state.courses} />
-          <Main />
+          <Main isHome={this.state.isHome} currentCourse={this.state.currentCourse}/>
         </div>
       </div>
     );
