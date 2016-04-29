@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {
 
@@ -37,7 +39,7 @@ module.exports = {
     // when Webpack loads them with a `require` statement. A lot of the magic of
     // Webpack is done using loaders. In this example, there's one loader declared
     // to use Babel to transform ES6 and JSX into ES5.
-    // 
+    //
     // `loaders` is an array of objects.
     loaders: [
       {
@@ -79,5 +81,14 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['', '.scss', '.js', '.json'],
+    packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('test'),
+    }),
+  ],
 
 };
