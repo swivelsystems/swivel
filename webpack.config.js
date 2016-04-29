@@ -65,9 +65,10 @@ module.exports = {
         loader: 'babel',
 
         // `query` lets you pass options to the loader's process. The options that a loader takes
-        // are specific to each loader. In this case, `babel-loader` is being told to use the 'react'
-        // and 'es2015' presets when it transforms files. `query` becomes a query string, similar
-        // to what you see in request URLs, and the same thing could be achieved by writing this above:
+        // are specific to each loader. In this case, `babel-loader` is being told to use the
+        // 'react' and 'es2015' presets when it transforms files. `query` becomes a query
+        // string, similar to what you see in request URLs, and the same thing could be achieved
+        // by writing this above:
         // loader: 'babel?presets[]=react,presets[]=es2015'
         query: {
           presets: ['react', 'es2015'],
