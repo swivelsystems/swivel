@@ -1,0 +1,1448 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "name": "English",
+      "teacherId": "1",
+      "departmentId": "1",
+      "semester": "1"
+    },
+    {
+      "id": 2,
+      "name": "AP English",
+      "teacherId": "1",
+      "departmentId": "1",
+      "semester": "1"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Jennifer Jones",
+      "classIds": [1, 2]
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "English"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "1",
+      "classId": "1",
+      "title": "The House on Mango Street Narrative Essay",
+      "description": "Write an essay describing the narrative elements of The House on Mango Street. The essay should be 1000-1250 words in length.",
+      "dueDate": "Tue Mar 17 2015 17:00:00 GMT-0700 (PDT)",
+      "weight": ".1"
+    },
+    {
+      "id": "2",
+      "classId": "2",
+      "title": "The House on Mango Street Narrative Essay",
+      "description": "Write an essay describing the narrative elements of The House on Mango Street. The essay should be 1750-2000 words in length.",
+      "dueDate": "Tue Mar 17 2015 17:00:00 GMT-0700 (PDT)",
+      "weight": ".1"
+    },
+    {
+      "id": "3",
+      "classId": "2",
+      "title": "Intro to Memory Poem",
+      "description": "Write an original poem relating to the concept of memory. Pay particular attention to the rhyming pattern. When submitting, write a short paragraph describing poetic devices you employed.",
+      "dueDate": "Tue Mar 24 2015 17:00:00 GMT-0700 (PDT)",
+      "weight": ".1"
+    }
+  ],
+  "students": [
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.87",
+      "rank": 6,
+      "password": "consectetur",
+      "email": "Bell.Jimenez@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Jimenez",
+        "first": "Bell"
+      },
+      "_id": 0
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.98",
+      "rank": 55,
+      "password": "deserunt",
+      "email": "Lou.Romero@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Romero",
+        "first": "Lou"
+      },
+      "_id": 1
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.99",
+      "rank": 64,
+      "password": "veniam",
+      "email": "Stout.Bradshaw@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Bradshaw",
+        "first": "Stout"
+      },
+      "_id": 2
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.41",
+      "rank": 19,
+      "password": "adipisicing",
+      "email": "Sallie.Langley@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Langley",
+        "first": "Sallie"
+      },
+      "_id": 3
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.2",
+      "rank": 31,
+      "password": "id",
+      "email": "Hendrix.Sanchez@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Sanchez",
+        "first": "Hendrix"
+      },
+      "_id": 4
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.13",
+      "rank": 49,
+      "password": "sit",
+      "email": "Hatfield.Massey@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Massey",
+        "first": "Hatfield"
+      },
+      "_id": 5
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.04",
+      "rank": 9,
+      "password": "ex",
+      "email": "Lynnette.Velazquez@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Velazquez",
+        "first": "Lynnette"
+      },
+      "_id": 6
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.02",
+      "rank": 56,
+      "password": "pariatur",
+      "email": "Bette.Miranda@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Miranda",
+        "first": "Bette"
+      },
+      "_id": 7
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.25",
+      "rank": 59,
+      "password": "do",
+      "email": "Hahn.Wheeler@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Wheeler",
+        "first": "Hahn"
+      },
+      "_id": 8
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.3",
+      "rank": 8,
+      "password": "adipisicing",
+      "email": "Adeline.Rasmussen@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Rasmussen",
+        "first": "Adeline"
+      },
+      "_id": 9
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.8",
+      "rank": 37,
+      "password": "velit",
+      "email": "Frazier.Graham@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Graham",
+        "first": "Frazier"
+      },
+      "_id": 10
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.7",
+      "rank": 18,
+      "password": "reprehenderit",
+      "email": "Rachelle.Parker@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Parker",
+        "first": "Rachelle"
+      },
+      "_id": 11
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.87",
+      "rank": 25,
+      "password": "enim",
+      "email": "Boyle.Hays@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Hays",
+        "first": "Boyle"
+      },
+      "_id": 12
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.09",
+      "rank": 55,
+      "password": "veniam",
+      "email": "Neva.Rich@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Rich",
+        "first": "Neva"
+      },
+      "_id": 13
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.77",
+      "rank": 19,
+      "password": "exercitation",
+      "email": "Vega.Key@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Key",
+        "first": "Vega"
+      },
+      "_id": 14
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.39",
+      "rank": 67,
+      "password": "magna",
+      "email": "Sweeney.Collier@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Collier",
+        "first": "Sweeney"
+      },
+      "_id": 15
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.87",
+      "rank": 27,
+      "password": "pariatur",
+      "email": "Ophelia.Holder@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Holder",
+        "first": "Ophelia"
+      },
+      "_id": 16
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.49",
+      "rank": 18,
+      "password": "commodo",
+      "email": "Pearlie.Bryan@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Bryan",
+        "first": "Pearlie"
+      },
+      "_id": 17
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.88",
+      "rank": 63,
+      "password": "adipisicing",
+      "email": "Bryant.Oconnor@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Oconnor",
+        "first": "Bryant"
+      },
+      "_id": 18
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "4.01",
+      "rank": 8,
+      "password": "sit",
+      "email": "Norton.King@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "King",
+        "first": "Norton"
+      },
+      "_id": 19
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.32",
+      "rank": 35,
+      "password": "velit",
+      "email": "Pam.Estes@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Estes",
+        "first": "Pam"
+      },
+      "_id": 20
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "4.44",
+      "rank": 24,
+      "password": "occaecat",
+      "email": "Suzanne.Carroll@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Carroll",
+        "first": "Suzanne"
+      },
+      "_id": 21
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.37",
+      "rank": 27,
+      "password": "eiusmod",
+      "email": "Jacklyn.Preston@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Preston",
+        "first": "Jacklyn"
+      },
+      "_id": 22
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.84",
+      "rank": 42,
+      "password": "tempor",
+      "email": "Lois.Glover@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Glover",
+        "first": "Lois"
+      },
+      "_id": 23
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.64",
+      "rank": 30,
+      "password": "duis",
+      "email": "Holly.Hodge@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Hodge",
+        "first": "Holly"
+      },
+      "_id": 24
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.87",
+      "rank": 52,
+      "password": "velit",
+      "email": "Ryan.Herring@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Herring",
+        "first": "Ryan"
+      },
+      "_id": 25
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.6",
+      "rank": 6,
+      "password": "id",
+      "email": "Stephanie.Kerr@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Kerr",
+        "first": "Stephanie"
+      },
+      "_id": 26
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.75",
+      "rank": 45,
+      "password": "et",
+      "email": "Spencer.Navarro@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Navarro",
+        "first": "Spencer"
+      },
+      "_id": 27
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "4.37",
+      "rank": 51,
+      "password": "proident",
+      "email": "Macdonald.Sutton@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Sutton",
+        "first": "Macdonald"
+      },
+      "_id": 28
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.02",
+      "rank": 4,
+      "password": "fugiat",
+      "email": "Cochran.Kirk@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Kirk",
+        "first": "Cochran"
+      },
+      "_id": 29
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.93",
+      "rank": 15,
+      "password": "Lorem",
+      "email": "Elba.Sears@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Sears",
+        "first": "Elba"
+      },
+      "_id": 30
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.35",
+      "rank": 62,
+      "password": "esse",
+      "email": "Patricia.Wooten@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Wooten",
+        "first": "Patricia"
+      },
+      "_id": 31
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.23",
+      "rank": 54,
+      "password": "culpa",
+      "email": "Terri.Yates@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Yates",
+        "first": "Terri"
+      },
+      "_id": 32
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.38",
+      "rank": 65,
+      "password": "quis",
+      "email": "Esmeralda.Hudson@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Hudson",
+        "first": "Esmeralda"
+      },
+      "_id": 33
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.65",
+      "rank": 5,
+      "password": "commodo",
+      "email": "Carson.Kirkland@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Kirkland",
+        "first": "Carson"
+      },
+      "_id": 34
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "4.45",
+      "rank": 25,
+      "password": "ipsum",
+      "email": "Ingram.Beasley@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Beasley",
+        "first": "Ingram"
+      },
+      "_id": 35
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.98",
+      "rank": 29,
+      "password": "officia",
+      "email": "Munoz.Baird@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Baird",
+        "first": "Munoz"
+      },
+      "_id": 36
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.06",
+      "rank": 67,
+      "password": "duis",
+      "email": "Jenna.Kaufman@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Kaufman",
+        "first": "Jenna"
+      },
+      "_id": 37
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.16",
+      "rank": 14,
+      "password": "incididunt",
+      "email": "Fields.Sparks@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Sparks",
+        "first": "Fields"
+      },
+      "_id": 38
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.37",
+      "rank": 35,
+      "password": "aliquip",
+      "email": "Gail.Woodard@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Woodard",
+        "first": "Gail"
+      },
+      "_id": 39
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.52",
+      "rank": 2,
+      "password": "tempor",
+      "email": "Kathie.Duffy@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Duffy",
+        "first": "Kathie"
+      },
+      "_id": 40
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.42",
+      "rank": 65,
+      "password": "minim",
+      "email": "Dickerson.Melendez@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Melendez",
+        "first": "Dickerson"
+      },
+      "_id": 41
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.25",
+      "rank": 59,
+      "password": "labore",
+      "email": "Juliette.Miles@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Miles",
+        "first": "Juliette"
+      },
+      "_id": 42
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.68",
+      "rank": 49,
+      "password": "quis",
+      "email": "Simpson.Case@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Case",
+        "first": "Simpson"
+      },
+      "_id": 43
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.03",
+      "rank": 59,
+      "password": "ut",
+      "email": "Hoover.Collins@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Collins",
+        "first": "Hoover"
+      },
+      "_id": 44
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.18",
+      "rank": 65,
+      "password": "ex",
+      "email": "Morales.Spence@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Spence",
+        "first": "Morales"
+      },
+      "_id": 45
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.98",
+      "rank": 11,
+      "password": "aliqua",
+      "email": "Phillips.Manning@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Manning",
+        "first": "Phillips"
+      },
+      "_id": 46
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.49",
+      "rank": 12,
+      "password": "pariatur",
+      "email": "Saunders.Mayer@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Mayer",
+        "first": "Saunders"
+      },
+      "_id": 47
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.85",
+      "rank": 22,
+      "password": "officia",
+      "email": "Blackwell.Lowery@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Lowery",
+        "first": "Blackwell"
+      },
+      "_id": 48
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.09",
+      "rank": 62,
+      "password": "officia",
+      "email": "Lilly.Hinton@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Hinton",
+        "first": "Lilly"
+      },
+      "_id": 49
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.74",
+      "rank": 46,
+      "password": "consequat",
+      "email": "Pearl.Little@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Little",
+        "first": "Pearl"
+      },
+      "_id": 50
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.6",
+      "rank": 8,
+      "password": "ut",
+      "email": "Gaines.Koch@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Koch",
+        "first": "Gaines"
+      },
+      "_id": 51
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.91",
+      "rank": 39,
+      "password": "qui",
+      "email": "Price.Brewer@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Brewer",
+        "first": "Price"
+      },
+      "_id": 52
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.54",
+      "rank": 56,
+      "password": "cillum",
+      "email": "Whitney.Bailey@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Bailey",
+        "first": "Whitney"
+      },
+      "_id": 53
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.52",
+      "rank": 40,
+      "password": "adipisicing",
+      "email": "Gibbs.Knight@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Knight",
+        "first": "Gibbs"
+      },
+      "_id": 54
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.55",
+      "rank": 54,
+      "password": "cillum",
+      "email": "Beryl.Lamb@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Lamb",
+        "first": "Beryl"
+      },
+      "_id": 55
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.68",
+      "rank": 46,
+      "password": "anim",
+      "email": "Bright.Gallegos@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Gallegos",
+        "first": "Bright"
+      },
+      "_id": 56
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.61",
+      "rank": 35,
+      "password": "est",
+      "email": "Park.Buckner@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Buckner",
+        "first": "Park"
+      },
+      "_id": 57
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.65",
+      "rank": 38,
+      "password": "Lorem",
+      "email": "Carpenter.Spencer@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Spencer",
+        "first": "Carpenter"
+      },
+      "_id": 58
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "2.66",
+      "rank": 5,
+      "password": "pariatur",
+      "email": "Araceli.Barrett@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Barrett",
+        "first": "Araceli"
+      },
+      "_id": 59
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.84",
+      "rank": 65,
+      "password": "cillum",
+      "email": "Jaime.Keller@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Keller",
+        "first": "Jaime"
+      },
+      "_id": 60
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.76",
+      "rank": 37,
+      "password": "cillum",
+      "email": "Carla.Stout@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Stout",
+        "first": "Carla"
+      },
+      "_id": 61
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.36",
+      "rank": 65,
+      "password": "non",
+      "email": "Vincent.Marshall@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Marshall",
+        "first": "Vincent"
+      },
+      "_id": 62
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.92",
+      "rank": 54,
+      "password": "nisi",
+      "email": "Boyer.Brock@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Brock",
+        "first": "Boyer"
+      },
+      "_id": 63
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "4.18",
+      "rank": 53,
+      "password": "occaecat",
+      "email": "Castillo.Robbins@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Robbins",
+        "first": "Castillo"
+      },
+      "_id": 64
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.63",
+      "rank": 3,
+      "password": "sunt",
+      "email": "Monique.Potter@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Potter",
+        "first": "Monique"
+      },
+      "_id": 65
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "3.73",
+      "rank": 22,
+      "password": "esse",
+      "email": "Bentley.Coffey@everestprep.edu",
+      "age": 16,
+      "name": {
+        "last": "Coffey",
+        "first": "Bentley"
+      },
+      "_id": 66
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        1
+      ],
+      "classes": [
+        1
+      ],
+      "GPA": "4.49",
+      "rank": 61,
+      "password": "sit",
+      "email": "Jenifer.Mcclain@everestprep.edu",
+      "age": 19,
+      "name": {
+        "last": "Mcclain",
+        "first": "Jenifer"
+      },
+      "_id": 67
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.84",
+      "rank": 2,
+      "password": "amet",
+      "email": "Ila.Melton@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Melton",
+        "first": "Ila"
+      },
+      "_id": 68
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "3.02",
+      "rank": 20,
+      "password": "do",
+      "email": "Dale.Beck@everestprep.edu",
+      "age": 17,
+      "name": {
+        "last": "Beck",
+        "first": "Dale"
+      },
+      "_id": 69
+    },
+    {
+      "avatar": "http://placehold.it/100x100",
+      "assignments": [
+        2,
+        3
+      ],
+      "classes": [
+        2
+      ],
+      "GPA": "2.3",
+      "rank": 58,
+      "password": "nostrud",
+      "email": "Marla.Whitehead@everestprep.edu",
+      "age": 18,
+      "name": {
+        "last": "Whitehead",
+        "first": "Marla"
+      },
+      "_id": 70
+    }
+  ]
+}
