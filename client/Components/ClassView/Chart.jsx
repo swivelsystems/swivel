@@ -9,7 +9,7 @@ class Chart extends React.Component {
   render() {
     return (
       <div className="row chart">
-        I am a Chart
+        I am a Chart.
       </div>
     );
   }

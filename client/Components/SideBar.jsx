@@ -1,24 +1,16 @@
 import React from 'react';
 
-class SideBar extends React.Component {
+const SideBar = ({ courses, handleClass, handleHome }) => {
+  let classes = courses.map((course) => (
+   <div onClick={() => (handleClass(course)) }>{course.name}</div>
+  ));
 
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    let courses = this.props.courses.map((course) => (
-       <div onClick={() => (this.props.handleClass(course)) }>{course.name}</div>
-    ));
-
-    return (
-      <div className="col-md-3">
-        <div onClick={ () => (this.props.handleHome(true)) }></div>
-        {courses}
-      </div>
-    );
-  }
-
-}
+  return (
+    <div className="col-md-3">
+      <div onClick={ () => (handleHome()) }>Home</div>
+      {classes}
+    </div>
+  );
+};
 
 export default SideBar;

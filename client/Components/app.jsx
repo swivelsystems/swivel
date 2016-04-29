@@ -9,9 +9,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       courses: [
-        { name: 'HistoryFall2015', students: ['jack', 'bob', 'james'] },
-        { name: 'EnglishFall2015', students: ['jack', 'amy', 'james'] },
-        { name: 'TrigonometryFall2015', students: ['lizzy', 'laura', 'andrew'] },
+        {
+          name: 'HistoryFall2015',
+          students: ['jack', 'bob', 'james'],
+          assignments: ['Midterm', 'The Past 100 Years in the Middle East', 'The World Rulers'] },
+        {
+          name: 'EnglishFall2015',
+          students: ['jack', 'amy', 'james'],
+          assignments: ['Final', 'Hemingway and other Ex-Pats', 'The World of the Great Gastby'] },
+        {
+          name: 'TrigonometryFall2015',
+          students: ['lizzy', 'laura', 'andrew'],
+          assignments: ['Quiz1', 'Homework1', 'Homework2'] },
       ],
       currentCourse: {},
       isHome: true,
@@ -20,10 +29,11 @@ class App extends React.Component {
 
   handleClass(course) {
     this.setState({ currentCourse: course });
+    this.setState({ isHome: false });
   }
 
-  handleHome(home) {
-    this.setState({ isHome: home });
+  handleHome() {
+    this.setState({ isHome: true });
   }
 
   render() {
@@ -33,8 +43,15 @@ class App extends React.Component {
           <Nav />
         </div>
         <div className="row">
-          <SideBar handleClass={this.handleClass.bind(this)} courses={this.state.courses} />
-          <Main isHome={this.state.isHome} currentCourse={this.state.currentCourse}/>
+          <SideBar
+            handleClass={this.handleClass.bind(this)}
+            handleHome={this.handleHome.bind(this)}
+            courses={this.state.courses}
+          />
+          <Main
+            isHome={this.state.isHome}
+            currentCourse={this.state.currentCourse}
+          />
         </div>
       </div>
     );
