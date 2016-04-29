@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './Components/app.jsx';
+import App from './components/App.jsx';
 import { render } from 'react-dom';
 
 render(
