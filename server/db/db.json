@@ -19,7 +19,7 @@
     {
       "id": 1,
       "name": "Jennifer Jones",
-      "postId": 1
+      "classIds": [1, 2]
     }
   ],
   "departments": [
