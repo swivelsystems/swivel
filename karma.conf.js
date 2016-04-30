@@ -9,10 +9,10 @@ module.exports = function (config) {
     frameworks: ['jasmine'], // use the jasmine test framework
     files: [
       './client/*.js',
-      './**/*.{js,jsx}', // just load this file
+      './client/*/*.{js,jsx}', // just load this file
     ],
     preprocessors: {
-      'client/tests.bundle.js': ['webpack', 'sourcemap'] // preprocess with webpack and sourcemap
+      'client/tests.bundle.js': ['webpack', 'sourcemap'], // preprocess with webpack and sourcemap
     },
     reporters: ['spec'], // report results in this format
     specReporter: {
