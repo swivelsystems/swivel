@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {
@@ -75,17 +76,18 @@ module.exports = {
         },
       },
 
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   loader: 'eslint-loader',
+      //   exclude: /node_modules/,
+      // },
     ],
   },
   resolve: {
     extensions: ['', '.scss', '.js', '.json'],
     packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
   },
+  postcss: [autoprefixer],
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('test'),
