@@ -1,17 +1,22 @@
 import React from 'react';
 
-class SideBar extends React.Component {
+const SideBar = ({ courses, handleClass, handleHome }) => {
+  let classes = courses.map((course) => (
+   <div onClick={() => (handleClass(course)) }>{course.name}</div>
+  ));
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+  return (
+    <div className="col-md-3 container">
+      <div onClick={ () => (handleHome()) }>Home</div>
+      {classes}
+    </div>
+  );
+};
 
-  render() {
-    return <h1>Hello, World</h1>;
-  }
-
-}
+SideBar.propTypes = {
+  courses: React.PropTypes.array,
+  handleClass: React.PropTypes.func,
+  handleHome: React.PropTypes.func,
+};
 
 export default SideBar;
