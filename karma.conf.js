@@ -6,9 +6,10 @@ module.exports = function (config) {
   config.set({
     browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
     singleRun: true, // just run once by default
-    frameworks: ['jasmine', 'webpack'], // use the jasmine test framework
+    frameworks: ['jasmine'], // use the jasmine test framework
     files: [
-      'client/tests.bundle.js' // just load this file
+      './client/*.js',
+      './**/*.{js,jsx}', // just load this file
     ],
     preprocessors: {
       'client/tests.bundle.js': ['webpack', 'sourcemap'] // preprocess with webpack and sourcemap
