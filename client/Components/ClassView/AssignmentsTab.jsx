@@ -1,12 +1,17 @@
 import React from 'react';
 
 const AssignmentsTab = ({ assignments }) => {
-  let coursework = assignments.map((assignment) => (
-   <div>{assignment}</div>
+  const coursework = assignments.map((assignment) => (
+    <div className="card">
+      <div className="card-block">
+        <h4 className="card-title">{assignment}</h4>
+        <p>someInfoabouthisassignemnt</p>
+      </div>
+   </div>
   ));
 
   return (
-    <div className="row">
+    <div className="container">
       {coursework}
     </div>
   );

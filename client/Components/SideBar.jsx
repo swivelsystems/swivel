@@ -6,7 +6,7 @@ const SideBar = ({ courses, handleClass, handleHome }) => {
   ));
 
   return (
-    <div className="col-md-3">
+    <div className="col-md-3 container">
       <div onClick={ () => (handleHome()) }>Home</div>
       {classes}
     </div>

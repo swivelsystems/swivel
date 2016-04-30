@@ -1,15 +1,20 @@
 import React from 'react';
 
-const StudentsTab = ({ students }) => {
-  let allStudents = students.map((student) => (
-   <div>{student.name}</div>
+const AllStudentsTab = ({ students, handleStudent }) => {
+  const allStudents = students.map((student) => (
+    <div className="card" onClick={ () => handleStudent(student)}>
+      <div className="card-block">
+        <h4 className="card-title">{student}</h4>
+        <p>someInfoabouthisstudent</p>
+      </div>
+   </div>
   ));
 
   return (
-    <div className="row">
+    <div className="container">
       {allStudents}
     </div>
   );
 };
 
-export default StudentsTab;
+export default AllStudentsTab;

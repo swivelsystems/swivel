@@ -24,12 +24,14 @@ class App extends React.Component {
       ],
       currentCourse: {},
       isHome: true,
+      courseChanged: false,
     };
   }
 
   handleClass(course) {
     this.setState({ currentCourse: course });
     this.setState({ isHome: false });
+    this.setState({ courseChanged: true });
   }
 
   handleHome() {
@@ -51,6 +53,7 @@ class App extends React.Component {
           <Main
             isHome={this.state.isHome}
             currentCourse={this.state.currentCourse}
+            courseChanged={this.state.courseChanged}
           />
         </div>
       </div>
