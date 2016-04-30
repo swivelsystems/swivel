@@ -13,4 +13,10 @@ const SideBar = ({ courses, handleClass, handleHome }) => {
   );
 };
 
+SideBar.propTypes = {
+  courses: React.PropTypes.array,
+  handleClass: React.PropTypes.func,
+  handleHome: React.PropTypes.func,
+};
+
 export default SideBar;

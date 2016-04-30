@@ -17,4 +17,8 @@ const AssignmentsTab = ({ assignments }) => {
   );
 };
 
+AssignmentsTab.propTypes = {
+  assignments: React.PropTypes.array,
+};
+
 export default AssignmentsTab;

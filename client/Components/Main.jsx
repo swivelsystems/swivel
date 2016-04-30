@@ -24,4 +24,10 @@ const Main = ({ isHome, currentCourse, courseChanged }) => {
   return view;
 };
 
+Main.propTypes = {
+  isHome: React.PropTypes.bool,
+  currentCourse: React.PropTypes.object,
+  courseChanged: React.PropTypes.bool,
+};
+
 export default Main;

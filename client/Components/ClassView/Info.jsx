@@ -13,12 +13,12 @@ class Info extends React.Component {
     };
   }
 
-  //to check if another class was chosen
-  //and reset tabview to be assignments
+  // to check if another class was chosen
+  // and reset tabview to be assignments
   componentWillReceiveProps(nextProps) {
-    if(nextProps.courseChanged){
+    if (nextProps.courseChanged) {
       this.setState({
-        tabView: 'Assignments'
+        tabView: 'Assignments',
       });
     }
   }
@@ -37,7 +37,7 @@ class Info extends React.Component {
   }
 
   handleBackButton() {
-    this.setState({ tabView: 'Students'});
+    this.setState({ tabView: 'Students' });
   }
 
 
@@ -46,18 +46,17 @@ class Info extends React.Component {
     if (this.state.tabView === 'Assignments') {
       view = <AssignmentsTab assignments={ this.props.currentCourse.assignments } />;
     } else if (this.state.tabView === 'Students') {
-      view = 
-        <AllStudentsTab 
-          students={ this.props.currentCourse.students }  
+      view =
+        (<AllStudentsTab
+          students={ this.props.currentCourse.students }
           handleStudent={ this.handleStudent.bind(this) }
-        />;
+        />);
     } else if (this.state.tabView === 'Student') {
-      view = 
-        <Student 
-          student={ this.state.currentStudent } 
-          handleBackButton = { this.handleBackButton.bind(this) } 
-        />;
-        
+      view =
+        (<Student
+          student={ this.state.currentStudent }
+          handleBackButton = { this.handleBackButton.bind(this) }
+        />);
     }
     return view;
   }
@@ -85,5 +84,10 @@ class Info extends React.Component {
     );
   }
 }
+
+Info.propTypes = {
+  currentCourse: React.PropTypes.object,
+
+};
 
 export default Info;

@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Chart = ({data}) => {
+const Chart = ({ data }) => (
+  <div className="row chart">
+    I am a Chart.
+    {data}
+  </div>
 
-  return (
-    <div className="row chart">
-      I am a Chart.
-    </div>
-  );
+);
+
+Chart.propTypes = {
+  data: React.PropTypes.any,
 };
-
 export default Chart;

@@ -6,11 +6,12 @@ describe('test', () => {
     expect(2).toEqual(2);
   });
 });
-// import App from '../components/App.jsx';
-//
-// describe('app', () => {
-//   it('renders without problems', () => {
-//     const app = TestUtils.renderIntoDocument(<App />);
-//     expect(app).toBeDefined();
-//   });
-// });
+
+import App from '../components/App.jsx';
+
+describe('app', () => {
+  it('renders without problems', () => {
+    const app = TestUtils.renderIntoDocument(<App />);
+    expect(app).toBeDefined();
+  });
+});

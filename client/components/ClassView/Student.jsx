@@ -1,7 +1,6 @@
 import React from 'react';
 
-const StudentTab = ({ student, handleBackButton }) => {
-  return (
+const StudentTab = ({ student, handleBackButton }) => (
     <div className="row">
       <button
         type="button"
@@ -12,7 +11,11 @@ const StudentTab = ({ student, handleBackButton }) => {
       </button>
       {student}
     </div>
-  );
+);
+
+StudentTab.propTypes = {
+  student: React.PropTypes.any,
+  handleBackButton: React.PropTypes.func,
 };
 
 export default StudentTab;

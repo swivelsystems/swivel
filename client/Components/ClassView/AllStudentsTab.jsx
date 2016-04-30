@@ -17,4 +17,9 @@ const AllStudentsTab = ({ students, handleStudent }) => {
   );
 };
 
+AllStudentsTab.propTypes = {
+  students: React.PropTypes.array,
+  handleStudent: React.PropTypes.func,
+};
+
 export default AllStudentsTab;
