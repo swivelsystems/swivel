@@ -3,7 +3,6 @@ const TestUtils = require('react-addons-test-utils'); // Alternately could use t
 
 import App from '../components/App.jsx';
 
-
 describe('app', () => {
   it('renders without problems', () => {
     const app = TestUtils.renderIntoDocument(<App />);
