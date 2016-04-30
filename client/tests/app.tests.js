@@ -5,7 +5,7 @@ const TestUtils = require('react-addons-test-utils'); // Alternately could use t
 //   it('passes a test', () => {
 //     expect(2).toEqual(2);
 //   });
-});
+// });
 import App from '../components/App.jsx';
 
 describe('app', () => {
