@@ -8,10 +8,11 @@ module.exports = function (config) {
     singleRun: true, // just run once by default
     frameworks: ['jasmine'], // use the jasmine test framework
     files: [
-      'client/tests.bundle.js' // just load this file
+      './client/*.js',
+      './client/*/*.{js,jsx}', // just load this file
     ],
     preprocessors: {
-      'client/tests.bundle.js': ['webpack', 'sourcemap'] // preprocess with webpack and sourcemap
+      'client/tests.bundle.js': ['webpack', 'sourcemap'], // preprocess with webpack and sourcemap
     },
     reporters: ['spec'], // report results in this format
     specReporter: {
