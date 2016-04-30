@@ -45,6 +45,8 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-react": "^4.3.0",
     "jasmine": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
