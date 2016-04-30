@@ -83,7 +83,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json'],
+    extensions: ['', '.jsx', '.tests.js', '.js', '.json'],
     packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
   },
   plugins: [
