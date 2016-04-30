@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {
 
@@ -37,7 +39,7 @@ module.exports = {
     // when Webpack loads them with a `require` statement. A lot of the magic of
     // Webpack is done using loaders. In this example, there's one loader declared
     // to use Babel to transform ES6 and JSX into ES5.
-    // 
+    //
     // `loaders` is an array of objects.
     loaders: [
       {
@@ -63,21 +65,31 @@ module.exports = {
         loader: 'babel',
 
         // `query` lets you pass options to the loader's process. The options that a loader takes
-        // are specific to each loader. In this case, `babel-loader` is being told to use the 'react'
-        // and 'es2015' presets when it transforms files. `query` becomes a query string, similar
-        // to what you see in request URLs, and the same thing could be achieved by writing this above:
+        // are specific to each loader. In this case, `babel-loader` is being told to use the
+        // 'react' and 'es2015' presets when it transforms files. `query` becomes a query
+        // string, similar to what you see in request URLs, and the same thing could be achieved
+        // by writing this above:
         // loader: 'babel?presets[]=react,presets[]=es2015'
         query: {
           presets: ['react', 'es2015'],
         },
       },
 
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   loader: 'eslint-loader',
+      //   exclude: /node_modules/,
+      // },
     ],
   },
+  resolve: {
+    extensions: ['', '.scss', '.js', '.json'],
+    packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('test'),
+    }),
+  ],
 
 };
