@@ -72,7 +72,7 @@ Navigate your browser to localhost: 8080 to view the app.
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
-| /api/classes/student/:studentId      | right-aligned | $1600 |
+| /api/classes/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. | { <br> hi |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 | <ul><li>item1</li><li>item2</li></ul>| See the list | from the first column|
