@@ -72,7 +72,7 @@ Navigate your browser to localhost: 8080 to view the app.
 There are two API endpoints that serve data for students and teachers.
 
 | API Endpoint        | Description           |
-| ------------- |:--------: |
+| ------------- |:-------- |
 | /api/classes/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. |
 | /api/classes/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
 
