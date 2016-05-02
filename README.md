@@ -71,7 +71,12 @@ Navigate your browser to localhost: 8080 to view the app.
 ### API Endpoints
 
 There are two API endpoints that serve data for students and teachers.
-| Endpoint             | Description           | Data              |
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
+<!-- | Endpoint             | Description           | Data              |
 | -------------------- |---------------------| -----------------|
 | /api/classes/student/:studentId | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. | { <br> hi |
       	student: {
@@ -144,7 +149,7 @@ There are two API endpoints that serve data for students and teachers.
       		}]
       	}]
       }
-    |
+    | -->
 
 
 <!--
