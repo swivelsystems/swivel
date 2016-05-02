@@ -73,26 +73,7 @@ Navigate your browser to localhost: 8080 to view the app.
 There are two API endpoints that serve data for students and teachers.
 | Endpoint             | Description           | Data              |
 | -------------------- |:---------------------:| -----------------:|
-| /api/classes/student/:studentId
-  | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions.
-    | {
-      	student: {
-      		id: Integer,
-      		name: String,
-      		year: Integer,
-      		GPA: Float,
-      		rank: Integer,
-      	},
-      	courses: [{
-      		id: Integer,
-      		name: String,
-      		announcements: [{
-      			title: String,
-      			body: String
-      		}],
-      		grade: Float, // represents a percentage
-      		assignments: [{
-      			id: Integer
+| /api/classes/student/:studentId | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. | { student: {<br />id: Integer,<br />name: String,<br />year: Integer,<br />GPA: Float, <br />rank: Integer,<br />},<br /><br />: [{<br />id: Integer,<br />name: String,<br />announcements: [{<br />title: String,<br />body: String<br />}],<br />grade: Float, // represents a percentage<br />assignments: [{<br />  id: Integer
       			name: String,
       			dueDate: Date,
       			weight: Float,
@@ -105,11 +86,10 @@ There are two API endpoints that serve data for students and teachers.
       			}]
       		}]
       	}]
-      }
-    |
+      } |
 | /api/classes/teacher/:teacherId
   | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.
-    | {
+    | ```{
         teacher: {
           id: Integer,
           name: String,
@@ -145,8 +125,7 @@ There are two API endpoints that serve data for students and teachers.
       			courseGrade: Float // represents a percentage
       		}]
       	}]
-      }
-    |
+      }``` |
 
 
 <!--
