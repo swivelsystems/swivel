@@ -69,94 +69,12 @@ This script uses web pack to bundle your js and jsx files (with source maps), wa
 Navigate your browser to localhost: 8080 to view the app.
 
 ### API Endpoints
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------| :-----|
-| /api/classes/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. | {<br>  student: {<br>    id: Integer,<br>    name: String,    year: Integer,<br>    GPA: Float,<br>    rank: Integer<br>  },<br>  courses: [{<br>    id: Integer,<br> |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-| <ul><li>item1</li><li>item2</li></ul>| See the list | from the first column|
-
 There are two API endpoints that serve data for students and teachers.
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
 
-<!-- | Endpoint             | Description           | Data              |
-| -------------------- |---------------------| -----------------|
-| /api/classes/student/:studentId | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. | { <br> hi |
-      	student: {
-      		id: Integer,
-      		name: String,
-      		year: Integer,
-      		GPA: Float,
-      		rank: Integer,
-      	},
-      	courses: [{
-      		id: Integer,
-      		name: String,
-      		announcements: [{
-      			title: String,
-      			body: String
-      		}],
-      		grade: Float, // represents a percentage
-      		assignments: [{
-      			id: Integer
-      			name: String,
-      			dueDate: Date,
-      			weight: Float,
-      			courseId: Integer,
-      			submissions: [{
-      				id: Integer,
-      				score: Float, // represents a percentage
-      				submissionDate: Date,
-      				assignmentId: Integer,
-      			}]
-      		}]
-      	}]
-      }
-    |
-| /api/classes/teacher/:teacherId
-  | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.
-    | {
-        teacher: {
-          id: Integer,
-          name: String,
-          department: String
-        },
-      	courses: [{
-      		id: Integer,
-      		name: String,
-      		announcements: [{
-      			title: String,
-      			body: String
-      		}],
-      		assignments: [{
-      			id: Integer
-      			name: String,
-      			dueDate: Date,
-      			weight: Float,
-      			courseId: Integer,
-      			submissions: [{
-      				id: Integer,
-      				score: Float, // represents a percentage
-      				submissionDate: Date,
-      				assignmentId: Integer,
-      				studentId: Integer
-      			}]
-      		}],
-      		students: [{
-      			id: Integer,
-      			name: String,
-      			year: Integer,
-      			GPA: Float,
-      			rank: Integer,
-      			courseGrade: Float // represents a percentage
-      		}]
-      	}]
-      }
-    | -->
+| API Endpoint        | Description           |
+| ------------- |:--------: |
+| /api/classes/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. |
+| /api/classes/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
 
 
 <!--
