@@ -1,20 +1,17 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var app = express();
+const app = express();
 
-var port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/../client/'));
+app.use(express.static(`${__dirname}/../client/`));
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
-app.listen(port, function(err) {
-  if(err) {
-    return console.log(err);
-  }
+app.listen(port, (err) => {
+  if (err) { throw new Error(err); }
   console.log('Swivel server listening on port: ' + port);
 });

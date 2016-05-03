@@ -4,7 +4,7 @@
   "description": "",
   "main": "./client/index.html",
   "scripts": {
-    "test": "karma start",
+    "test": "karma start && ./node_modules/.bin/jasmine-node server/tests",
     "start": "webpack-dev-server --inline --hot --content-base client/",
     "dev-start": "webpack -d && node server/server.js & webpack --watch",
     "prod-start": "webpack && PORT=80 forever start server/server.js",
@@ -35,13 +35,18 @@
     "eslint-plugin-react": "^4.3.0",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "fetchival": "^0.3.2",
     "jasmine-core": "^2.4.1",
+    "jasmine-node": "git+https://github.com/mhevery/jasmine-node.git",
     "json-server": "^0.8.10",
+    "node-fetch": "^1.5.1",
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "redux": "^3.4.0",
+    "request": "^2.72.0",
+    "rewire": "^2.5.1",
     "webpack": "^1.12.14"
   },
   "devDependencies": {
