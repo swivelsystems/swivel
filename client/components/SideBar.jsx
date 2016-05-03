@@ -2,12 +2,12 @@ import React from 'react';
 
 const SideBar = ({ courses, handleClass, handleHome }) => {
   let classes = courses.map((course) => (
-   <div onClick={() => (handleClass(course)) }>{course.name}</div>
+   <div key={course.id} onClick={() => (handleClass(course)) }>{course.name}</div>
   ));
 
   return (
     <div className="col-md-3 container">
-      <div onClick={ () => (handleHome()) }>Home</div>
+      <div className="home-button" onClick={ () => (handleHome()) }>Home</div>
       {classes}
     </div>
   );

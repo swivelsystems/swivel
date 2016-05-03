@@ -9,12 +9,12 @@ const StudentTab = ({ student, handleBackButton }) => (
       >
         Back
       </button>
-      {student}
+      {student.name}
     </div>
 );
 
 StudentTab.propTypes = {
-  student: React.PropTypes.any,
+  student: React.PropTypes.object,
   handleBackButton: React.PropTypes.func,
 };
 
