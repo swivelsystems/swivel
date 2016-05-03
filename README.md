@@ -77,7 +77,7 @@ There are two API endpoints that serve data for students and teachers.
 | /api/classes/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
 
 ### Schema Design
-![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/U91qHnb.png](http://i.imgur.com/x0bHWC5.png)
+![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/U91qHnb.png](http://i.imgur.com/Mh09Ifo.png)
 <!--
 ### Current Build Health [![Build Status](https://travis-ci.org/HolisticParallelogram/crunchy-tunes.svg?branch=master)](https://travis-ci.org/HolisticParallelogram/crunchy-tunes)
 View the build [history](https://travis-ci.org/HolisticParallelogram/crunchy-tunes/builds) -->
