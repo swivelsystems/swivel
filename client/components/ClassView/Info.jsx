@@ -4,6 +4,8 @@ import actions from '../../actions/index.js';
 import AllStudentsTab from './AllStudentsTab.jsx';
 import AssignmentsTab from './AssignmentsTab.jsx';
 import Student from './Student.jsx';
+import Assignment from './Assignment.jsx';
+
 
 class Info extends React.Component {
 
@@ -13,6 +15,8 @@ class Info extends React.Component {
       return <AllStudentsTab />;
     } else if (this.props.tabView === 'Student') {
       return <Student />;
+    } else if (this.props.tabView === 'Assignment') {
+      return <Assignment />;
     }
     return <AssignmentsTab />;
   }
