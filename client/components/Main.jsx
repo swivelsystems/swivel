@@ -1,7 +1,7 @@
 import React from 'react';
-import TimeLine from './HomeView/Timeline.jsx';
-import Chart from './ClassView/Chart.jsx';
-import Info from './ClassView/Info.jsx';
+import TimeLine from './homeView/Timeline.jsx';
+import Chart from './classView/Chart.jsx';
+import Info from './classView/Info.jsx';
 
 const Main = ({ isHome, currentCourse, courseChanged }) => {
   let view;
