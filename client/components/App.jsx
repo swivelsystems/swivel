@@ -16,8 +16,6 @@ const App = () => (
       <Main />
     </div>
   </div>
-
-
 );
 
 export default App;

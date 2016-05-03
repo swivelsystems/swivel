@@ -39,8 +39,7 @@ const mapDispatchToProps = (dispatch) => (
 
 StudentTab.propTypes = {
   currentStudent: React.PropTypes.object,
-  handleBackButton: React.PropTypes.func,
-};
+}
 
 export default connect(
   mapStateToProps,
