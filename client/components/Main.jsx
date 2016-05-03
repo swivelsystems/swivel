@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { connect } from 'react-redux';
 import ClassContainer from './ClassView/ClassContainer.jsx';
 import HomeContainer from './HomeView/HomeContainer.jsx';
