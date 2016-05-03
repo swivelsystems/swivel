@@ -20,12 +20,12 @@ describe('AssignmentsTab', () => {
     const assignments = TestUtils.scryRenderedDOMComponentsWithClass(
     assignmentsTab,
     'card');
-    const allAssignments = store.getState().currentCourse.assignments;
+    const allAssignments = store.getState().displayedCourse.assignments;
     expect(assignments.length).toEqual(allAssignments.length);
     done();
   });
 
-  /*         uncomment when clickable assignments is functional
+           // uncomment when clickable assignments is functional
 
   it('click on a assignment should change currentAssignment and tabView', (done) => {
     const assignments = TestUtils.scryRenderedDOMComponentsWithClass(
@@ -34,12 +34,10 @@ describe('AssignmentsTab', () => {
     for (let i = 0; i < assignments.length; i++) {
       const assignmentBeforeClick = store.getState().currentStudent;
       TestUtils.Simulate.click(assignments[i]);
-      expect(store.getState().currentCourse).not.toEqual(assignmentBeforeClick);
+      expect(store.getState().displayedCourse).not.toEqual(assignmentBeforeClick);
       expect(store.getState().tabView).toEqual('Assignment');
     }
     done();
   });
-
-  */
 });
 

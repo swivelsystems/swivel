@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import actions from '../../actions/index.js';
 import { connect } from 'react-redux';
 
-class AssignmentsTab extends React.Component {
+class AssignmentsTab extends Component {
 
   displayAssignments() {
     return this.props.assignments.map((assignment) => (
-      <div className="card">
+      <div
+        key={assignment.id}
+        className="card"
+        onClick={ () => this.props.handleClickedAssignment(assignment)}
+      >
         <div className="card-block">
-          <h4 className="card-title">{assignment}</h4>
+          <h4 className="card-title">{assignment.name}</h4>
           <p>someInfoabouthisassignemnt</p>
         </div>
      </div>
@@ -26,13 +31,24 @@ class AssignmentsTab extends React.Component {
 // get assignments everytime course is changed in store
 // for most up to date assignments
 const mapStateToProps = (state) => (
-  { assignments: state.currentCourse.assignments }
+  { assignments: state.displayedCourse.assignments }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    handleClickedAssignment: (assignment) => {
+      dispatch(actions.displayAssignment(assignment));
+      dispatch(actions.switchTabs('Assignment'));
+    },
+  }
 );
 
 AssignmentsTab.propTypes = {
-  assignments: React.PropTypes.array,
+  assignments: PropTypes.array,
+  handleClickedAssignment: PropTypes.func,
 };
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(AssignmentsTab);

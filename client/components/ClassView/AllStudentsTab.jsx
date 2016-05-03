@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+
 import actions from '../../actions/index.js';
 import { connect } from 'react-redux';
 
-class AllStudentsTab extends React.Component {
+class AllStudentsTab extends Component {
 
   displayAllStudents() {
     return this.props.students.map((student) => (
-      <div key={student.id} className="card" onClick={ () => this.props.handleStudent(student)}>
+      <div
+        key={student.id}
+        className="card"
+        // refractor with bind rather than wrapper function
+        onClick={ () => this.props.handleClickedStudent(student)}
+      >
         <div key="studentCardBlock" className="card-block">
-          <h4 key="studentCardHeader"className="card-title">{student.name}</h4>
+          <h4 key="studentCardHeader" className="card-title">{student.name}</h4>
           <p key="studentDescription" >someInfoabouthisstudent</p>
         </div>
       </div>
@@ -25,23 +31,23 @@ class AllStudentsTab extends React.Component {
 }
 
 const mapStateToProps = (state) => (
-  { students: state.currentCourse.students }
+  { students: state.displayedCourse.students }
 );
 
 // when student is clicked update that student to current student in store
 // switch tabview in store to view that student's info
 const mapDispatchToProps = (dispatch) => (
   {
-    handleStudent: (student) => {
-      dispatch(actions.viewStudent(student));
+    handleClickedStudent: (student) => {
+      dispatch(actions.displayStudent(student));
       dispatch(actions.switchTabs('Student'));
     },
   }
 );
 
 AllStudentsTab.propTypes = {
-  handleStudent: React.PropTypes.func,
-  students: React.PropTypes.array,
+  handleClickedStudent: PropTypes.func,
+  students: PropTypes.array,
 };
 
 export default connect(

@@ -21,19 +21,19 @@ describe('AllStudentsTab', () => {
     const students = TestUtils.scryRenderedDOMComponentsWithClass(
     allStudentsTab,
     'card');
-    const allStudents = store.getState().currentCourse.students;
+    const allStudents = store.getState().displayedCourse.students;
     expect(students.length).toEqual(allStudents.length);
     done();
   });
 
-  it('click on a student should change currentStudent and tabView', (done) => {
+  it('click on a student should change displayedStudent and tabView', (done) => {
     const students = TestUtils.scryRenderedDOMComponentsWithClass(
     allStudentsTab,
     'course-button');
     for (let i = 0; i < students.length; i++) {
-      const studentBeforeClick = store.getState().currentStudent;
+      const studentBeforeClick = store.getState().displayedStudent;
       TestUtils.Simulate.click(students[i]);
-      expect(store.getState().currentCourse).not.toEqual(studentBeforeClick);
+      expect(store.getState().displayedStudent).not.toEqual(studentBeforeClick);
       expect(store.getState().tabView).toEqual('Student');
     }
     done();

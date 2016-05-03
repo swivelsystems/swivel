@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../actions/index.js';
 import AllStudentsTab from './AllStudentsTab.jsx';
 import AssignmentsTab from './AssignmentsTab.jsx';
 import Student from './Student.jsx';
+import Assignment from './Assignment.jsx';
 
-class Info extends React.Component {
 
+class Info extends Component {
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
     if (this.props.tabView === 'Students') {
       return <AllStudentsTab />;
     } else if (this.props.tabView === 'Student') {
       return <Student />;
+    } else if (this.props.tabView === 'Assignment') {
+      return <Assignment />;
     }
     return <AssignmentsTab />;
   }
@@ -59,8 +62,8 @@ const mapDispatchToProps = (dispatch) => (
 );
 
 Info.propTypes = {
-  tabView: React.PropTypes.string,
-  handleTab: React.PropTypes.func,
+  tabView: PropTypes.string,
+  handleTab: PropTypes.func,
 };
 
 export default connect(

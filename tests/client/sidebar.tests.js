@@ -18,7 +18,6 @@ describe('Sidebar', () => {
   });
 });
 
-
 // Test all the state that sidebar manipulates in store
 describe('Sidebar State', () => {
   // Test state on initial load
@@ -45,14 +44,14 @@ describe('Sidebar State', () => {
     expect(store.getState().tabView).toEqual('Assignments');
   });
 
-  it('currentCourse state should exist', () => (
-    expect(store.getState().currentCourse).toBeDefined()
+  it('displayedCourse state should exist', () => (
+    expect(store.getState().displayedCourse).toBeDefined()
   ));
 
-  it('currentCourse should instansiate as an object', () => {
-    expect(store.getState().currentCourse).toBeDefined();
-    expect(Array.isArray(store.getState().currentCourse)).toEqual(false);
-    expect(typeof store.getState().currentCourse).toEqual('object');
+  it('displayedCourse should instansiate as an object', () => {
+    expect(store.getState().displayedCourse).toBeDefined();
+    expect(Array.isArray(store.getState().displayedCourse)).toEqual(false);
+    expect(typeof store.getState().displayedCourse).toEqual('object');
   });
 
 
@@ -65,15 +64,15 @@ describe('Sidebar State', () => {
     expect(store.getState().goHome).toEqual(true);
   });
 
-  it('click on Course should change currentCourse, goHome, and tabView', () => {
+  it('click on Course should change displayedCourse, goHome, and tabView', () => {
     const courseButton = TestUtils.scryRenderedDOMComponentsWithClass(
     sidebar,
     'course-button');
     for (let i = 0; i < courseButton.length; i++) {
-      const courseBeforeClick = store.getState().currentCourse;
+      const courseBeforeClick = store.getState().displayedCourse;
       TestUtils.Simulate.click(courseButton[i]);
       expect(store.getState().goHome).toEqual(false);
-      expect(store.getState().currentCourse).not.toEqual(courseBeforeClick);
+      expect(store.getState().displayedCourse).not.toEqual(courseBeforeClick);
       expect(store.getState().tabView).toEqual('Assignments');
     }
   });
