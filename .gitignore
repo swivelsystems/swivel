@@ -1,3 +1,4 @@
 node_modules/
 dist/
 resources/
+server/config/mysqlsetup.js
