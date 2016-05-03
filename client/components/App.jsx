@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
 import SideBar from './SideBar.jsx';
 import Main from './Main.jsx';
 import Nav from './Nav.jsx';
@@ -16,6 +19,5 @@ const App = () => (
 
 
 );
-
 
 export default App;

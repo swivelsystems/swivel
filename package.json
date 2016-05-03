@@ -7,7 +7,7 @@
     "test": "karma start",
     "start": "webpack-dev-server --inline --hot --content-base client/",
     "dev-start": "webpack -d && node server/server.js & webpack --watch",
-    "prod-start": "webpack && PORT=80 forever start server/server.js"
+    "prod-start": "webpack && PORT=80 forever start server/server.js",
   },
   "repository": {
     "type": "git",
