@@ -3,3 +3,5 @@ dist/
 resources/
 server/config/mysqlsetup.js
 client/.DS_Store
+.DS_Store
+
