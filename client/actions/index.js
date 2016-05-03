@@ -8,7 +8,10 @@ module.exports = {
     { type: types.UPDATE_COURSE, currentCourse }
   ),
   getCourses: (courses) => (
-    { type: types.GET_COURSES, courses }
+    { type: types.GET_COURSES_DATA, courses }
+  ),
+  getCoursesError: (error) => (
+    { type: types.GET_COURSES_ERROR, error }
   ),
   switchTabs: (tabView) => (
     { type: types.SWITCH_TABS, tabView }
@@ -16,4 +19,8 @@ module.exports = {
   viewStudent: (currentStudent) => (
     { type: types.VIEW_STUDENT, currentStudent }
   ),
+  viewAssignment: (currentAssignment) => (
+   { type: types.VIEW_ASSIGNMENT, currentAssignment }
+  ),
+
 };
