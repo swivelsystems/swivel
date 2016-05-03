@@ -1,24 +1,17 @@
 import React from 'react';
 import TimeLine from './homeView/Timeline.jsx';
-import Chart from './classView/Chart.jsx';
-import Info from './classView/Info.jsx';
+import ClassContainer from './classView/ClassContainer.jsx';
+import HomeContainer from './HomeView/HomeContainer.jsx';
 
 const Main = ({ isHome, currentCourse, courseChanged }) => {
   let view;
   if (isHome) {
     view = (
-      <div className="col-md-9 container">
-        I am Home.
-        <TimeLine />
-      </div>
+      <HomeContainer />
     );
   } else {
     view = (
-      <div className="col-md-9 container">
-        I am in Main.
-        <Chart />
-        <Info currentCourse={ currentCourse } courseChanged={ courseChanged } />
-      </div>
+      <ClassContainer isHome={isHome} currentCourse={currentCourse} courseChanged={courseChanged} />
     );
   }
   return view;
