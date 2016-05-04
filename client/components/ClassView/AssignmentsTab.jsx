@@ -23,7 +23,8 @@ class AssignmentsTab extends React.Component {
   }
 }
 
-
+// get assignments everytime course is changed in store
+// for most up to date assignments
 const mapStateToProps = (state) => (
   { assignments: state.currentCourse.assignments }
 );

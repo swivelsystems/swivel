@@ -3,6 +3,8 @@ import actions from '../../actions/index.js';
 import { connect } from 'react-redux';
 
 class StudentTab extends React.Component {
+  // when a single student is clicked
+  // get the current student and display their info
   render() {
     return (
       <div className="row">
@@ -19,10 +21,6 @@ class StudentTab extends React.Component {
   }
 }
 
-StudentTab.propTypes = {
-  currentStudent: React.PropTypes.object,
-  handleBackButton: React.PropTypes.func,
-};
 
 const mapStateToProps = (state) => (
   {
@@ -30,6 +28,7 @@ const mapStateToProps = (state) => (
   }
 );
 
+// go back to all students when back is pressed
 const mapDispatchToProps = (dispatch) => (
   {
     handleBackButton: () => {
@@ -37,6 +36,11 @@ const mapDispatchToProps = (dispatch) => (
     },
   }
 );
+
+StudentTab.propTypes = {
+  currentStudent: React.PropTypes.object,
+  handleBackButton: React.PropTypes.func,
+};
 
 export default connect(
   mapStateToProps,

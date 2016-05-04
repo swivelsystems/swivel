@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class AllStudentsTab extends React.Component {
 
-  handleAllStudents() {
+  displayAllStudents() {
     return this.props.students.map((student) => (
       <div key={student.id} className="card" onClick={ () => this.props.handleStudent(student)}>
         <div key="studentCardBlock" className="card-block">
@@ -18,7 +18,7 @@ class AllStudentsTab extends React.Component {
   render() {
     return (
       <div className="container">
-        {this.handleAllStudents()}
+        {this.displayAllStudents()}
       </div>
     );
   }
@@ -29,6 +29,8 @@ const mapStateToProps = (state) => (
   { students: state.currentCourse.students }
 );
 
+// when student is clicked update that student to current student in store
+// switch tabview in store to view that student's info
 const mapDispatchToProps = (dispatch) => (
   {
     handleStudent: (student) => {

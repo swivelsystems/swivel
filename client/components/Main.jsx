@@ -17,13 +17,14 @@ class Main extends React.Component {
   }
 }
 
-Main.propTypes = {
-  goHome: React.PropTypes.bool,
-};
 
 const mapStateToProps = (state) => (
   { goHome: state.goHome }
 );
+
+Main.propTypes = {
+  goHome: React.PropTypes.bool,
+};
 
 export default connect(
   mapStateToProps

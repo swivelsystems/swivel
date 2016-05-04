@@ -7,13 +7,12 @@ import Student from './Student.jsx';
 
 class Info extends React.Component {
 
+  // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
-    if (this.props) {
-      if (this.props.tabView === 'Students') {
-        return <AllStudentsTab />;
-      } else if (this.props.tabView === 'Student') {
-        return <Student />;
-      }
+    if (this.props.tabView === 'Students') {
+      return <AllStudentsTab />;
+    } else if (this.props.tabView === 'Student') {
+      return <Student />;
     }
     return <AssignmentsTab />;
   }
@@ -42,11 +41,6 @@ class Info extends React.Component {
   }
 }
 
-Info.propTypes = {
-  tabView: React.PropTypes.string,
-  handleTab: React.PropTypes.func,
-};
-
 const mapStateToProps = (state) => (
   { tabView: state.tabView }
 );
@@ -59,6 +53,10 @@ const mapDispatchToProps = (dispatch) => (
   }
 );
 
+Info.propTypes = {
+  tabView: React.PropTypes.string,
+  handleTab: React.PropTypes.func,
+};
 
 export default connect(
   mapStateToProps,
