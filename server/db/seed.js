@@ -9,16 +9,15 @@ Teacher.findOrCreate({
     password: 'recyclingnut00',
   },
 });
-// .then((teacher) => {
+// .spread((teacher) => {
 //   Course.findOrCreate({
 //     where: {
 //       name: 'Algebra',
 //       description: 'A course to learn about the basics of algebra.',
 //       department: 'Math',
 //     },
-//   })
-//   .then((course) => {
-//     console.log('course...', course);
-//     teacher.addCourse(course);
 //   });
+  // .spread((course) => {
+  //   course.addTeacher(teacher);
+  // });
 // });
