@@ -1,6 +1,6 @@
 import { teachers } from '../../controllers';
 
-describe('Teacher Model', () => {
+describe('Teacher Controller', function() {
   it('should create new teachers', (done) => {
     done();
   });

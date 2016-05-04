@@ -1,6 +1,6 @@
 import { submissions } from '../../controllers';
 
-describe('Submission Model', () => {
+describe('Submission Controller', function() {
   it('should create new submissions', (done) => {
     done();
   });
