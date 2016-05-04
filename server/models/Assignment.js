@@ -30,4 +30,4 @@ const Assignment = db.define('Assignment',
   }
 );
 
-module.exports = Assignment;
+export default Assignment;

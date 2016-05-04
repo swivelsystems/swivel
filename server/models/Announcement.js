@@ -22,4 +22,4 @@ const Announcement = db.define('Announcement',
   }
 );
 
-module.exports = Announcement;
+export default Announcement;

@@ -26,4 +26,4 @@ const Course = db.define('Course',
   }
 );
 
-module.exports = Course;
+export default Course;
