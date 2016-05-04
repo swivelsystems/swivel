@@ -6,7 +6,26 @@ describe('Announcement Controller', () => {
   // });
 
   it('should successfully retrieve existing announcements', (done) => {
-    done();
+    new Promise((res) => {
+      res(announcements.findAllByCourse(1));
+    })
+    .then((allFound) => {
+      expect(() => (
+        allFound.length > 0
+      )).toEqual(true);
+
+      expect(() => (
+        allFound[0].body.length > 0
+      )).toEqual(true);
+
+      expect(() => (
+        allFound[0].title.length > 0
+      )).toEqual(true);
+      done();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
   });
 
   // it('should update existing announcements', (done) => {
