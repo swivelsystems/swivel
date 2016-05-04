@@ -1,4 +1,4 @@
-describe('Announcement Model', function() {
+describe('Announcement Controller', () => {
   it('should create new announcements', (done) => {
     done();
   });

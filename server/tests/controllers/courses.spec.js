@@ -1,4 +1,4 @@
-describe('Course Model', function() {
+describe('Course Controller', () => {
   it('should create new courses', (done) => {
     done();
   });
