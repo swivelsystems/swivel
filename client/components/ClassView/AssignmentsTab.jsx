@@ -28,8 +28,8 @@ class AssignmentsTab extends React.Component {
 const mapStateToProps = (state) => (
   { assignments: state.currentCourse.assignments }
 );
-
 AssignmentsTab.propTypes = {
+  currentCourse: React.PropTypes.object,
   assignments: React.PropTypes.array,
 };
 

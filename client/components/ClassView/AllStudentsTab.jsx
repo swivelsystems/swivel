@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class AllStudentsTab extends React.Component {
 
+
   displayAllStudents() {
     return this.props.students.map((student) => (
       <div key={student.id} className="card" onClick={ () => this.props.handleStudent(student)}>
@@ -24,7 +25,6 @@ class AllStudentsTab extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => (
   { students: state.currentCourse.students }
 );
@@ -44,6 +44,7 @@ AllStudentsTab.propTypes = {
   handleStudent: React.PropTypes.func,
   students: React.PropTypes.array,
 };
+
 
 export default connect(
   mapStateToProps,

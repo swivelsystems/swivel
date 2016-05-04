@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { connect } from 'react-redux';
 import ClassContainer from './ClassView/ClassContainer.jsx';
 import HomeContainer from './HomeView/HomeContainer.jsx';
@@ -17,7 +16,6 @@ class Main extends React.Component {
     return this.handleWhichView();
   }
 }
-
 
 const mapStateToProps = (state) => (
   { goHome: state.goHome }

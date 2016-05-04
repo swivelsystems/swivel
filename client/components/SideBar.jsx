@@ -58,6 +58,7 @@ SideBar.propTypes = {
   handleHome: React.PropTypes.func,
 };
 
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

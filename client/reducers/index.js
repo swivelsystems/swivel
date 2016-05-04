@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-<<<<<<< HEAD
 import courses from './courses.js';
 import currentCourse from './currentCourse.js';
 import currentStudent from './currentStudent.js';
