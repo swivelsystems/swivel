@@ -1,15 +1,15 @@
-import { Teacher } from '../models';
+import { Teacher } from '../models/Teacher.js';
 
 /*
 * Returns one teacher object matching the id. Returns undefined otherwise.
 */
-exports.findById = (teacherId) => {
+export function findById(teacherId) {
 
-};
+}
 
 /*
 * Returns an array of all teacher objects.
 */
-exports.findAll = () => {
+export function findAll() {
 
-};
+}
