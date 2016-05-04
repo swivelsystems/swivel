@@ -32,4 +32,4 @@ const Student = db.define('student',
   }
 );
 
-export default Course;
+export default Student;
