@@ -5,8 +5,6 @@ import { Announcement } from '../models/Announcement.js';
 * based on the courseId. Returns an empty array if the course
 * is not found.
 */
-export function findAllByCourse(courseId, callback) {
-  const result = [{ title: 'Test', body: 'Sample body' }];
-  if (callback) { return callback(null, result); }
-  return result;
+export function findAllByCourse(courseId) {
+
 }
