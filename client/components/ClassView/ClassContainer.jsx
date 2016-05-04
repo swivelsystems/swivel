@@ -3,7 +3,7 @@ import Chart from './Chart.jsx';
 import Info from './Info.jsx';
 
 const ClassContainer = () => (
-  <div className="col-md-9 container">
+  <div className="col-md-9 course container">
     I am in ClassContainer.
     <Chart />
     <Info />
