@@ -1,3 +1,5 @@
+import { submissions } from '../../controllers';
+
 describe('Submission Model', () => {
   it('should create new submissions', (done) => {
     done();

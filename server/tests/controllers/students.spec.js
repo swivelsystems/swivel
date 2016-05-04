@@ -1,3 +1,5 @@
+import { students } from '../../controllers';
+
 describe('Student Controller', () => {
   it('should create new students', (done) => {
     done();

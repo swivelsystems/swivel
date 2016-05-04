@@ -1,3 +1,5 @@
+import { courses } from '../../controllers';
+
 describe('Course Controller', () => {
   it('should create new courses', (done) => {
     done();

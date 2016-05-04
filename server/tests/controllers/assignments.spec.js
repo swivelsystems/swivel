@@ -1,3 +1,5 @@
+import { assignments } from '../../controllers';
+
 describe('Assignment Controller', () => {
   it('should create new assignments', (done) => {
     done();

@@ -1,3 +1,5 @@
+import { announcements } from '../../controllers';
+
 describe('Announcement Controller', () => {
   it('should create new announcements', (done) => {
     done();

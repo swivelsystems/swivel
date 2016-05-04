@@ -1,3 +1,5 @@
+import { teachers } from '../../controllers';
+
 describe('Teacher Model', () => {
   it('should create new teachers', (done) => {
     done();
