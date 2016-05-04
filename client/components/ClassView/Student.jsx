@@ -1,15 +1,17 @@
 import React from 'react';
+import actions from '../../actions/index.js';
+import { connect } from 'react-redux';
 
-const StudentTab = ({ student, handleBackButton }) => (
+const StudentTab = ({}) => (
     <div className="row">
       <button
         type="button"
         className="btn btn-secondary"
-        onClick={ () => handleBackButton() }
+        onClick={ () => this.props.handleBackButton() }
       >
         Back
       </button>
-      {student.name}
+      {this.props.currentStudent.name}
     </div>
 );
 
@@ -18,4 +20,21 @@ StudentTab.propTypes = {
   handleBackButton: React.PropTypes.func,
 };
 
-export default StudentTab;
+const mapStateToProps = (state) => (
+  { currentCourse: state.currentCourse }
+);
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    handleBackButton: (student) => {
+      dispatch(actions.switchTabs('Students'));
+      dispatch(actions.viewStudent(student));
+    },
+  }
+);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StudentTab);
+

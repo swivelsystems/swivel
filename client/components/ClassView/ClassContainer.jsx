@@ -1,10 +1,14 @@
 import React from 'react';
-import TimeLine from './homeView/Timeline.jsx';
+import Chart from './Chart.jsx';
+import Info from './Info.jsx';
 
-const ClassContainer = ({ isHome, currentCourse, courseChanged }) => {
+const ClassContainer = ({ }) => (
   <div className="col-md-9 container">
-    I am in Main.
+    I am in ClassContainer.
     <Chart />
-    <Info currentCourse={ currentCourse } courseChanged={ courseChanged } />
+    <Info />
   </div>
-};
+);
+
+export default ClassContainer;
+

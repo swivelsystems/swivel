@@ -1,4 +1,7 @@
 // this is for the sake of org/best practices
-// example:
-// export const UPDATE_PLACES = 'UPDATE_PLACES';
-// export const SAVE_PLACE = 'SAVE_PLACE';
+export const GO_HOME = 'GO_HOME';
+export const UPDATE_COURSE = 'UPDATE_COURSE';
+export const GET_COURSES = 'GET_COURSES';
+export const SWITCH_TABS = 'SWITCH_TABS';
+export const UPDATE_STUDENT = 'UPDATE_STUDENT';
+

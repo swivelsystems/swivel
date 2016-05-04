@@ -1,26 +1,30 @@
 import React from 'react';
-import TimeLine from './homeView/Timeline.jsx';
-import ClassContainer from './classView/ClassContainer.jsx';
+import { connect } from 'react-redux';
+import ClassContainer from './ClassView/ClassContainer.jsx';
 import HomeContainer from './HomeView/HomeContainer.jsx';
 
-const Main = ({ isHome, currentCourse, courseChanged }) => {
-  let view;
-  if (isHome) {
-    view = (
-      <HomeContainer />
-    );
-  } else {
-    view = (
-      <ClassContainer isHome={isHome} currentCourse={currentCourse} courseChanged={courseChanged} />
-    );
+class Main extends React.Component {
+
+  handleWhichView() {
+    if (this.props.goHome) {
+      return <HomeContainer />;
+    }
+    return <ClassContainer />;
   }
-  return view;
-};
+
+  render() {
+    return this.handleWhichView();
+  }
+}
 
 Main.propTypes = {
-  isHome: React.PropTypes.bool,
-  currentCourse: React.PropTypes.object,
-  courseChanged: React.PropTypes.bool,
+  goHome: React.PropTypes.bool,
 };
 
-export default Main;
+const mapStateToProps = (state) => (
+  { goHome: state.goHome }
+);
+
+export default connect(
+  mapStateToProps
+)(Main);
