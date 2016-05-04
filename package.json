@@ -4,7 +4,7 @@
   "description": "",
   "main": "./client/index.html",
   "scripts": {
-    "test": "karma start && ./node_modules/.bin/jasmine-node server/tests",
+    "test": "karma start && ./node_modules/.bin/jasmine-node server/tests/*/*.js",
     "start": "webpack-dev-server --inline --hot --content-base client/",
     "dev-start": "webpack -d && node server/server.js & webpack --watch",
     "prod-start": "webpack && PORT=80 forever start server/server.js",
