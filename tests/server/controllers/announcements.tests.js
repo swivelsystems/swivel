@@ -1,10 +1,10 @@
 import * as announcements from '../../../server/controllers/announcements.js';
-import Promise from 'promise';
 
 describe('Announcement Controller', () => {
   // it('should create new announcements', (done) => {
   //   done();
   // });
+
 
   // it('should successfully retrieve existing announcements', (done) => {
   //   new Promise((resolve) => {
