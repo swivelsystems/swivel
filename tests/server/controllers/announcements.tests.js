@@ -5,7 +5,6 @@ describe('Announcement Controller', () => {
   //   done();
   // });
 
-
   // it('should successfully retrieve existing announcements', (done) => {
   //   new Promise((resolve) => {
   //     resolve(announcements.findAllByCourse(1));
@@ -20,7 +19,7 @@ describe('Announcement Controller', () => {
   //     throw new Error(err);
   //   });
   // });
-
+  
   // it('should update existing announcements', (done) => {
   //   done();
   // });
