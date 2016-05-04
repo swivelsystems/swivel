@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../db/db.js';
 
-const Submission = db.define('submission',
+const Submission = db.define('Submission',
   {
     id: {
       type: Sequelize.UUID,
