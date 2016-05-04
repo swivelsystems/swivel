@@ -5,7 +5,7 @@ import { Course } from '../models/Course.js';
 * Returns an empty array if the student is not found.
 */
 export function findAllByStudent(studentId) {
-
+  
 }
 
 /*
