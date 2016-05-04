@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class AllStudentsTab extends React.Component {
 
   handleAllStudents() {
-    return this.props.currentCourse.students.map((student) => (
+    return this.props.students.map((student) => (
       <div key={student.id} className="card" onClick={ () => this.props.handleStudent(student)}>
         <div key="studentCardBlock" className="card-block">
           <h4 key="studentCardHeader"className="card-title">{student.name}</h4>
@@ -24,23 +24,24 @@ class AllStudentsTab extends React.Component {
   }
 }
 
-AllStudentsTab.propTypes = {
-  handleStudent: React.PropTypes.func,
-  currentCourse: React.PropTypes.object,
-};
 
 const mapStateToProps = (state) => (
-  { currentCourse: state.currentCourse }
+  { students: state.currentCourse.students }
 );
 
 const mapDispatchToProps = (dispatch) => (
   {
     handleStudent: (student) => {
-      dispatch(actions.switchTabs('Student'));
       dispatch(actions.viewStudent(student));
+      dispatch(actions.switchTabs('Student'));
     },
   }
 );
+
+AllStudentsTab.propTypes = {
+  handleStudent: React.PropTypes.func,
+  students: React.PropTypes.array,
+};
 
 export default connect(
   mapStateToProps,

@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 
 class AssignmentsTab extends React.Component {
 
-
   displayAssignments() {
-    console.log('currentcourse', this.props.currentCourse);
-    return this.props.currentCourse.assignments.map((assignment) => (
+    return this.props.assignments.map((assignment) => (
       <div className="card">
         <div className="card-block">
           <h4 className="card-title">{assignment}</h4>
@@ -17,7 +15,6 @@ class AssignmentsTab extends React.Component {
   }
 
   render() {
-    console.log('rendering in AssignmentsTab');
     return (
       <div className="container">
         {this.displayAssignments()}
@@ -26,12 +23,13 @@ class AssignmentsTab extends React.Component {
   }
 }
 
-AssignmentsTab.propTypes = {
-  currentCourse: React.PropTypes.object,
-};
 
-const mapStateToProps = (state) => {
-  return { currentCourse: state.currentCourse };
+const mapStateToProps = (state) => (
+  { assignments: state.currentCourse.assignments }
+);
+
+AssignmentsTab.propTypes = {
+  assignments: React.PropTypes.array,
 };
 
 export default connect(
