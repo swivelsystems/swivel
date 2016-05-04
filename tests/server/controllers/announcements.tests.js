@@ -4,11 +4,10 @@ describe('Announcement Controller', () => {
   // it('should create new announcements', (done) => {
   //   done();
   // });
-
   it('should successfully retrieve existing announcements', (done) => {
-    new Promise((res) => {
-      res(announcements.findAllByCourse(1));
-    })
+    new Promise(() => (
+      announcements.findAllByCourse(1)
+    ))
     .then((allFound) => {
       expect(() => (
         allFound.length > 0
