@@ -31,7 +31,6 @@ class SideBar extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => (
   { courses: state.courses }
 );
@@ -57,7 +56,6 @@ SideBar.propTypes = {
   handleCourse: React.PropTypes.func,
   handleHome: React.PropTypes.func,
 };
-
 
 export default connect(
   mapStateToProps,
