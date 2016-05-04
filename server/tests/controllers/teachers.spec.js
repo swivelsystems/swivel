@@ -1,4 +1,4 @@
-describe('Teacher Model', function() {
+describe('Teacher Model', () => {
   it('should create new teachers', (done) => {
     done();
   });

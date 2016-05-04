@@ -1,4 +1,4 @@
-describe('Assignment Model', function() {
+describe('Assignment Controller', () => {
   it('should create new assignments', (done) => {
     done();
   });

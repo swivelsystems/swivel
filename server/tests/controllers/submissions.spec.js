@@ -1,4 +1,4 @@
-describe('Submission Model', function() {
+describe('Submission Model', () => {
   it('should create new submissions', (done) => {
     done();
   });
