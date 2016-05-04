@@ -3,7 +3,7 @@ import React from 'react';
 const Nav = ({}) => (
 
   <div className="col-md-12 nav-bar">
-    I AM A NAVBAR HEADER WEEEEE!
+    I am a NavBar. Hear me Roar.
   </div>
 );
 

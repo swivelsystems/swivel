@@ -1,78 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../../actions/index.js';
 import AllStudentsTab from './AllStudentsTab.jsx';
 import AssignmentsTab from './AssignmentsTab.jsx';
 import Student from './Student.jsx';
 
 class Info extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      tabView: 'Assignments',
-      currentStudent: '',
-    };
-  }
-
-  // to check if another class was chosen
-  // and reset tabview to be assignments
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.courseChanged) {
-      this.setState({
-        tabView: 'Assignments',
-      });
-    }
-  }
-
-  handleAllStudentsTab() {
-    this.setState({ tabView: 'Students' });
-  }
-
-  handleStudent(student) {
-    this.setState({ tabView: 'Student' });
-    this.setState({ currentStudent: student });
-  }
-
-  handleAssignmentsTab() {
-    this.setState({ tabView: 'Assignments' });
-  }
-
-  handleBackButton() {
-    this.setState({ tabView: 'Students' });
-  }
-
-
+  // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
-    let view;
-    if (this.state.tabView === 'Assignments') {
-      view = <AssignmentsTab assignments={ this.props.currentCourse.assignments } />;
-    } else if (this.state.tabView === 'Students') {
-      view =
-        (<AllStudentsTab
-          students={ this.props.currentCourse.students }
-          handleStudent={ this.handleStudent.bind(this) }
-        />);
-    } else if (this.state.tabView === 'Student') {
-      view =
-        (<Student
-          student={ this.state.currentStudent }
-          handleBackButton = { this.handleBackButton.bind(this) }
-        />);
+    if (this.props.tabView === 'Students') {
+      return <AllStudentsTab />;
+    } else if (this.props.tabView === 'Student') {
+      return <Student />;
     }
-    return view;
+    return <AssignmentsTab />;
   }
 
   render() {
     return (
       <div className="row info container">
         <ul className="nav nav-tabs">
-          <li className="nav-item" onClick={ () => this.handleAssignmentsTab() }>
+          <li className="nav-item" onClick={ () => this.props.handleTab('Assignments') }>
             <a className="nav-link" role="tab">Assignments</a>
           </li>
           <li className="nav-item">
             <a
               className="nav-link"
               role="tab"
-              onClick={ () => this.handleAllStudentsTab() }
+              onClick={ () => this.props.handleTab('Students') }
             >
             Students</a>
           </li>
@@ -85,9 +41,24 @@ class Info extends React.Component {
   }
 }
 
-Info.propTypes = {
-  currentCourse: React.PropTypes.object,
+const mapStateToProps = (state) => (
+  { tabView: state.tabView }
+);
 
+const mapDispatchToProps = (dispatch) => (
+  {
+    handleTab: (tab) => {
+      dispatch(actions.switchTabs(tab));
+    },
+  }
+);
+
+Info.propTypes = {
+  tabView: React.PropTypes.string,
+  handleTab: React.PropTypes.func,
 };
 
-export default Info;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Info);

@@ -1,21 +1,49 @@
 import React from 'react';
+import actions from '../../actions/index.js';
+import { connect } from 'react-redux';
 
-const StudentTab = ({ student, handleBackButton }) => (
-    <div className="row">
-      <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={ () => handleBackButton() }
-      >
-        Back
-      </button>
-      {student}
-    </div>
+class StudentTab extends React.Component {
+  // when a single student is clicked
+  // get the current student and display their info
+  render() {
+    return (
+      <div className="row">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={ () => this.props.handleBackButton() }
+        >
+          Back
+        </button>
+        {this.props.currentStudent.name}
+      </div>
+    );
+  }
+}
+
+
+const mapStateToProps = (state) => (
+  {
+    currentStudent: state.currentStudent,
+  }
+);
+
+// go back to all students when back is pressed
+const mapDispatchToProps = (dispatch) => (
+  {
+    handleBackButton: () => {
+      dispatch(actions.switchTabs('Students'));
+    },
+  }
 );
 
 StudentTab.propTypes = {
-  student: React.PropTypes.any,
+  currentStudent: React.PropTypes.object,
   handleBackButton: React.PropTypes.func,
 };
 
-export default StudentTab;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StudentTab);
+
