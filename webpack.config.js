@@ -34,7 +34,7 @@ module.exports = {
   // when it scans a `require` statement. 99% of the time, `loaders` will be the only
   // thing you specify inside of `module`.
   module: {
-
+    noParse: /node_modules\/json-schema\/lib\/validate\.js/,
     // `loaders` lets you plug in programs that will transform your source files
     // when Webpack loads them with a `require` statement. A lot of the magic of
     // Webpack is done using loaders. In this example, there's one loader declared
@@ -42,6 +42,10 @@ module.exports = {
     //
     // `loaders` is an array of objects.
     loaders: [
+      {
+        include: /\.json$/,
+        loaders: ['json-loader'],
+      },
       {
         // `test` is a test condition that causes the loader to be applied when a
         // filename passes. In this case, when any filename contains either `.js` or `.jsx`
@@ -83,7 +87,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.scss', '.js', '.json'],
+    extensions: ['', '.scss', '.js', 'jsx', '.json'],
     packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
   },
   plugins: [
@@ -91,5 +95,11 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('test'),
     }),
   ],
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty',
+    fs: 'empty',
+  },
 
 };
