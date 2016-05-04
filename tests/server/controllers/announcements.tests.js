@@ -5,25 +5,13 @@ describe('Announcement Controller', () => {
   //   done();
   // });
   it('should successfully retrieve existing announcements', (done) => {
-    new Promise(() => (
-      announcements.findAllByCourse(1)
-    ))
-    .then((allFound) => {
-      expect(() => (
-        allFound.length > 0
-      )).toEqual(true);
+    announcements.findAllByCourse(1, (err, result) => {
+      if (err) { throw new Error(err); }
 
-      expect(() => (
-        allFound[0].body.length > 0
-      )).toEqual(true);
-
-      expect(() => (
-        allFound[0].title.length > 0
-      )).toEqual(true);
+      expect(result.length).toBeGreaterThan(0);
+      expect(result[0].body.length).toBeGreaterThan(0);
+      expect(result[0].title.length).toBeGreaterThan(0);
       done();
-    })
-    .catch((err) => {
-      throw new Error(err);
     });
   });
 
