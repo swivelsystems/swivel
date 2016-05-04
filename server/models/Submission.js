@@ -8,17 +8,12 @@ const Submission = db.define('submission',
       defaultValue: Sequelize.UUIDV1,
       primaryKey: true,
     },
-    studentId: {
-      type: Sequelize.INTEGER,
-    },
-    assignmentId: {
-      type: Sequelize.INTEGER,
-    },
     score: {
       type: Sequelize.DECIMAL,
     },
     submissionDate: {
       type: Sequelize.DATE,
+      field: 'submission_date',
     },
   },
   {
