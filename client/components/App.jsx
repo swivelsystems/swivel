@@ -8,9 +8,7 @@ import Nav from './Nav.jsx';
 
 const App = () => (
   <div>
-    <div className="row">
-      <Nav />
-    </div>
+    <Nav/>
     <div className="row">
       <SideBar />
       <Main />
