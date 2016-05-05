@@ -1,3 +1,7 @@
 // Make sure you have your directory and regex test set correctly!
-const context = require.context('./server', true, /.tests\.js$/);
+let context = require.context('./server', true, /.tests\.js$/);
 context.keys().forEach(context);
+
+context = require.context('./client', true, /.tests\.js$/);
+context.keys().forEach(context);
+

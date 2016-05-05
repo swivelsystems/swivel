@@ -21,14 +21,19 @@ class Info extends React.Component {
     return (
       <div className="row info container">
         <ul className="nav nav-tabs">
-          <li className="nav-item" onClick={ () => this.props.handleTab('Assignments') }>
+          <li
+            className="nav-item assignments-tab"
+            onClick={ () => this.props.handleTab('Assignments') }
+          >
             <a className="nav-link" role="tab">Assignments</a>
           </li>
-          <li className="nav-item">
+          <li
+            className="nav-item students-tab"
+            onClick={ () => this.props.handleTab('Students') }
+          >
             <a
               className="nav-link"
               role="tab"
-              onClick={ () => this.props.handleTab('Students') }
             >
             Students</a>
           </li>

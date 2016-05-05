@@ -10,7 +10,7 @@ class StudentTab extends React.Component {
       <div className="row">
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-secondary back"
           onClick={ () => this.props.handleBackButton() }
         >
           Back
@@ -20,7 +20,6 @@ class StudentTab extends React.Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => (
   {
@@ -46,4 +45,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(StudentTab);
-

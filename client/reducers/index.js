@@ -11,7 +11,6 @@ const rootReducer = combineReducers({
   currentStudent,
   goHome,
   tabView,
-
 });
 
 export default rootReducer;

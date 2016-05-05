@@ -8,6 +8,7 @@ class SideBar extends React.Component {
     const classes = this.props.courses.map((course) => (
       <div
         key={course.id}
+        className="course-button"
         onClick={() => (this.props.handleCourse(course)) }
       >
         {course.name}
@@ -18,7 +19,7 @@ class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="col-md-3 container">
+      <div className="col-md-3 container side-bar">
         <div
           className="home-button"
           onClick={ () => (this.props.handleHome(true)) }
@@ -31,7 +32,6 @@ class SideBar extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => (
   { courses: state.courses }
 );
@@ -41,9 +41,11 @@ const mapDispatchToProps = (dispatch) => (
     handleHome: (goHome) => {
       dispatch(actions.goHome(goHome));
     },
-    // if a course is clicked change the current course
-    // make sure the assignments tab is the default view
-    // get out of home view
+    /*
+      if a course is clicked change the current course
+      make sure the assignments tab is the default view
+      get out of home view
+    */
     handleCourse: (course) => {
       dispatch(actions.updateCourse(course));
       dispatch(actions.switchTabs('Assignments'));
