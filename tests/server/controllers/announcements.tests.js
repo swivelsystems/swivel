@@ -1,6 +1,4 @@
 import * as announcements from '../../../server/controllers/announcements.js';
-import Promise from 'promise';
-import { announcements } from '../../../server/controllers/announcements.js';
 
 describe('Announcement Controller', () => {
   // it('should create new announcements', (done) => {

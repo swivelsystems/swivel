@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../db/db.js';
 
-const Announcement = db.define('Announcement',
+const Announcement = db.define('announcements',
   {
     id: {
       type: Sequelize.UUID,

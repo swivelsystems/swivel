@@ -1,7 +1,6 @@
 import * as courses from '../../../server/controllers/courses.js';
 
 describe('Course Controller', () => {
-<<<<<<< c189bd138c9a54756c64ea54d0e35fc320516610
   // it('should create new courses', (done) => {
   //   done();
   // });
