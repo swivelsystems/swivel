@@ -27,12 +27,12 @@ describe('AllStudentsTab', () => {
   });
 
   it('click on a student should change currentStudent and tabView', (done) => {
-    const student = TestUtils.scryRenderedDOMComponentsWithClass(
+    const students = TestUtils.scryRenderedDOMComponentsWithClass(
     allStudentsTab,
     'course-button');
-    for (let i = 0; i < student.length; i++) {
+    for (let i = 0; i < students.length; i++) {
       const studentBeforeClick = store.getState().currentStudent;
-      TestUtils.Simulate.click(student[i]);
+      TestUtils.Simulate.click(students[i]);
       expect(store.getState().currentCourse).not.toEqual(studentBeforeClick);
       expect(store.getState().tabView).toEqual('Student');
     }

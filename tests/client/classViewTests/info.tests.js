@@ -6,13 +6,49 @@ import Info from '../../../client/components/ClassView/Info.jsx';
 const store = configureStore();
 
 describe('Info', () => {
+  const info = TestUtils.renderIntoDocument(
+    <Provider store={store}>
+      <Info />
+    </Provider>
+  );
+  const assignmentsTab = TestUtils.findRenderedDOMComponentWithClass(
+  info,
+  'assignments-tab');
+  const studentsTab = TestUtils.findRenderedDOMComponentWithClass(
+  info,
+  'students-tab');
+
   it('renders without problems', (done) => {
-    const info = TestUtils.renderIntoDocument(
-      <Provider store={store}>
-        <Info />
-      </Provider>
-    );
     expect(info).toBeDefined();
+    done();
+  });
+
+  it('changes tabView state when assignments tab is clicked', (done) => {
+    TestUtils.Simulate.click(assignmentsTab);
+    expect(store.getState().tabView).toEqual('Assignments');
+    done();
+  });
+
+  it('changes tabView state when students tab is clicked', (done) => {
+    TestUtils.Simulate.click(studentsTab);
+    expect(store.getState().tabView).toEqual('Students');
+    done();
+  });
+
+  it('renders AssignmentsTab, AllStudentsTab component depending on tabView',
+  (done) => {
+    TestUtils.Simulate.click(studentsTab);
+    let infoContent = TestUtils.findRenderedDOMComponentWithClass(
+  info,
+  'students-tab');
+    expect(infoContent).toBeDefined();
+
+    TestUtils.Simulate.click(assignmentsTab);
+    infoContent = TestUtils.findRenderedDOMComponentWithClass(
+  info,
+  'assignments-tab');
+    expect(infoContent).toBeDefined();
+
     done();
   });
 });
