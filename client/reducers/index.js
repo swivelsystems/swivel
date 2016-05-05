@@ -13,3 +13,4 @@ const rootReducer = combineReducers({
   tabView,
 });
 
+export default rootReducer;
