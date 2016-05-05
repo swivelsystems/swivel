@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {
@@ -78,12 +79,14 @@ module.exports = {
           presets: ['react', 'es2015'],
         },
       },
-
-      // {
-      //   test: /\.jsx?$/,
-      //   loader: 'eslint-loader',
-      //   exclude: /node_modules/,
-      // },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+      },
     ],
   },
   resolve: {
@@ -94,6 +97,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('test'),
     }),
+    new ExtractTextPlugin('bundle.css'),
   ],
   node: {
     net: 'empty',
