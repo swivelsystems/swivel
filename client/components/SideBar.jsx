@@ -6,13 +6,13 @@ class SideBar extends React.Component {
 
   displayCourses() {
     const classes = this.props.courses.map((course) => (
-      <div
+      <li
         key={course.id}
         className="course-button"
         onClick={() => (this.props.handleCourse(course)) }
       >
         {course.name}
-      </div>
+      </li>
     ));
     return classes;
   }
@@ -20,13 +20,15 @@ class SideBar extends React.Component {
   render() {
     return (
       <div className="col-md-3 container side-bar">
-        <div
-          className="home-button"
-          onClick={ () => (this.props.handleHome(true)) }
-        >
-          Home
-        </div>
-        {this.displayCourses()}
+        <ul>
+          <li
+            className="home-button"
+            onClick={ () => (this.props.handleHome(true)) }
+          >
+            Home
+          </li>
+          {this.displayCourses()}
+        </ul>
       </div>
     );
   }
