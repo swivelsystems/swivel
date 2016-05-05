@@ -5,20 +5,38 @@ import { Provider } from 'react-redux';
 import AllStudentsTab from '../../../client/components/ClassView/AllStudentsTab.jsx';
 const store = configureStore();
 
-const students = [
-      { name: 'Zach', id: 12 },
-      { name: 'Kim', id: 123 },
-      { name: 'james', id: 3 },
-];
-
 describe('AllStudentsTab', () => {
+  const allStudentsTab = TestUtils.renderIntoDocument(
+    <Provider store={store}>
+      <AllStudentsTab />
+    </Provider>
+  );
+
   it('renders without problems', (done) => {
-    const allStudentsTab = TestUtils.renderIntoDocument(
-      <Provider store={store}>
-        <AllStudentsTab students={students} />
-      </Provider>
-    );
     expect(allStudentsTab).toBeDefined();
     done();
   });
+
+  it('should render a card for each student', (done) => {
+    const students = TestUtils.scryRenderedDOMComponentsWithClass(
+    allStudentsTab,
+    'card');
+    const allStudents = store.getState().currentCourse.students;
+    expect(students.length).toEqual(allStudents.length);
+    done();
+  });
+
+  it('click on a student should change currentStudent and tabView', (done) => {
+    const student = TestUtils.scryRenderedDOMComponentsWithClass(
+    allStudentsTab,
+    'course-button');
+    for (let i = 0; i < student.length; i++) {
+      const studentBeforeClick = store.getState().currentStudent;
+      TestUtils.Simulate.click(student[i]);
+      expect(store.getState().currentCourse).not.toEqual(studentBeforeClick);
+      expect(store.getState().tabView).toEqual('Student');
+    }
+    done();
+  });
 });
+

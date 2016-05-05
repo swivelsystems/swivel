@@ -57,7 +57,6 @@ describe('Sidebar State', () => {
 
 
   // Test state changes on actions
-
   it('click on Home should change goHome state to true', () => {
     const homeButton = TestUtils.findRenderedDOMComponentWithClass(
     sidebar,

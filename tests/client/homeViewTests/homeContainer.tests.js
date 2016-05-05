@@ -6,13 +6,22 @@ import HomeContainer from '../../../client/components/HomeView/HomeContainer.jsx
 const store = configureStore();
 
 describe('HomeContainer', () => {
+  const homeContainer = TestUtils.renderIntoDocument(
+    <Provider store={store}>
+      <HomeContainer />
+    </Provider>
+  );
+
   it('renders without problems', (done) => {
-    const homeContainer = TestUtils.renderIntoDocument(
-      <Provider store={store}>
-        <HomeContainer />
-      </Provider>
-    );
     expect(homeContainer).toBeDefined();
+    done();
+  });
+
+  it('renders a Timeline component', (done) => {
+    const timeline = TestUtils.findRenderedDOMComponentWithClass(
+    homeContainer,
+    'timeline');
+    expect(timeline).toBeDefined();
     done();
   });
 });
