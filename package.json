@@ -5,16 +5,9 @@
   "main": "./client/index.html",
   "scripts": {
     "test": "karma start",
-<<<<<<< 7bd9aaac5715014c946d22209075828ac646f96e
     "start": "webpack-dev-server --inline --hot",
-    "dev-start": "webpack -d && node server/server.js & webpack --watch",
-    "prod-start": "webpack && PORT=80 forever start server/server.js"
-=======
-    "start": "webpack-dev-server --inline --hot --content-base client/",
     "dev-start": "webpack -d && babel-node server/server.js & webpack --watch",
     "prod-start": "webpack && PORT=80 forever start server/server.js",
-    "babel-node": "babel-node --presets=es2015"
->>>>>>> Install babel-node
   },
   "repository": {
     "type": "git",
@@ -29,12 +22,9 @@
   "dependencies": {
     "autoprefix": "^0.1.4",
     "autoprefixer": "^6.3.6",
-<<<<<<< 7bd9aaac5715014c946d22209075828ac646f96e
     "axios": "^0.11.0",
     "babel": "^6.1.18",
-=======
     "babel-cli": "^6.8.0",
->>>>>>> Install babel-node
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
