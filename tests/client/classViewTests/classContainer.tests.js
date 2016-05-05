@@ -6,13 +6,30 @@ import ClassContainer from '../../../client/components/ClassView/ClassContainer.
 const store = configureStore();
 
 describe('ClassContainer', () => {
+  const classContainer = TestUtils.renderIntoDocument(
+    <Provider store={store}>
+      <ClassContainer />
+    </Provider>
+  );
+
   it('renders without problems', (done) => {
-    const classContainer = TestUtils.renderIntoDocument(
-      <Provider store={store}>
-        <ClassContainer />
-      </Provider>
-    );
     expect(classContainer).toBeDefined();
+    done();
+  });
+
+  it('renders a Chart component', (done) => {
+    const chart = TestUtils.findRenderedDOMComponentWithClass(
+    classContainer,
+    'chart');
+    expect(chart).toBeDefined();
+    done();
+  });
+
+  it('renders a Info component', (done) => {
+    const info = TestUtils.findRenderedDOMComponentWithClass(
+    classContainer,
+    'info');
+    expect(info).toBeDefined();
     done();
   });
 });

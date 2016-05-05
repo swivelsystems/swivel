@@ -7,12 +7,14 @@ const store = configureStore();
 
 describe('AssignmentsTab', () => {
   it('renders without problems', (done) => {
+    const assignments = ['Midterm', 'The Past 100 Years in the Middle East', 'The World Rulers'];
     const assignmentsTab = TestUtils.renderIntoDocument(
       <Provider store={store}>
-        <AssignmentsTab />
+        <AssignmentsTab assignments={assignments} />
       </Provider>
     );
     expect(assignmentsTab).toBeDefined();
     done();
   });
 });
+

@@ -8,6 +8,7 @@ class SideBar extends React.Component {
     const classes = this.props.courses.map((course) => (
       <div
         key={course.id}
+        className="course-button"
         onClick={() => (this.props.handleCourse(course)) }
       >
         {course.name}

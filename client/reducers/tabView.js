@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes.js';
 
-const initialState = '';
+const initialState = 'Assignments';
 
 export default function tabView(state = initialState, action) {
   switch (action.type) {
