@@ -6,6 +6,17 @@
   border-bottom: 1px solid $color-divider;
 }
 
+.navbar-logo {
+  background-image: url('http://i.imgur.com/hQznMzZ.png');
+  background-size: cover;
+
+  height: 26px;
+  width: 32px;
+  float: left;
+  padding: 0;
+  margin: $spacing-medium;
+}
 .navbar-brand {
   font-family: $font-swivel;
+  padding-left: 0;
 }
