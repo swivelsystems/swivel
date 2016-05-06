@@ -19,7 +19,7 @@ class Info extends React.Component {
 
   render() {
     return (
-      <div className="row info">
+      <div className="info">
         <ul className="nav nav-tabs">
           <li
             className="nav-item assignments-tab"

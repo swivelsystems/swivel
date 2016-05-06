@@ -14,6 +14,20 @@ $color-warning:    #E67E22;
 $color-danger:     #E74C3C;
 
 // Padding
-$padding-small: 6px;
-$padding-medium: 12px;
-$padding-large: 18px;
+$spacing-small: 6px;
+$spacing-medium: 12px;
+$spacing-large: 18px;
+$spacing-huge: 2 * $spacing-large;
+
+// Type
+$font-primary: 'Poppins';
+$font-school: 'Merriweather';
+$font-swivel: 'Helvetica Neue';
+
+$font-size-huge: 1.4em;
+$font-size-large: 1.2em;
+$font-size-small: .8em;
+$font-size-tiny: .6em;
+
+$font-weight-bold: 600;
+$font-weight-light: 300;

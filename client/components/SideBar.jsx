@@ -20,6 +20,9 @@ class SideBar extends React.Component {
   render() {
     return (
       <div className="sidebar">
+        <div className="sidebar-school">
+          <img className="sidebar-school-logo" src="https://thecoachessite.com/new2015/wp-content/uploads/2016/04/Everest-Academy-job.png" alt="Logo" />
+        </div>
         <ul className="sidebar-nav">
           <li
             className="home-button"
