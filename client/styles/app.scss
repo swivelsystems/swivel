@@ -1,7 +1,6 @@
 html, body {
   background-color: $color-background;
-  font: $font-stack;
-  font-family: 'Poppins';
+  font-family: $font-primary;
 }
 
 .main-wrapper {
@@ -9,5 +8,7 @@ html, body {
 
 .card {
   background-color: $color-white;
-  margin: $spacing-small 0;
+  margin: $spacing-large 0;
+  padding: $spacing-huge;
+  border: 1px solid $color-divider;
 }
