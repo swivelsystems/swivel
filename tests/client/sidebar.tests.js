@@ -18,7 +18,6 @@ describe('Sidebar', () => {
   });
 });
 
-
 // Test all the state that sidebar manipulates in store
 describe('Sidebar State', () => {
   // Test state on initial load
