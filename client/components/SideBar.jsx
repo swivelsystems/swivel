@@ -22,7 +22,7 @@ class SideBar extends React.Component {
       <div className="sidebar">
         <div className="sidebar-school">
           <div className="sidebar-school-info">
-            <h4>Kendall Elementary School</h4>
+            <h4>Everest Prep Elementary</h4>
           </div>
         </div>
         <ul className="sidebar-nav">
