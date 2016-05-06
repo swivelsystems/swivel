@@ -24,6 +24,7 @@ $spacing-huge: 2 * $spacing-large;
 // Type
 $font-primary: 'Roboto', sans-serif;
 $font-swivel: 'Nunito', sans-serif;
+$font-school: 'Roboto', sans-serif;
 
 $font-size-huge: 1.4em;
 $font-size-large: 1.2em;
@@ -32,3 +33,9 @@ $font-size-tiny: .6em;
 
 $font-weight-bold: 600;
 $font-weight-light: 300;
+
+// Media Query Breakpoints
+$media-breakpoint-small: 544px;
+$media-breakpoint-medium: 768px;
+$media-breakpoint-large: 992px;
+$media-breakpoint-extra-large: 1200px;

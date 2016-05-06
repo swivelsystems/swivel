@@ -9,13 +9,12 @@ import Nav from './Nav.jsx';
 const App = () => (
   <div>
     <Nav />
-    <div>
-      <div className="sidebar-wrapper">
-        <SideBar />
-      </div>
+    <div className="container-wrapper">
       <div className="container">
         <div className="row">
-          <div className="col-md-3"></div>
+          <div className="col-md-3">
+            <SideBar />
+          </div>
           <div className="col-md-9 main-wrapper">
             <Main />
           </div>

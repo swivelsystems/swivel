@@ -21,7 +21,9 @@ class SideBar extends React.Component {
     return (
       <div className="sidebar">
         <div className="sidebar-school">
-          <img className="sidebar-school-logo" src="https://thecoachessite.com/new2015/wp-content/uploads/2016/04/Everest-Academy-job.png" alt="Logo" />
+          <div className="sidebar-school-info">
+            <h4>Kendall Elementary School</h4>
+          </div>
         </div>
         <ul className="sidebar-nav">
           <li
@@ -29,6 +31,11 @@ class SideBar extends React.Component {
             onClick={ () => (this.props.handleHome(true)) }
           >
             Home
+          </li>
+          <li
+            className="sidebar-section-header"
+          >
+            Classes
           </li>
           {this.displayCourses()}
         </ul>

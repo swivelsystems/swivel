@@ -28,7 +28,7 @@ describe('App', () => {
   it('renders a Nav component', (done) => {
     const nav = TestUtils.findRenderedDOMComponentWithClass(
     app,
-    'nav-bar');
+    'navbar');
     expect(nav).toBeDefined();
     done();
   });
