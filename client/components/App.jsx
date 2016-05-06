@@ -8,12 +8,18 @@ import Nav from './Nav.jsx';
 
 const App = () => (
   <div>
-    <div className="row">
-      <Nav />
-    </div>
-    <div className="row">
-      <SideBar />
-      <Main />
+    <Nav />
+    <div className="container-wrapper">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3">
+            <SideBar />
+          </div>
+          <div className="col-md-9 main-wrapper">
+            <Main />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 );

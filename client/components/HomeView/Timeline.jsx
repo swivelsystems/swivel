@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Timeline = ({ data }) => (
-    <div className="row timeline">
+    <div className="timeline">
       I will be the TimeLine.
       {data}
     </div>

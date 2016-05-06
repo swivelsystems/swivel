@@ -13,7 +13,7 @@ class Main extends React.Component {
   }
 
   render() {
-    return this.handleWhichView();
+    return <div>{ this.handleWhichView() }</div>;
   }
 }
 

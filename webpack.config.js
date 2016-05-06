@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {

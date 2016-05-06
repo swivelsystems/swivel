@@ -1,0 +1,62 @@
+.sidebar {
+  height: 100%;
+  z-index: 1000;
+  background-color: $color-white;
+  border-right: 1px solid $color-divider;
+}
+
+.sidebar-nav {
+  margin: 0;
+  padding: 0;
+  opacity: .9;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: $spacing-large;
+  line-height: 50px;
+}
+
+.sidebar-nav li:hover {
+  background-color: darken($color-white, 6%);
+}
+
+li.sidebar-section-header {
+  line-height: 25px;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  border-top: 1px solid $color-divider;
+  border-bottom: 1px solid $color-divider;
+  font-size: $font-size-small;
+}
+
+li.sidebar-section-header:hover {
+  background-color: $color-white;
+}
+
+.sidebar-school {
+  text-align: center;
+  border-bottom: 1px solid $color-divider;
+  background-image: url('http://kendall.ipsd.org/_img/School.jpg');
+  background-size: cover;
+  min-height: 150px;
+  position: relative;
+  opacity: .9;
+}
+
+.sidebar-school-info {
+  font-family: $font-school;
+  font-weight: $font-weight-light;
+  color: $color-white;
+  padding: $spacing-huge $spacing-small $spacing-small $spacing-large;
+  background: linear-gradient( 0deg, rgba(0,0,0,1), rgba(0,0,0,0));
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  bottom: 0;
+}
+
+.sidebar-school-name {
+  font-size: $font-size-large;
+  color: $color-white;
+}

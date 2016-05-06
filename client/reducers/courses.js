@@ -3,7 +3,7 @@ import * as types from '../constants/ActionTypes.js';
 const initialState = [
   {
     id: 1,
-    name: 'HistoryFall2015',
+    name: 'History Fall 2015',
     students: [
       { name: 'Zach', id: 12 },
       { name: 'Kim', id: 123 },
@@ -12,7 +12,7 @@ const initialState = [
     assignments: ['Midterm', 'The Past 100 Years in the Middle East', 'The World Rulers'] },
   {
     id: 2,
-    name: 'EnglishFall2015',
+    name: 'English Fall 2015',
     students: [
       { name: 'Ho-el', id: 12 },
       { name: 'Kevin', id: 123 },
@@ -21,7 +21,7 @@ const initialState = [
     assignments: ['Final', 'Hemingway and other Ex-Pats', 'The World of the Great Gastby'] },
   {
     id: 3,
-    name: 'TrigonometryFall2015',
+    name: 'Trigonometry Fall 2015',
     students: [
       { name: 'jack', id: 12 },
       { name: 'Mylani', id: 123 },

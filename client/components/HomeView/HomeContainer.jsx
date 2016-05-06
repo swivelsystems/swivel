@@ -2,7 +2,7 @@ import React from 'react';
 import TimeLine from './Timeline.jsx';
 
 const HomeContainer = () => (
-  <div className="col-md-9 home container">
+  <div className="home card">
     I am Home.
     <TimeLine />
   </div>

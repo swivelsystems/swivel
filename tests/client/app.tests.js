@@ -20,7 +20,7 @@ describe('App', () => {
   it('renders a sidebar component', (done) => {
     const sidebar = TestUtils.findRenderedDOMComponentWithClass(
     app,
-    'side-bar');
+    'sidebar');
     expect(sidebar).toBeDefined();
     done();
   });
@@ -28,7 +28,7 @@ describe('App', () => {
   it('renders a Nav component', (done) => {
     const nav = TestUtils.findRenderedDOMComponentWithClass(
     app,
-    'nav-bar');
+    'navbar');
     expect(nav).toBeDefined();
     done();
   });
@@ -41,4 +41,3 @@ describe('App', () => {
     done();
   });
 });
-

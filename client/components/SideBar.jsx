@@ -6,27 +6,39 @@ class SideBar extends React.Component {
 
   displayCourses() {
     const classes = this.props.courses.map((course) => (
-      <div
+      <li
         key={course.id}
         className="course-button"
         onClick={() => (this.props.handleCourse(course)) }
       >
         {course.name}
-      </div>
+      </li>
     ));
     return classes;
   }
 
   render() {
     return (
-      <div className="col-md-3 container side-bar">
-        <div
-          className="home-button"
-          onClick={ () => (this.props.handleHome(true)) }
-        >
-          Home
+      <div className="sidebar">
+        <div className="sidebar-school">
+          <div className="sidebar-school-info">
+            <h4>Everest Prep Elementary</h4>
+          </div>
         </div>
-        {this.displayCourses()}
+        <ul className="sidebar-nav">
+          <li
+            className="home-button"
+            onClick={ () => (this.props.handleHome(true)) }
+          >
+            Home
+          </li>
+          <li
+            className="sidebar-section-header"
+          >
+            Classes
+          </li>
+          {this.displayCourses()}
+        </ul>
       </div>
     );
   }

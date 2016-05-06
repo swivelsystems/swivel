@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Chart = ({ data }) => (
-  <div className="row chart">
+  <div className="chart">
     I am a Chart.
     {data}
   </div>

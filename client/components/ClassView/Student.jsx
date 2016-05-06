@@ -7,7 +7,7 @@ class StudentTab extends React.Component {
   // get the current student and display their info
   render() {
     return (
-      <div className="row">
+      <div>
         <button
           type="button"
           className="btn btn-secondary back"
