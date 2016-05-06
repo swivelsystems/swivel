@@ -8,6 +8,9 @@ html, body {
 }
 
 .main-wrapper {
+  @media (max-width: $media-breakpoint-large) {
+    margin-top: $spacing-medium;
+  }
 }
 
 .card {
