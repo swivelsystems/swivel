@@ -20,7 +20,7 @@ describe('App', () => {
   it('renders a sidebar component', (done) => {
     const sidebar = TestUtils.findRenderedDOMComponentWithClass(
     app,
-    'side-bar');
+    'sidebar');
     expect(sidebar).toBeDefined();
     done();
   });
@@ -41,4 +41,3 @@ describe('App', () => {
     done();
   });
 });
-

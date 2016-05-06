@@ -5,8 +5,8 @@ $color-text-primary:   rgba(0, 0, 0, 0.90);
 $color-text-secondary: rgba(0, 0, 0, 0.60);
 $color-text-tertiary:  rgba(0, 0, 0, 0.30);
 
-$color-background: #34495E;
-$color-divider:    #F5F5F5;
+$color-background: #ECF0F1;
+$color-divider:    darken($color-background, 6%);
 $color-white:      #FFFFFF;
 $color-primary:    #3498DB;
 $color-success:    #2ECC71;

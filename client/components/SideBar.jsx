@@ -19,8 +19,8 @@ class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="col-md-3 container side-bar">
-        <ul>
+      <div className="sidebar">
+        <ul className="sidebar-nav">
           <li
             className="home-button"
             onClick={ () => (this.props.handleHome(true)) }

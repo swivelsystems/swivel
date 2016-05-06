@@ -1,0 +1,27 @@
+.sidebar-wrapper {
+  height: 100%;
+  padding-left: 0px;
+}
+
+.sidebar {
+  height: 100%;
+  z-index: 1000;
+  background-color: $color-background;
+}
+
+.sidebar-nav {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: .9;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+}
+
+.sidebar-nav li:hover {
+  background-color: darken($color-background, 6%);
+}
