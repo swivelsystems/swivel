@@ -2,12 +2,12 @@ import React from 'react';
 import actions from '../../actions/index.js';
 import { connect } from 'react-redux';
 
-class StudentTab extends React.Component {
+class Assignment extends React.Component {
   // when a single student is clicked
   // get the current student and display their info
   render() {
     return (
-      <div>
+      <div className="row">
         <button
           type="button"
           className="btn btn-secondary back"
@@ -15,33 +15,31 @@ class StudentTab extends React.Component {
         >
           Back
         </button>
-        {this.props.displayedStudent.name}
+        {this.props.displayedAssignment.name}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => (
-  {
-    displayedStudent: state.displayedStudent,
-  }
+  { displayedAssignment: state.displayedAssignment }
 );
 
 // go back to all students when back is pressed
 const mapDispatchToProps = (dispatch) => (
   {
     handleBackButton: () => {
-      dispatch(actions.switchTabs('Students'));
+      dispatch(actions.switchTabs('Assignments'));
     },
   }
 );
 
-StudentTab.propTypes = {
-  displayedStudent: React.PropTypes.object,
+Assignment.propTypes = {
+  displayedAssignment: React.PropTypes.object,
   handleBackButton: React.PropTypes.func,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StudentTab);
+)(Assignment);

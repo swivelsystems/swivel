@@ -4,16 +4,23 @@ module.exports = {
   goHome: (goHome) => (
     { type: types.GO_HOME, goHome }
   ),
-  updateCourse: (currentCourse) => (
-    { type: types.UPDATE_COURSE, currentCourse }
+  displayCourse: (displayedCourse) => (
+    { type: types.DISPLAY_COURSE, displayedCourse }
   ),
   getCourses: (courses) => (
-    { type: types.GET_COURSES, courses }
+    { type: types.GET_COURSES_DATA, courses }
+  ),
+  getCoursesError: (error) => (
+    { type: types.GET_COURSES_ERROR, error }
   ),
   switchTabs: (tabView) => (
     { type: types.SWITCH_TABS, tabView }
   ),
-  viewStudent: (currentStudent) => (
-    { type: types.VIEW_STUDENT, currentStudent }
+  displayStudent: (displayedStudent) => (
+    { type: types.DISPLAY_STUDENT, displayedStudent }
   ),
+  displayAssignment: (displayedAssignment) => (
+   { type: types.DISPLAY_ASSIGNMENT, displayedAssignment }
+  ),
+
 };

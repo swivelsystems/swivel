@@ -9,7 +9,7 @@ class SideBar extends React.Component {
       <li
         key={course.id}
         className="course-button"
-        onClick={() => (this.props.handleCourse(course)) }
+        onClick={() => (this.props.handleCourseClick(course)) }
       >
         {course.name}
       </li>
@@ -28,7 +28,7 @@ class SideBar extends React.Component {
         <ul className="sidebar-nav">
           <li
             className="home-button"
-            onClick={ () => (this.props.handleHome(true)) }
+            onClick={ () => (this.props.handleHomeClick(true)) }
           >
             Home
           </li>
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
   {
-    handleHome: (goHome) => {
+    handleHomeClick: (goHome) => {
       dispatch(actions.goHome(goHome));
     },
     /*
@@ -58,8 +58,8 @@ const mapDispatchToProps = (dispatch) => (
       make sure the assignments tab is the default view
       get out of home view
     */
-    handleCourse: (course) => {
-      dispatch(actions.updateCourse(course));
+    handleCourseClick: (course) => {
+      dispatch(actions.displayCourse(course));
       dispatch(actions.switchTabs('Assignments'));
       dispatch(actions.goHome(false));
     },
@@ -68,8 +68,8 @@ const mapDispatchToProps = (dispatch) => (
 
 SideBar.propTypes = {
   courses: React.PropTypes.array,
-  handleCourse: React.PropTypes.func,
-  handleHome: React.PropTypes.func,
+  handleCourseClick: React.PropTypes.func,
+  handleHomeClick: React.PropTypes.func,
 };
 
 export default connect(
