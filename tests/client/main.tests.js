@@ -18,7 +18,7 @@ describe('Main', () => {
     done();
   });
 
-  it('render Home container on when state goHome is true', (done) => {
+  xit('render Home container on when state goHome is true', (done) => {
     if (store.getState().goHome === true) {
       const home = TestUtils.findRenderedDOMComponentWithClass(
       main,

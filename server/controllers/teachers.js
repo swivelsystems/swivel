@@ -17,7 +17,20 @@ export const findById = (teacherId) => {
     .catch((err) => (
       reject(err)
     ));
-
   });
-
 };
+
+/*
+* Returns an array of all teacher objects.
+*/
+export function findAll() {
+
+}
+
+/*
+* Returns one teacher object that matches the email, if found.
+* Used for teacher login.
+*/
+export function findByEmail(email) {
+
+}
