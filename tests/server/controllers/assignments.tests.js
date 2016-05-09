@@ -1,4 +1,4 @@
-import { assignments } from '../../../server/controllers/assignments.js';
+import * as assignments from '../../../server/controllers/assignments.js';
 
 describe('Assignment Controller', () => {
   // it('should create new assignments', (done) => {

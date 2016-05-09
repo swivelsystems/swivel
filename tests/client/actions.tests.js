@@ -9,16 +9,16 @@ describe('actions', () => {
     expect(store.getState().goHome).toEqual(false);
   });
 
-  it('dispatch UPDATE_COURSE, state should change currentCourse state', () => {
+  it('dispatch DISPLAY_COURSE, state should change displayedCourse state', () => {
     // check original value so we don't have a falsy value if dispatch was successful
-    expect(store.getState().currentCourse).not.toEqual({ test: 'test' });
-    store.dispatch(actions.updateCourse({ test: 'test' }));
-    expect(store.getState().currentCourse).toEqual({ test: 'test' });
+    expect(store.getState().displayedCourse).not.toEqual({ test: 'test' });
+    store.dispatch(actions.displayCourse({ test: 'test' }));
+    expect(store.getState().displayedCourse).toEqual({ test: 'test' });
   });
 
-  it('dispatch GET_COURSES, state should change courses state', () => {
+  it('dispatch DISPLAY_COURSES, state should change courses state', () => {
     expect(store.getState().courses).not.toEqual([]);
-    store.dispatch(actions.getCourses([]));
+    store.dispatch(actions.receiveCourses([]));
     expect(store.getState().courses).toEqual([]);
   });
 
@@ -28,9 +28,9 @@ describe('actions', () => {
     expect(store.getState().tabView).toEqual('Students');
   });
 
-  it('dispatch VIEW_STUDENT, state should change currentStudent state', () => {
-    expect(store.getState().currentStudent).not.toEqual({ viewStudentTest: 'test' });
-    store.dispatch(actions.viewStudent({ viewStudentTest: 'test' }));
-    expect(store.getState().currentStudent).toEqual({ viewStudentTest: 'test' });
+  it('dispatch DISPLAY_STUDENT, state should change displayStudent state', () => {
+    expect(store.getState().displayedStudent).not.toEqual({ displayStudentTest: 'test' });
+    store.dispatch(actions.displayStudent({ displayStudentTest: 'test' }));
+    expect(store.getState().displayedStudent).toEqual({ displayStudentTest: 'test' });
   });
 });

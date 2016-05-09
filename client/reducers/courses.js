@@ -3,36 +3,53 @@ import * as types from '../constants/ActionTypes.js';
 const initialState = [
   {
     id: 1,
-    name: 'History Fall 2015',
+    name: 'TESTING',
     students: [
       { name: 'Zach', id: 12 },
       { name: 'Kim', id: 123 },
       { name: 'james', id: 3 },
     ],
-    assignments: ['Midterm', 'The Past 100 Years in the Middle East', 'The World Rulers'] },
+    assignments: [
+      { name: 'TESTING TIME', id: 12 },
+      { name: 'FAILBLOG', id: 123 },
+      { name: 'water blocks', id: 3 },
+    ],
+  },
+
   {
     id: 2,
-    name: 'English Fall 2015',
+    name: 'AJAX',
     students: [
       { name: 'Ho-el', id: 12 },
       { name: 'Kevin', id: 123 },
       { name: 'james', id: 3 },
     ],
-    assignments: ['Final', 'Hemingway and other Ex-Pats', 'The World of the Great Gastby'] },
+    assignments: [
+      { name: 'Final', id: 12 },
+      { name: 'n factorial zerios blah', id: 123 },
+      { name: 'stop it', id: 3 },
+    ],
+  },
+
   {
     id: 3,
-    name: 'Trigonometry Fall 2015',
+    name: 'REQUESTS',
     students: [
       { name: 'jack', id: 12 },
       { name: 'Mylani', id: 123 },
       { name: 'Hao', id: 3 },
     ],
-    assignments: ['Quiz1', 'Homework1', 'Homework2'] },
+    assignments: [
+      { name: 'Final', id: 12 },
+      { name: 'Hemingway and other Ex-Pats', id: 123 },
+      { name: 'The World of the Great Gastby', id: 3 },
+    ],
+  },
 ];
 
 export default function courses(state = initialState, action) {
   switch (action.type) {
-    case types.GET_COURSES:
+    case types.RECEIVE_COURSES_DATA:
       return action.courses;
     default:
       return state;

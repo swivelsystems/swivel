@@ -8,13 +8,17 @@ const initialState = {
     { name: 'jimbo', id: 123 },
     { name: 'testo', id: 3 },
   ],
-  assignments: ['code', 'all day err day', 'The World Rulers of computer science', 'allen turing'],
+  assignments: [
+      { name: 'Final', id: 12 },
+      { name: 'n factorial zerios blah', id: 123 },
+      { name: 'stop it', id: 3 },
+  ],
 };
 
 export default function currentCourse(state = initialState, action) {
   switch (action.type) {
-    case types.UPDATE_COURSE:
-      return action.currentCourse;
+    case types.DISPLAY_COURSE:
+      return action.displayedCourse;
     default:
       return state;
   }

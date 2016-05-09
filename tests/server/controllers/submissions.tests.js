@@ -5,9 +5,9 @@ describe('Submission Controller', () => {
   //   done();
   // });
 
-  it('should successfully retrieve existing submissions', (done) => {
-    done();
-  });
+  // it('should successfully retrieve existing submissions', (done) => {
+  //   done();
+  // });
 
   // it('should update existing submissions', (done) => {
   //   done();

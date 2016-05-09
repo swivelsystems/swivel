@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../db/db.js';
 
-const Submission = db.define('submission',
+const Submission = db.define('submissions',
   {
     id: {
       type: Sequelize.UUID,
@@ -13,7 +13,7 @@ const Submission = db.define('submission',
     },
     submissionDate: {
       type: Sequelize.DATE,
-      field: 'submission_date',
+      field: 'submissionDate',
     },
   },
   {
