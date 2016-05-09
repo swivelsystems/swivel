@@ -1,4 +1,4 @@
-import { courses } from '../../../server/controllers/courses.js';
+import * as courses from '../../../server/controllers/courses.js';
 
 describe('Course Controller', () => {
   // it('should create new courses', (done) => {
@@ -38,6 +38,8 @@ describe('Course Controller', () => {
   //     done();
   //   });
   // });
+
+
 
   // it('should update existing courses', (done) => {
   //   done();

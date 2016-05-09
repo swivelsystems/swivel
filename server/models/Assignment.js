@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../db/db.js';
 
-const Assignment = db.define('Assignment',
+const Assignment = db.define('assignments',
   {
     id: {
       type: Sequelize.UUID,
@@ -22,7 +22,7 @@ const Assignment = db.define('Assignment',
     },
     dueDate: {
       type: Sequelize.DATE,
-      field: 'due_date',
+      field: 'duedate',
     },
   },
   {
