@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ClassContainer from './ClassView/ClassContainer.jsx';
 import HomeContainer from './HomeView/HomeContainer.jsx';
 
-class Main extends React.Component {
+class Main extends Component {
 
   handleWhichView() {
     if (this.props.goHome) {
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => (
 );
 
 Main.propTypes = {
-  goHome: React.PropTypes.bool,
+  goHome: PropTypes.bool,
 };
 
 export default connect(

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Chart = ({ data }) => (
   <div className="chart">
@@ -9,6 +9,6 @@ const Chart = ({ data }) => (
 );
 
 Chart.propTypes = {
-  data: React.PropTypes.any,
+  data: PropTypes.any,
 };
 export default Chart;
