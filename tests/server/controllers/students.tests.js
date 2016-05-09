@@ -5,13 +5,16 @@ describe('Student Controller', () => {
   //   done();
   // });
 
-  it('should successfully retrieve existing students', (done) => {
-    done();
-  });
+  // it('should successfully retrieve existing students', (done) => {
+  //   new Promise((resolve) => {
+  //     resolve(students.findById(5))
+  //   }
+  //   done();
+  // });
 
-  it('should successfully retrieve a student\'s grade', (done) => {
-    done();
-  });
+  // it('should successfully retrieve a student\'s grade', (done) => {
+  //   done();
+  // });
 
   // it('should update existing students', (done) => {
   //   done();
