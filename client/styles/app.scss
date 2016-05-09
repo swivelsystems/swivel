@@ -1,0 +1,20 @@
+html, body {
+  background-color: $color-background;
+  font-family: $font-primary;
+}
+
+.container-wrapper {
+  margin-top: $spacing-huge;
+}
+
+.main-wrapper {
+  @media (max-width: $media-breakpoint-large) {
+    margin-top: $spacing-medium;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  padding: $spacing-huge;
+  border: 1px solid $color-divider;
+}

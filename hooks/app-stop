@@ -1,0 +1,3 @@
+#!/bin/bash
+forever stopall
+rm -f /home/ec2-user/swivel/client/dist/bundle.js

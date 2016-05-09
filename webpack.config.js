@@ -1,3 +1,6 @@
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 // webpack.config.js exports a configuration object in the CommonJS pattern.
 module.exports = {
 
@@ -32,14 +35,18 @@ module.exports = {
   // when it scans a `require` statement. 99% of the time, `loaders` will be the only
   // thing you specify inside of `module`.
   module: {
-
+    noParse: /node_modules\/json-schema\/lib\/validate\.js/,
     // `loaders` lets you plug in programs that will transform your source files
     // when Webpack loads them with a `require` statement. A lot of the magic of
     // Webpack is done using loaders. In this example, there's one loader declared
     // to use Babel to transform ES6 and JSX into ES5.
-    // 
+    //
     // `loaders` is an array of objects.
     loaders: [
+      {
+        include: /\.json$/,
+        loaders: ['json-loader'],
+      },
       {
         // `test` is a test condition that causes the loader to be applied when a
         // filename passes. In this case, when any filename contains either `.js` or `.jsx`
@@ -63,21 +70,40 @@ module.exports = {
         loader: 'babel',
 
         // `query` lets you pass options to the loader's process. The options that a loader takes
-        // are specific to each loader. In this case, `babel-loader` is being told to use the 'react'
-        // and 'es2015' presets when it transforms files. `query` becomes a query string, similar
-        // to what you see in request URLs, and the same thing could be achieved by writing this above:
+        // are specific to each loader. In this case, `babel-loader` is being told to use the
+        // 'react' and 'es2015' presets when it transforms files. `query` becomes a query
+        // string, similar to what you see in request URLs, and the same thing could be achieved
+        // by writing this above:
         // loader: 'babel?presets[]=react,presets[]=es2015'
         query: {
           presets: ['react', 'es2015'],
         },
       },
-
       {
-        test: /\.jsx?$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       },
     ],
+  },
+  resolve: {
+    extensions: ['', '.scss', '.js', 'jsx', '.json'],
+    packageMains: ['browser', 'web', 'browserify', 'main', 'style'],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('test'),
+    }),
+    new ExtractTextPlugin('bundle.css'),
+  ],
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty',
+    fs: 'empty',
   },
 
 };
