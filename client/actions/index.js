@@ -22,5 +22,8 @@ module.exports = {
   displayAssignment: (displayedAssignment) => (
    { type: types.DISPLAY_ASSIGNMENT, displayedAssignment }
   ),
+  toggleDemoType: (demoType) => (
+    { type: types.TOGGLE_DEMO_TYPE, demoType }
+  ),
 
 };
