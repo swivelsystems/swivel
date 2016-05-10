@@ -5,9 +5,9 @@ describe('Teacher Controller', function() {
   //   done();
   // });
 
-  it('should successfully retrieve existing teachers', (done) => {
-    done();
-  });
+  // it('should successfully retrieve existing teachers', (done) => {
+  //   done();
+  // });
 
   // it('should update existing teachers', (done) => {
   //   done();

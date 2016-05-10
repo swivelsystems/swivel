@@ -73,8 +73,8 @@ There are two API endpoints that serve data for students and teachers.
 
 | API Endpoint        | Description           |
 | :------------- |:-------- |
-| /api/classes/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. |
-| /api/classes/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
+| /api/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. |
+| /api/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
 
 ### Schema Design
 ![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/U91qHnb.png](http://i.imgur.com/n70VL9F.png)
