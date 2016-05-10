@@ -7,7 +7,7 @@
     "test": "karma start",
     "start": "webpack-dev-server --inline --hot",
     "dev-start": "webpack -d && babel-node server/server.js & webpack --watch",
-    "prod-start": "webpack && PORT=80 babel-node start server/server.js"
+    "prod-start": "webpack && babel-node server/server.js"
   },
   "repository": {
     "type": "git",
