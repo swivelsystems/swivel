@@ -1,5 +1,4 @@
 import React from 'react';
-import SideBar from './SideBar.jsx';
 import Main from './Main.jsx';
 import Nav from './Nav.jsx';
 import Landing from './Landing.jsx';
