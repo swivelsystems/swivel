@@ -5,9 +5,6 @@
 /usr/local/bin/npm install -g jasmine
 /usr/local/bin/npm install -g forever
 /usr/local/bin/npm install -g babel-cli
-/usr/local/bin/npm install -g mysql
-
-
 
 cd /home/ec2-user/sqlpwd
 sudo mkdir /home/ec2-user/swivel/server/config
@@ -16,5 +13,3 @@ sudo cp mysqlsetup.js /home/ec2-user/swivel/server/config
 cd /home/ec2-user/swivel
 /usr/local/bin/npm install
 /usr/local/bin/npm install --only=dev
-
-
