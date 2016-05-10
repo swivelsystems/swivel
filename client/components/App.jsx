@@ -7,7 +7,7 @@ import Landing from './Landing.jsx';
 const App = (props) => (
   <div>
     <Nav />
-    { true ? <Main /> : <Landing /> }
+    <Main />
   </div>
 );
 

@@ -1,7 +1,9 @@
 import React from 'react';
+import Nav from './Nav.jsx';
 
 const Landing = () => (
   <div>
+     <Nav />
      <div className="intro-header">
          <div className="container">
              <div className="row">
