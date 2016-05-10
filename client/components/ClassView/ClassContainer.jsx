@@ -7,8 +7,6 @@ import BarChart from './BarChart.jsx';
 const ClassContainer = () => (
   <div className="course card">
     <DoughnutChart />
-    <LineChart />
-    <BarChart />
     <Info />
   </div>
 );
