@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-// import styles from './styles/entry.scss';
+import styles from './styles/entry.scss';
 import actions from './actions/index.js';
 import axios from 'axios';
 const store = configureStore();

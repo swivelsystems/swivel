@@ -5,3 +5,4 @@ server/config/mysqlsetup.js
 client/.DS_Store
 .DS_Store
 .travis.yml
+.appspec.yml
