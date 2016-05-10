@@ -17,7 +17,7 @@ describe('ClassContainer', () => {
     done();
   });
 
-  it('renders a Chart component', (done) => {
+  xit('renders a Chart component', (done) => {
     const chart = TestUtils.findRenderedDOMComponentWithClass(
     classContainer,
     'chart');
