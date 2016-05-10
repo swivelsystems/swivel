@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Link } from 'react-router';
 import App from './components/App.jsx';
+import Landing from './components/Landing.jsx';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import styles from './styles/entry.scss';
@@ -30,7 +32,10 @@ loadData(3);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Route path="/" component={Landing} />
+      <Route path="/demo" component={App} />
+    </Router>
   </Provider>,
   document.getElementById('app')
 );
