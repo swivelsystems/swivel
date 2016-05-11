@@ -1,6 +1,6 @@
 .announcement {
   @extend .card;
-  padding: $spacing-medium;
+  padding: $spacing-medium $spacing-large;
   margin-bottom: $spacing-medium;
   position: relative;
 }

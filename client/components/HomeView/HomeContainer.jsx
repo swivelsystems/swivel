@@ -1,5 +1,6 @@
 import React from 'react';
 import AnnouncementsContainer from './AnnouncementsContainer.jsx';
+import DeadlinesContainer from './DeadlinesContainer.jsx';
 
 const HomeContainer = () => (
   <div className="home-container">
@@ -18,11 +19,7 @@ const HomeContainer = () => (
           <AnnouncementsContainer />
         </div>
         <div className="col-md-4">
-          <h4>Upcoming Deadlines</h4>
-          <hr />
-          <div className="card">
-            This is an upcoming deadline.
-          </div>
+          <DeadlinesContainer />
         </div>
       </div>
     </div>

@@ -1,0 +1,16 @@
+.deadline {
+  border-bottom: 1px solid $color-divider;
+  padding-bottom: $spacing-medium;
+  margin: $spacing-medium 0;
+}
+
+.deadline-date-and-course {
+  color: $color-text-secondary;
+  font-size: $font-size-small;
+  margin: $spacing-tiny 0 0 0;
+}
+
+.deadline-assignment-name {
+  font-size: $font-size-medium;
+  margin: 0;
+}
