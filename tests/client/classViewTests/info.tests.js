@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Info from '../../../client/components/ClassView/Info.jsx';
 const store = configureStore();
 
-describe('Info', () => {
+xdescribe('Info', () => {
   const info = TestUtils.renderIntoDocument(
     <Provider store={store}>
       <Info />

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import AllStudentsTab from '../../../client/components/ClassView/AllStudentsTab.jsx';
 const store = configureStore();
 
-describe('AllStudentsTab', () => {
+xdescribe('AllStudentsTab', () => {
   const allStudentsTab = TestUtils.renderIntoDocument(
     <Provider store={store}>
       <AllStudentsTab />

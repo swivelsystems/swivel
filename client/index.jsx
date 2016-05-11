@@ -11,7 +11,7 @@ import axios from 'axios';
 const store = configureStore();
 
 const loadData = (id) => {
-  const url = `http://localhost:8080/test/${id}`;
+  const url = `http://localhost:8080/api/teachers/${id}`;
   return axios({
     url,
     timeout: 20000,
@@ -20,7 +20,8 @@ const loadData = (id) => {
     data: id,
   })
   .then((response) => {
-    store.dispatch(actions.receiveCourses(response.data));
+    console.log('response', response);
+    store.dispatch(actions.receiveCourses(response.data.courses));
   })
   .catch((error) => {
     store.dispatch(actions.receiveCoursesError(error));
@@ -28,7 +29,7 @@ const loadData = (id) => {
 };
 
 // load data with teacher id, made it up but right now can change once we have auth
-loadData(3);
+loadData(2);
 
 ReactDOM.render(
   <Provider store={store}>

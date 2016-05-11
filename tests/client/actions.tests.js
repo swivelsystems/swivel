@@ -9,14 +9,14 @@ describe('actions', () => {
     expect(store.getState().goHome).toEqual(false);
   });
 
-  it('dispatch DISPLAY_COURSE, state should change displayedCourse state', () => {
+  xit('dispatch DISPLAY_COURSE, state should change displayedCourse state', () => {
     // check original value so we don't have a falsy value if dispatch was successful
     expect(store.getState().displayedCourse).not.toEqual({ test: 'test' });
     store.dispatch(actions.displayCourse({ test: 'test' }));
     expect(store.getState().displayedCourse).toEqual({ test: 'test' });
   });
 
-  it('dispatch DISPLAY_COURSES, state should change courses state', () => {
+  xit('dispatch DISPLAY_COURSES, state should change courses state', () => {
     expect(store.getState().courses).not.toEqual([]);
     store.dispatch(actions.receiveCourses([]));
     expect(store.getState().courses).toEqual([]);
