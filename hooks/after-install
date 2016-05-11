@@ -8,8 +8,13 @@
 
 cd /home/ec2-user/sqlpwd
 sudo mkdir /home/ec2-user/swivel/server/config
+sudo mkdir /home/ec2-user/swivel/node_modules/node-sass/vendor/darwin-x64-47
+
 sudo cp mysqlsetup.js /home/ec2-user/swivel/server/config
+sudo cp binding.node /home/ec2-user/swivel/node_modules/node-sass/vendor/darwin-x64-47
 
 cd /home/ec2-user/swivel
 /usr/local/bin/npm install
+/usr/local/bin/npm rebuild node-sass
+
 /usr/local/bin/npm install --only=dev
