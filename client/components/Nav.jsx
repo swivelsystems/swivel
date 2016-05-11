@@ -36,7 +36,7 @@ class Nav extends Component {
               className="btn nav-btn"
               onClick={ this.handleClick.bind(this) }
             >
-            Try { this.displayOtherDemoType() } Demo!
+            View as { this.displayOtherDemoType() }
             </a>
       </nav>
     );

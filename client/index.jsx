@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
 import App from './components/App.jsx';
 import Landing from './components/Landing.jsx';
 import { Provider } from 'react-redux';
@@ -33,7 +33,7 @@ loadData(2);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={hashHistory}>
       <Route path="/" component={Landing} />
       <Route path="/demo" component={App} />
     </Router>
