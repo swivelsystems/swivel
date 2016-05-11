@@ -14,10 +14,11 @@ requestMethods.loadTeacherData(3, (error, teacherData) => {
   if (error) {
     return 'Server Could Not load teacher information ${error}';
   }
-  return store.dispatch(actions.receiveCourses(teacherData.courses));
+  store.dispatch(actions.receiveCourses(teacherData.courses));
+  // sketchy to move this in here? I can move it out if necessary.
+  // this just makes the onload not happen until the data is ready
 });
 // load data with teacher id, made it up but right now can change once we have auth
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -27,3 +28,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
