@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes.js';
 
-const initialState = 'Teacher';
+const initialState = 'teacher';
 
 export default function displayStudent(state = initialState, action) {
   switch (action.type) {

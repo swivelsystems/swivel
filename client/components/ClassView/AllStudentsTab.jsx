@@ -10,7 +10,6 @@ class AllStudentsTab extends Component {
       <div
         key={student.id}
         className="card"
-        // refractor with bind rather than wrapper function
         onClick={ () => this.props.handleClickedStudent(student)}
       >
         <div key="studentCardBlock" className="card-block">

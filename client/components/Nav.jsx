@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 class Nav extends Component {
   handleClick() {
     let type = '';
-    if (this.props.demoType === 'Student') {
-      type = 'Teacher';
+    if (this.props.demoType === 'student') {
+      type = 'teacher';
     } else {
-      type = 'Student';
+      type = 'student';
     }
     this.props.handleDemoToggle(type);
   }
 
   displayOtherDemoType() {
     let otherDemo = '';
-    if (this.props.demoType === 'Student') {
+    if (this.props.demoType === 'student') {
       otherDemo = 'Teacher';
     } else {
       otherDemo = 'Student';
@@ -36,7 +36,7 @@ class Nav extends Component {
               className="btn nav-btn"
               onClick={ this.handleClick.bind(this) }
             >
-            Try { this.displayOtherDemoType() } Demo!
+            View as { this.displayOtherDemoType() }
             </a>
       </nav>
     );
