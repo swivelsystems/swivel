@@ -1,21 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 import actions from '../actions/index.js';
 import { connect } from 'react-redux';
+import requestMethods from '../utils/requestMethods.js';
 
 class Nav extends Component {
   handleClick() {
     let type = '';
-    if (this.props.demoType === 'Student') {
-      type = 'Teacher';
+    if (this.props.demoType === 'student') {
+      type = 'teacher';
     } else {
-      type = 'Student';
+      type = 'student';
     }
     this.props.handleDemoToggle(type);
+    this.props.handleHttpRequests(type);
   }
 
   displayOtherDemoType() {
     let otherDemo = '';
-    if (this.props.demoType === 'Student') {
+    if (this.props.demoType === 'student') {
       otherDemo = 'Teacher';
     } else {
       otherDemo = 'Student';
@@ -36,7 +38,7 @@ class Nav extends Component {
               className="btn nav-btn"
               onClick={ this.handleClick.bind(this) }
             >
-            Try { this.displayOtherDemoType() } Demo!
+            View as { this.displayOtherDemoType() }
             </a>
       </nav>
     );
@@ -52,12 +54,30 @@ const mapDispatchToProps = (dispatch) => (
     handleDemoToggle: (demoType) => {
       dispatch(actions.toggleDemoType(demoType));
     },
+
+    handleHttpRequests: (demoType) => {
+      const callback = (error, data) => {
+        if (error) {
+          return 'Server Could Not load teacher information ${error}';
+        }
+        dispatch(actions.receiveCourses(data.courses));
+        // we dont need this but I thought going back to home would be best practice
+        dispatch(actions.goHome(true));
+      };
+
+      if (demoType === 'teacher') {
+        requestMethods.loadTeacherData(2, callback);
+      } else {
+        requestMethods.loadStudentData(1, callback);
+      }
+    },
   }
 );
 
 Nav.propTypes = {
   demoType: PropTypes.string,
   handleDemoToggle: PropTypes.func,
+  handleHttpRequests: PropTypes.func,
 };
 
 export default connect(
