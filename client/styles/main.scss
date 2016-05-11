@@ -15,8 +15,13 @@ html, body {
 
 .card {
   background-color: $color-white;
-  padding: $spacing-xlarge;
+  padding: $spacing-large;
   border: 1px solid $color-divider;
+  margin: $spacing-medium 0;
 }
 
-
+.card-clickable:hover {
+  border: 1px solid darken($color-divider, .06);
+  box-shadow: 1px 1px 1.5px 1.5px rgba(0,0,0,0.06);
+  cursor: pointer;
+}
