@@ -7,7 +7,7 @@ import Student from './Student.jsx';
 import Assignment from './Assignment.jsx';
 
 
-class Info extends Component {
+class CourseInfo extends Component {
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
     if (this.props.tabView === 'Students') {
@@ -22,26 +22,24 @@ class Info extends Component {
 
   render() {
     return (
-      <div className="info">
-        <ul className="nav nav-tabs">
+      <div className="course-info">
+        <ul className="course-info-nav nav nav-tabs">
           <li
-            className="nav-item assignments-tab"
+            role="presentation"
+            className="course-info-nav-tab assignments-tab"
             onClick={ () => this.props.handleTab('Assignments') }
           >
-            <a className="nav-link" role="tab">Assignments</a>
+            <a>View Assignments</a>
           </li>
           <li
-            className="nav-item students-tab"
+            role="presentation"
+            className="course-info-nav-tab students-tab"
             onClick={ () => this.props.handleTab('Students') }
           >
-            <a
-              className="nav-link"
-              role="tab"
-            >
-            Students</a>
+            <a>View Students</a>
           </li>
         </ul>
-        <div className="tab-content">
+        <div className="course-info-content">
           { this.handleTabs() }
         </div>
       </div>
@@ -61,7 +59,7 @@ const mapDispatchToProps = (dispatch) => (
   }
 );
 
-Info.propTypes = {
+CourseInfo.propTypes = {
   tabView: PropTypes.string,
   handleTab: PropTypes.func,
 };
@@ -69,4 +67,4 @@ Info.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Info);
+)(CourseInfo);

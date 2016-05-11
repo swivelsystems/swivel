@@ -1,18 +1,16 @@
 import React from 'react';
-import LineChart from './LineChart.jsx';
 import DoughnutChart from './DoughnutChart.jsx';
-import Info from './Info.jsx';
-import BarChart from './BarChart.jsx';
+import CourseInfo from './CourseInfo.jsx';
 
-const ClassContainer = () => (
+const CourseContainer = () => (
   <div className="container-fluid">
     <div>
         <h4>Course Health</h4>
         <hr />
         <DoughnutChart />
     </div>
-    <Info />
+    <CourseInfo />
   </div>
 );
 
-export default ClassContainer;
+export default CourseContainer;

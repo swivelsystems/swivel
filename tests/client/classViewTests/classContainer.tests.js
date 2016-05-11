@@ -2,24 +2,24 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils'; // Alternately could use the DOM API
 import configureStore from '../../../client/store/configureStore';
 import { Provider } from 'react-redux';
-import ClassContainer from '../../../client/components/ClassView/ClassContainer.jsx';
+import CourseContainer from '../../../client/components/ClassView/CourseContainer.jsx';
 const store = configureStore();
 
-xdescribe('ClassContainer', () => {
-  const classContainer = TestUtils.renderIntoDocument(
+xdescribe('CourseContainer', () => {
+  const courseContainer = TestUtils.renderIntoDocument(
     <Provider store={store}>
-      <ClassContainer />
+      <CourseContainer />
     </Provider>
   );
 
   it('renders without problems', (done) => {
-    expect(classContainer).toBeDefined();
+    expect(courseContainer).toBeDefined();
     done();
   });
 
   xit('renders a Chart component', (done) => {
     const chart = TestUtils.findRenderedDOMComponentWithClass(
-    classContainer,
+    courseContainer,
     'chart');
     expect(chart).toBeDefined();
     done();
@@ -27,7 +27,7 @@ xdescribe('ClassContainer', () => {
 
   it('renders a Info component', (done) => {
     const info = TestUtils.findRenderedDOMComponentWithClass(
-    classContainer,
+    courseContainer,
     'info');
     expect(info).toBeDefined();
     done();

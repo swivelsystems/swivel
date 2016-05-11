@@ -72,7 +72,7 @@ class DoughnutChart extends Component {
         <div className="doughnut-container col-md-4">
           <Doughnut data={participationData} options={chartOptions} />
           <div className="doughnut-container-info">
-            <div className="doughnut-container-info-title">Students Participating Daily</div>
+            <div className="doughnut-container-info-title">Daily Participation</div>
             <div className="doughnut-container-info-description">Shows the number of students who participate at least once per day.</div>
           </div>
         </div>
