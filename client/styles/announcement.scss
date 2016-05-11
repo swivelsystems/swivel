@@ -1,0 +1,12 @@
+.announcement {
+  @extend .card;
+  padding: $spacing-medium;
+  margin-bottom: $spacing-medium;
+  position: relative;
+}
+
+.announcement-label {
+  color: $color-text-tertiary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-medium;
+}
