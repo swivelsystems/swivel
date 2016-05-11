@@ -8,7 +8,7 @@ const HomeContainer = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-12 home-container-chart">
-          <h4>Chart</h4>
+          <h4>Attendance and Tardiness</h4>
           <hr />
           <LineChart />
         </div>
