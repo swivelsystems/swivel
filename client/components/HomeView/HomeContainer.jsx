@@ -1,6 +1,7 @@
 import React from 'react';
 import AnnouncementsContainer from './AnnouncementsContainer.jsx';
 import DeadlinesContainer from './DeadlinesContainer.jsx';
+import LineChart from './../ClassView/LineChart.jsx';
 
 const HomeContainer = () => (
   <div className="home-container">
@@ -9,9 +10,7 @@ const HomeContainer = () => (
         <div className="col-md-12 home-container-chart">
           <h4>Chart</h4>
           <hr />
-          <p>This is the chart placeholder it will live right here
-              and look awesome. Oh, what a chart. What a great chart.
-          </p>
+          <LineChart />
         </div>
       </div>
       <div className="row home-container-announcements-deadlines">

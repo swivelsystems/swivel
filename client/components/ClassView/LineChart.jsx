@@ -40,12 +40,10 @@ class LineChart extends Component {
 
     return (
       <div>
-        <Chart data={lineData} options={lineOptions} width={700} height={250} />
-        <Chart data={lineData} options={lineOptions} width={700} height={250} />
+        <Chart data={lineData} options={lineOptions} width={665} height={250} />
       </div>
     );
   }
 }
 
 export default LineChart;
-
