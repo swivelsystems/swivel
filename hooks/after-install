@@ -6,12 +6,14 @@
 /usr/local/bin/npm install -g forever
 /usr/local/bin/npm install -g babel-cli
 /usr/local/bin/npm install -g mysql
+/usr/local/bin/npm install babel-preset-es2015
+/usr/local/bin/npm install babel-preset-react
 
 
-cd /home/ec2-user/sqlpwd
+cd /home/ec2-user/constants
 sudo mkdir /home/ec2-user/swivel/server/config
 sudo mkdir /home/ec2-user/swivel/node_modules/node-sass/vendor/darwin-x64-47
-
+sudo cp -f server.js /home/ec2-user/swivel/server/build
 sudo cp mysqlsetup.js /home/ec2-user/swivel/server/config
 sudo cp binding.node /home/ec2-user/swivel/node_modules/node-sass/vendor/darwin-x64-47
 
