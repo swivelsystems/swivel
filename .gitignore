@@ -5,3 +5,4 @@ client/.DS_Store
 .DS_Store
 npm-debug.log
 client/dist
+server/build
