@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import ClassContainer from '../../../client/components/ClassView/ClassContainer.jsx';
 const store = configureStore();
 
-describe('ClassContainer', () => {
+xdescribe('ClassContainer', () => {
   const classContainer = TestUtils.renderIntoDocument(
     <Provider store={store}>
       <ClassContainer />
