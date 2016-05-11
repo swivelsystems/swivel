@@ -6,8 +6,10 @@
   "scripts": {
     "test": "karma start",
     "start": "webpack-dev-server --inline --hot",
+    "clean-build": "rm -rf server/build && mkdir server/build",
+    "build-server": "babel -d ./server/build ./server",
     "dev-start": "webpack -d && babel-node server/server.js & webpack --watch",
-    "prod-start": "webpack && babel-node server/server.js"
+    "prod-start": "npm run clean-build && npm run build-server && webpack && PORT=80 forever server/build/server.js"
   },
   "repository": {
     "type": "git",
