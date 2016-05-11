@@ -6,6 +6,7 @@
 /usr/local/bin/npm install -g forever
 /usr/local/bin/npm install -g babel-cli
 /usr/local/bin/npm install -g mysql
+/usr/local/bin/npm install mysql
 /usr/local/bin/npm install babel-preset-es2015
 /usr/local/bin/npm install babel-preset-react
 

@@ -45,6 +45,7 @@ export const retrieve = (req, res) => {
   .then((arrOfCourseNames) => {
     for (let i = 0; i < arrOfCourseNames.length; i++) {
       masterResults.courses[i].name = arrOfCourseNames[i][0].name;
+      masterResults.courses[i].description = arrOfCourseNames[i][0].description;
       masterResults.courses[i].announcements = [];
       masterResults.courses[i].assignments = [];
     }
@@ -82,6 +83,7 @@ export const retrieve = (req, res) => {
           dueDate: arrOfAssignments[i][j].dueDate,
           weight: arrOfAssignments[i][j].weight,
           courseId: arrOfAssignments[i][j].courseId,
+          description: arrOfAssignments[i][j].description,
         });
       }
     }

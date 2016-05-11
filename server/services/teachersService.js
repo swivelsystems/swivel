@@ -61,6 +61,7 @@ export const retrieve = (req, res) => {
           dueDate: arrOfAssignments[i][j].dueDate,
           weight: arrOfAssignments[i][j].weight,
           courseId: arrOfAssignments[i][j].courseId,
+          description: arrOfAssignments[i][j].description,
         });
       }
     }
