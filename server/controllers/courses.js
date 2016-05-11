@@ -23,7 +23,7 @@ export const findAllByStudent = (studentId) => {
 
 export const findNameByCourseId = (courseId) => {
   return new Promise((resolve, reject) => {
-    db.query('SELECT name FROM `courses` WHERE id = :courseId', {
+    db.query('SELECT name, description FROM `courses` WHERE id = :courseId', {
       replacements: {
         courseId: courseId,
       },
@@ -47,7 +47,7 @@ export const findAllByTeacher = (teacherId) => {
       where: {
         teacherId: teacherId,
       },
-      attributes: ['id', 'name'],
+      attributes: ['id', 'name', 'description'],
     })
     .then((data) => {
       const results = [];

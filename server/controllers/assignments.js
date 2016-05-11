@@ -11,7 +11,7 @@ export function findAllByCourse(courseId) {
       },
       // i think sequelize automatically puts the underscore
       // between due and date for due_date
-      attributes: ['id', 'name', 'dueDate', 'weight', 'courseId'],
+      attributes: ['id', 'name', 'dueDate', 'weight', 'courseId', 'description'],
     })
     .then((data) => {
       let results = [];
