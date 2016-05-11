@@ -10,7 +10,7 @@ const authenticate = require('./controllers/auth.js').authenticate;
 const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 app.use('/api/students', studentsRouter);
 app.use('/api/teachers', teachersRouter);
