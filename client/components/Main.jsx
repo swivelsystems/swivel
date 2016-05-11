@@ -31,12 +31,14 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  { goHome: state.goHome }
-);
+const mapStateToProps = (state) => ({
+  goHome: state.goHome,
+  demoType: state.demoType,
+});
 
 Main.propTypes = {
   goHome: PropTypes.bool,
+  demoType: PropTypes.string,
 };
 
 export default connect(
