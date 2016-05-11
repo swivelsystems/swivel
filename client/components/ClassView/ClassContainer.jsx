@@ -5,11 +5,14 @@ import Info from './Info.jsx';
 import BarChart from './BarChart.jsx';
 
 const ClassContainer = () => (
-  <div className="course card">
-    <DoughnutChart />
+  <div className="container-fluid">
+    <div>
+        <h4>Course Health</h4>
+        <hr />
+        <DoughnutChart />
+    </div>
     <Info />
   </div>
 );
 
 export default ClassContainer;
-
