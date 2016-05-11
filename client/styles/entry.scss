@@ -3,10 +3,13 @@
  * New styles must be required here to be included in the bundle.
  */
 @import 'styleguide';
+@import 'custom';
+
 @import 'navbar';
+@import 'landing';
+@import 'main';
 @import 'sidebar';
 @import 'classContainer';
 @import 'doughnutChart';
-@import 'main';
-@import 'landing';
 @import 'announcement';
+@import 'home';

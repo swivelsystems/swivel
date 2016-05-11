@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 const AnnouncementsContainer = (props) => (
     <div className="announcements-container">
       <h4>Announcements</h4>
+      <hr />
       { props.courses.map((course) => (
         course.announcements.map((announcement) => (
           <Announcement content={announcement} />
