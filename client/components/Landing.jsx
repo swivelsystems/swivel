@@ -14,10 +14,7 @@ const Landing = () => (
                          <hr className="intro-divider" />
                          <ul className="list-inline">
                              <li>
-                                 <a href="https://twitter.com/SBootstrap" className="btn btn-success btn-lg">Try Demo</a>
-                             </li>
-                             <li>
-                                 <a href="https://github.com/IronSummitMedia/startbootstrap" className="btn btn-default btn-lg">Login</a>
+                                 <a href="/#/demo" className="btn btn-success btn-lg">Try Demo</a>
                              </li>
                          </ul>
                      </div>
@@ -33,12 +30,12 @@ const Landing = () => (
                      <hr className="section-heading-spacer" />
                      <div className="clearfix"></div>
                      <h2 className="section-heading">
-                       Death to the Stock Photo:<br />Special Thanks
+                       Comprehensive Metrics:<br />Level Up Learning
                      </h2>
-                     <p className="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                     <p className="lead">Focus less on number-crunching and focus more on your students. Swivel visualizes multiple dimensions of student engagement and performance, including attendance, participation, and timeliness. We'll crunch the numbers so you <i>don't</i> need to do the math.</p>
                  </div>
                  <div className="col-lg-5 col-lg-offset-2 col-sm-6">
-                     <img className="img-responsive" src="//placekitten.com/500/500" alt="" />
+                     <img className="img-responsive landing-page-image" src="http://imgur.com/cBokVKc.png" alt="" />
                  </div>
              </div>
          </div>
@@ -50,11 +47,11 @@ const Landing = () => (
                  <div className="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                      <hr className="section-heading-spacer" />
                      <div className="clearfix"></div>
-                     <h2 className="section-heading">3D Device Mockups<br />by PSDCovers</h2>
-                     <p className="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                     <h2 className="section-heading">High Touch, Low Effort</h2>
+                     <p className="lead">Communication features like Announcements and real-time chat make it easy to provide just-in-time assistance to your students. Office hours communicate when you'll be accessible, and when you won't be.</p>
                  </div>
                  <div className="col-lg-5 col-sm-pull-6  col-sm-6">
-                     <img className="img-responsive" src="//placekitten.com/500/500" alt="" />
+                   <img className="img-responsive landing-page-image" src="http://imgur.com/g3aVSo8.png" alt="" />
                  </div>
              </div>
          </div>
@@ -67,12 +64,12 @@ const Landing = () => (
                      <hr className="section-heading-spacer" />
                      <div className="clearfix"></div>
                      <h2 className="section-heading">
-                       Google Web Fonts and<br />Font Awesome Icons
+                       Know Your Classroom
                      </h2>
-                     <p className="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                     <p className="lead">Accurately track your student's academic performance and identify at-risk students before it's too late. Swivel makes it easy to understand your classes and students at a glance.</p>
                  </div>
                  <div className="col-lg-5 col-lg-offset-2 col-sm-6">
-                     <img className="img-responsive" src="//placekitten.com/500/500" alt="" />
+                     <img className="img-responsive landing-page-image" src="http://imgur.com/87ucR4o.png" alt="" />
                  </div>
              </div>
          </div>
@@ -100,7 +97,7 @@ const Landing = () => (
                          </li>
                      </ul>
                      <p className="copyright text-muted small">
-                       Copyright &copy; Your Company 2014. All Rights Reserved
+                       Copyright &copy; Swivel Systems 2016. All Rights Reserved
                      </p>
                  </div>
              </div>

@@ -11,7 +11,7 @@ class DoughnutChart extends Component {
       segmentShowStroke: true,
       responsive: true,
       animation: false,
-      segmentStrokeColor : "#ffffff",
+      segmentStrokeColor : "#ECF0F1",
       segmentStrokeWidth : 1,
     };
 

@@ -31,15 +31,21 @@ class Nav extends Component {
           <div className="navbar-header">
             <div className="navbar-logo"></div>
             <a className="navbar-brand" href="#">
-              Swivel Systems
+              Swivel
             </a>
+            <div className="navbar-links">
+              <a className="navbar-link" href="#">About</a>
+              <a className="navbar-link" href="#">Services</a>
+              <a className="navbar-link" href="#">Pricing</a>
+              <a className="navbar-link" href="#">Contact</a>
+              <a
+                className="btn btn-nav"
+                onClick={ this.handleClick.bind(this) }
+                >
+                View { this.displayOtherDemoType() } Demo
+              </a>
+            </div>
           </div>
-            <a
-              className="btn nav-btn"
-              onClick={ this.handleClick.bind(this) }
-            >
-            View as { this.displayOtherDemoType() }
-            </a>
       </nav>
     );
   }
