@@ -19,7 +19,7 @@ exports.loadTeacherData = (callback) => {
 };
 
 exports.loadStudentData = (callback) => {
-  const id = 1;
+  const id = 30;
   const url = `http://localhost:8080/api/students/${id}`;
   return axios({
     url,

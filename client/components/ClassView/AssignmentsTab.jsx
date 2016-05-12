@@ -12,7 +12,7 @@ class AssignmentsTab extends Component {
         onClick={ () => this.props.handleClickedAssignment(assignment)}
       >
         <h4 className="assignment-title">Assignment: {assignment.name}</h4>
-        <p>Artisan wolf tofu single-origin coffee pug, vegan raw denim hella freegan chicharrones bushwick shoreditch. DIY narwhal health goth sustainable pickled typewriter, lumbersexual asymmetrical 8-bit try-hard viral tumblr. Street art artisan man braid, tacos asymmetrical whatever pug normcore celiac. </p>
+        <p>{assignment.description}</p>
      </div>
     ));
   }
