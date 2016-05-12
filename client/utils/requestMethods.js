@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 exports.loadTeacherData = (callback) => {
-  const id = 2;
+  const id = 5;
   const url = `http://localhost:8080/api/teachers/${id}`;
   return axios({
     url,

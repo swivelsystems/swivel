@@ -11,3 +11,9 @@ hr {
   margin: $spacing-medium 0;
   border-top: 1px solid $color-divider;
 }
+
+.nav-tabs > li > a:hover {
+  border-radius: 0;
+  background-color: $color-divider;
+  cursor: pointer;
+}

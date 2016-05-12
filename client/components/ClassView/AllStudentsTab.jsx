@@ -9,7 +9,7 @@ class AllStudentsTab extends Component {
     return this.props.students.map((student) => (
       <div
         key={student.id}
-        className="card"
+        className="card card-clickable"
         onClick={ () => this.props.handleClickedStudent(student)}
       >
         <div key="studentCardBlock" className="card-block">
