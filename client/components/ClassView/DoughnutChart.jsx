@@ -9,65 +9,79 @@ class DoughnutChart extends Component {
   render() {
     const chartOptions = {
       segmentShowStroke: true,
+      responsive: true,
+      animation: false,
+      segmentStrokeColor : "#ffffff",
+      segmentStrokeWidth : 1,
     };
 
     const gradesData = [
       {
-        value: 80,
-        color: '#46BFBD',
-        highlight: '#5AD3D1',
-        label: 'Average Grade',
+        value: 24,
+        color: '#2ecc71',
+        highlight: '#27ae60',
+        label: 'Passing',
       },
       {
-        value: 20,
-        color: '#C1F3F2',
-        highlight: '#FF5A5E',
+        value: 3,
+        color: '#e95849',
+        highlight: '#c0392b',
+        label: 'Failing',
       },
     ];
 
     const participationData = [
       {
-        value: 80,
-        color: '#FF5722',
-        highlight: '#A8B3C5',
-        label: 'Student Participation',
+        value: 19,
+        color: '#2ecc71',
+        highlight: '#27ae60',
+        label: '1-5x per day',
       },
       {
-        value: 20,
-        color: '#FDB45C',
-        highlight: '#FFC870',
-        label: 'Students not participating',
+        value: 8,
+        color: '#e95849',
+        highlight: '#c0392b',
+        label: '0x per day',
       },
     ];
 
     const extraCredit = [
       {
-        value: 60,
-        color: '#4D5360',
-        highlight: '#616774',
-        label: 'Extra Credit Completed',
+        value: 15,
+        color: '#2ecc71',
+        highlight: '#27ae60',
+        label: 'No missing',
       },
       {
-        value: 40,
-        color: 'lightgrey',
-        highlight: '#616774',
-        label: 'Extra Credit Not Attempted',
+        value: 12,
+        color: '#e95849',
+        highlight: '#c0392b',
+        label: 'At least 1 missing',
       },
     ];
 
     return (
-      <div>
-        <div className="DoughnutContainer">
-          <div>Average Grades</div>
-          <Doughnut data={gradesData} />
+      <div className="row">
+        <div className="doughnut-container col-md-4">
+          <Doughnut data={gradesData} options={chartOptions} />
+          <div className="doughnut-container-info">
+            <div className="doughnut-container-info-title">Students Passing</div>
+            <div className="doughnut-container-info-description">Shows the number of students passing based on assignments that should have been submitted.</div>
+          </div>
         </div>
-        <div className="DoughnutContainer">
-          <div>Overall Participation</div>
+        <div className="doughnut-container col-md-4">
           <Doughnut data={participationData} options={chartOptions} />
+          <div className="doughnut-container-info">
+            <div className="doughnut-container-info-title">Daily Participation</div>
+            <div className="doughnut-container-info-description">Shows the number of students who participate at least once per day.</div>
+          </div>
         </div>
-        <div className="DoughnutContainer">
-          <div>Overall Extra Credit Work</div>
+        <div className="doughnut-container col-md-4">
           <Doughnut data={extraCredit} options={chartOptions} />
+          <div className="doughnut-container-info">
+            <div className="doughnut-container-info-title">Missing Submissions</div>
+            <div className="doughnut-container-info-description">Shows the number of students who have not submitted at least one assignment.</div>
+          </div>
         </div>
       </div>
     );

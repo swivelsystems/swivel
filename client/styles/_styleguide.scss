@@ -16,10 +16,12 @@ $color-danger:     #E74C3C;
 $color-brand:      #2C3E50;
 
 // Spacing
-$spacing-small: 6px;
+$spacing-tiny: 4px;
+$spacing-small: 8px;
 $spacing-medium: 12px;
-$spacing-large: 18px;
-$spacing-huge: 2 * $spacing-large;
+$spacing-large: 16px;
+$spacing-xlarge: 2 * $spacing-large;
+$spacing-xxlarge: 2 * $spacing-xlarge;
 
 // Type
 $font-primary: 'Roboto', sans-serif;
@@ -28,10 +30,11 @@ $font-school: 'Roboto', sans-serif;
 
 $font-size-huge: 1.4em;
 $font-size-large: 1.2em;
+$font-size-medium: 1em;
 $font-size-small: .8em;
 $font-size-tiny: .6em;
 
-$font-weight-bold: 600;
+$font-weight-bold: 700;
 $font-weight-light: 300;
 
 // Media Query Breakpoints

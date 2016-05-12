@@ -2,7 +2,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils'; // Alternately could use the DOM API
 import configureStore from '../../../client/store/configureStore';
 import { Provider } from 'react-redux';
-import Info from '../../../client/components/ClassView/Info.jsx';
+import CourseInfo from '../../../client/components/ClassView/CourseInfo.jsx';
 const store = configureStore();
 
 xdescribe('Info', () => {

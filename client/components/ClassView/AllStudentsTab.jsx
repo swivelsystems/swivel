@@ -9,12 +9,12 @@ class AllStudentsTab extends Component {
     return this.props.students.map((student) => (
       <div
         key={student.id}
-        className="card"
+        className="card card-clickable"
         onClick={ () => this.props.handleClickedStudent(student)}
       >
         <div key="studentCardBlock" className="card-block">
           <h4 key="studentCardHeader" className="card-title">{student.name}</h4>
-          <p key="studentDescription" >someInfoabouthisstudent</p>
+          <p key="studentDescription" className="card-text">Pitchfork tousled meditation meggings shoreditch, direct trade taxidermy DIY kinfolk viral squid green juice twee selvage polaroid. Celiac biodiesel etsy leggings normcore kogi.</p>
         </div>
       </div>
     ));

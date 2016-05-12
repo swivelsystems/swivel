@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Announcement from './Announcement.jsx';
+import { connect } from 'react-redux';
 
 const AnnouncementsContainer = (props) => (
     <div className="announcements-container">
       <h4>Announcements</h4>
-      Insert the code commented out below here.
+      <hr />
+      { props.courses.map((course) => (
+        course.announcements.map((announcement) => (
+          <Announcement content={announcement} />
+        ))
+      ))}
     </div>
 );
 
-// { props.announcements.map((announcement) => (
-//     <Announcement announcement={annoucement} />
-// ))}
+const mapStateToProps = (state) => ({
+  courses: state.courses,
+});
 
-// AnnouncementsContainer.propTypes = {
-//   announcements: React.PropTypes.Array,
-// };
+AnnouncementsContainer.propTypes = {
+  courses: PropTypes.array,
+};
 
-export default AnnouncementsContainer;
+export default connect(
+  mapStateToProps
+)(AnnouncementsContainer);

@@ -11,41 +11,36 @@ class LineChart extends Component {
       datasets: [
         {
           label: 'Student Attendence',
-          fillColor: 'rgba(230,126, 34, 0.24)',
-          strokeColor: '#e67e22',
-          pointColor: '#e67e22',
+          fillColor: 'rgba(241,196,15,.25)',
+          strokeColor: '#f1c40f',
+          pointColor: '#f1c40f',
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
-          pointHighlightStroke: '#e67e22',
-          pointStyle: ['star'],
+          pointHighlightStroke: '#f1c40f',
           data: [24, 29, 20, 28, 29, 27, 30, 20, 21, 26, 27, 26, 29, 27, 20, 21, 26, 27, 26, 29, 27],
         },
         {
           label: 'Students on Time',
-          fillColor: 'rgba(46,204,113,0.11)',
-          strokeColor: '#2ecc71',
-          pointColor: '#2ecc71',
+          fillColor: 'rgba(52,73,94,.25)',
+          strokeColor: '#34495e',
+          pointColor: '#34495e',
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
-          pointHighlightStroke: '#2ecc71',
           data: [23, 28, 15, 25, 28, 26, 26, 20, 20, 26, 27, 20, 25, 25, 20, 21, 25, 26, 25, 25, 25],
         },
       ],
     };
 
-    const lineOptions = [{
-      'elements.point.radius': 1,
-      showLines: false,
-    }];
+    const lineOptions = {
+      responsive: true,
+    };
 
     return (
       <div>
-        <Chart data={lineData} options={lineOptions} width={700} height={250} />
-        <Chart data={lineData} options={lineOptions} width={700} height={250} />
+        <Chart data={lineData} options={lineOptions} />
       </div>
     );
   }
 }
 
 export default LineChart;
-

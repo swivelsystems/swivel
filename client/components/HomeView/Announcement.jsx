@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const Announcement = () => (
-  <div>This is an annnouncement.</div>
+const Announcement = (props) => (
+  <div className="announcement">
+    <h5>{ props.content.title }</h5>
+    <p>{ props.content.body }</p>
+  </div>
 );
+
+Announcement.propTypes = {
+  content: PropTypes.object,
+};
 
 export default Announcement;

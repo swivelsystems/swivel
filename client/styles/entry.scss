@@ -3,9 +3,14 @@
  * New styles must be required here to be included in the bundle.
  */
 @import 'styleguide';
+@import 'custom';
+
 @import 'navbar';
-@import 'sidebar';
-@import 'classContainer';
-@import 'doughnutChart';
-@import 'main';
 @import 'landing';
+@import 'main';
+@import 'sidebar';
+@import 'course';
+@import 'chart';
+@import 'announcement';
+@import 'home';
+@import 'deadline';
