@@ -2,7 +2,7 @@ import axios from 'axios';
 
 exports.loadTeacherData = (callback) => {
   const id = 5;
-  const url = `http://localhost:8080/api/teachers/${id}`;
+  const url = `http://52.38.194.99/api/teachers/${id}`;
   return axios({
     url,
     timeout: 20000,
@@ -20,7 +20,7 @@ exports.loadTeacherData = (callback) => {
 
 exports.loadStudentData = (callback) => {
   const id = 30;
-  const url = `http://localhost:8080/api/students/${id}`;
+  const url = `http://52.38.194.99/api/students/${id}`;
   return axios({
     url,
     timeout: 20000,
