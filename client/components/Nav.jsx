@@ -66,9 +66,9 @@ const mapDispatchToProps = (dispatch) => (
       };
 
       if (demoType === 'teacher') {
-        requestMethods.loadTeacherData(2, callback);
+        requestMethods.loadTeacherData(callback);
       } else {
-        requestMethods.loadStudentData(1, callback);
+        requestMethods.loadStudentData(callback);
       }
     },
   }

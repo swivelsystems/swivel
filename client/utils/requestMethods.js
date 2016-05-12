@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-exports.loadTeacherData = (id, callback) => {
+exports.loadTeacherData = (callback) => {
+  const id = 2;
   const url = `http://localhost:8080/api/teachers/${id}`;
   return axios({
     url,
@@ -17,7 +18,8 @@ exports.loadTeacherData = (id, callback) => {
   });
 };
 
-exports.loadStudentData = (id, callback) => {
+exports.loadStudentData = (callback) => {
+  const id = 1;
   const url = `http://localhost:8080/api/students/${id}`;
   return axios({
     url,

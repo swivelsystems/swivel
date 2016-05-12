@@ -14,7 +14,7 @@ class AllStudentsTab extends Component {
       >
         <div key="studentCardBlock" className="card-block">
           <h4 key="studentCardHeader" className="card-title">{student.name}</h4>
-          <p key="studentDescription" >someInfoabouthisstudent</p>
+          <p key="studentDescription" className="card-text">Pitchfork tousled meditation meggings shoreditch, direct trade taxidermy DIY kinfolk viral squid green juice twee selvage polaroid. Celiac biodiesel etsy leggings normcore kogi.</p>
         </div>
       </div>
     ));

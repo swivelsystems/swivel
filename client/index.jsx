@@ -10,7 +10,7 @@ import actions from './actions/index.js';
 import requestMethods from './utils/requestMethods.js';
 const store = configureStore();
 
-requestMethods.loadTeacherData(2, (error, teacherData) => {
+requestMethods.loadTeacherData((error, teacherData) => {
   if (error) {
     return 'Server Could Not load teacher information ${error}';
   }
