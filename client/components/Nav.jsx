@@ -15,14 +15,14 @@ class Nav extends Component {
     this.props.handleHttpRequests(type);
   }
 
-  displayOtherDemoType() {
-    let otherDemo = '';
-    if (this.props.demoType === 'student') {
-      otherDemo = 'Teacher';
+  displayDemoButtonText() {
+    let buttonText = '';
+    if (this.props.page && this.props.page === 'landing') {
+      buttonText = 'View Demo';
     } else {
-      otherDemo = 'Student';
+      buttonText = this.props.demoType === 'teacher' ? 'View Student Demo' : 'View Teacher Demo';
     }
-    return otherDemo;
+    return buttonText;
   }
 
   render() {
@@ -42,9 +42,9 @@ class Nav extends Component {
               <a className="navbar-link" href="#">Contact</a>
               <a
                 className="btn btn-nav"
-                onClick={ this.handleClick.bind(this) }
-                >
-                View { this.displayOtherDemoType() } Demo
+                onClick={() => (this.handleClick())}
+              >
+                {this.displayDemoButtonText()}
               </a>
             </div>
           </div>
@@ -84,6 +84,7 @@ const mapDispatchToProps = (dispatch) => (
 
 Nav.propTypes = {
   demoType: PropTypes.string,
+  page: PropTypes.string,
   handleDemoToggle: PropTypes.func,
   handleHttpRequests: PropTypes.func,
 };
