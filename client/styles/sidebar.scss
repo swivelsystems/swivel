@@ -1,6 +1,6 @@
 .sidebar {
-  height: 100%;
-  z-index: 1000;
+  position: fixed;
+  min-width: 200px;
   background-color: $color-white;
   border-right: 1px solid $color-divider;
 }
