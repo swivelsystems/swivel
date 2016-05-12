@@ -1,7 +1,18 @@
+$deadlines-to-show: 5;
+$deadline-height: 52px;
+$deadline-spacing: $spacing-medium;
+$deadline-container-title-height: 39px;
+
+.deadlines-container {
+  max-height: $deadlines-to-show * ($deadline-height + $deadline-spacing) + $deadline-container-title-height;
+  overflow: hidden;
+}
+
 .deadline {
   border-bottom: 1px solid $color-divider;
-  padding-bottom: $spacing-medium;
-  margin: $spacing-medium 0;
+  padding-bottom: $deadline-spacing;
+  margin: $deadline-spacing 0;
+  height: $deadline-height;
 }
 
 .deadline-date-and-course {
