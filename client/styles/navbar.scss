@@ -39,7 +39,7 @@
   color: $color-text-tertiary;
   padding-right: $spacing-xlarge;
 
-  @media (max-width: $media-breakpoint-large) {
+  @media (max-width: $media-breakpoint-small) {
     display: none;
   }
 }

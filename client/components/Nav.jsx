@@ -29,9 +29,11 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-default">
           <div className="navbar-header">
-            <div className="navbar-logo"></div>
-            <a className="navbar-brand" href="#">
-              Swivel
+            <a href="#">
+              <div className="navbar-logo"></div>
+              <div className="navbar-brand">
+                Swivel
+              </div>
             </a>
             <div className="navbar-links">
               <a className="navbar-link" href="#">About</a>
