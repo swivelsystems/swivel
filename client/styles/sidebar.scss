@@ -1,8 +1,11 @@
 .sidebar {
-  position: fixed;
-  min-width: 200px;
   background-color: $color-white;
   border-right: 1px solid $color-divider;
+
+  @media (min-width: $media-breakpoint-large) {
+    position: fixed;
+    min-width: 200px;
+  }
 }
 
 .sidebar-nav {

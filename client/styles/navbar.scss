@@ -38,6 +38,10 @@
 .navbar-link {
   color: $color-text-tertiary;
   padding-right: $spacing-xlarge;
+
+  @media (max-width: $media-breakpoint-large) {
+    display: none;
+  }
 }
 
 .navbar-link:hover {
