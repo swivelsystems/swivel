@@ -14,7 +14,7 @@ hooks:
       runas: root
   ApplicationStart:
     - location: hooks/app-start
-      timeout: 90
+      timeout: 180
       runas: root
   ApplicationStop:
     - location: hooks/app-stop
