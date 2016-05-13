@@ -19,8 +19,26 @@ class DoughnutChart extends Component {
     }
   }
 
+  shuffleChartData() {
+      console.log('we out heres', this.props.displayedCourse);
+    if (this.props.displayedCourse) {
+      let randomVal = Math.floor(Math.random() * (15 - 10)) - 10;
+      ChartOptions.gradesData[0].value = randomVal;
+      ChartOptions.gradesData[1].value = 10-randomVal;
+
+      randomVal = Math.floor(Math.random() * (30 - 20)) - 20;
+      ChartOptions.participationData[0].value = randomVal;
+      ChartOptions.participationData[1].value = 10;
+
+      randomVal = Math.floor(Math.random() * (30 - 20)) - 20;
+      ChartOptions.extraCredit[0].value = randomVal;
+      ChartOptions.extraCredit[1].value = 10;
+    }
+  }
+
   render() {
     this.customizeStudentChartInfo();
+    this.shuffleChartData();
     return (
       <div className="row">
         <div className="doughnut-container col-md-4">
@@ -50,7 +68,10 @@ class DoughnutChart extends Component {
 }
 
 const mapStateToProps = (state) => (
-  { demoType: state.demoType }
+  {
+    demoType: state.demoType,
+    displayedCourse: state.displayedCourse,
+  }
 );
 
 DoughnutChart.propTypes = {
