@@ -1,8 +1,11 @@
 .sidebar {
-  height: 100%;
-  z-index: 1000;
   background-color: $color-white;
   border-right: 1px solid $color-divider;
+
+  @media (min-width: $media-breakpoint-large) {
+    position: fixed;
+    min-width: 220px;
+  }
 }
 
 .sidebar-nav {

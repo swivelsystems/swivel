@@ -15,35 +15,30 @@ class Nav extends Component {
     this.props.handleHttpRequests(type);
   }
 
-  displayOtherDemoType() {
-    let otherDemo = '';
-    if (this.props.demoType === 'student') {
-      otherDemo = 'Teacher';
-    } else {
-      otherDemo = 'Student';
+  displayDemoButton() {
+    if (this.props.page && this.props.page === 'landing') {
+      return (<a className="btn btn-nav" href="#/demo">View Demo</a>);
     }
-    return otherDemo;
+    const buttonText = this.props.demoType === 'teacher' ? 'View Student Demo' : 'View Teacher Demo';
+    return (<a className="btn btn-nav" onClick={() => (this.handleClick())}>{buttonText}</a>);
   }
 
   render() {
     return (
       <nav className="navbar navbar-default">
           <div className="navbar-header">
-            <div className="navbar-logo"></div>
-            <a className="navbar-brand" href="#">
-              Swivel
+            <a href="#">
+              <div className="navbar-logo"></div>
+              <div className="navbar-brand">
+                Swivel
+              </div>
             </a>
             <div className="navbar-links">
               <a className="navbar-link" href="#">About</a>
               <a className="navbar-link" href="#">Services</a>
               <a className="navbar-link" href="#">Pricing</a>
               <a className="navbar-link" href="#">Contact</a>
-              <a
-                className="btn btn-nav"
-                onClick={ this.handleClick.bind(this) }
-                >
-                View { this.displayOtherDemoType() } Demo
-              </a>
+              {this.displayDemoButton()}
             </div>
           </div>
       </nav>
@@ -82,6 +77,7 @@ const mapDispatchToProps = (dispatch) => (
 
 Nav.propTypes = {
   demoType: PropTypes.string,
+  page: PropTypes.string,
   handleDemoToggle: PropTypes.func,
   handleHttpRequests: PropTypes.func,
 };

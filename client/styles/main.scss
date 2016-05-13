@@ -1,10 +1,12 @@
+$nav-offset: 80px;
+
 html, body {
   background-color: $color-background;
   font-family: $font-primary;
 }
 
 .container-wrapper {
-  margin-top: $spacing-xlarge;
+  margin-top: $nav-offset;
 }
 
 .main-wrapper {
