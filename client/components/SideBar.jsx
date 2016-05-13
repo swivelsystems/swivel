@@ -5,15 +5,16 @@ import actions from '../actions/index.js';
 class SideBar extends Component {
 
   displayCourses() {
-    const classes = this.props.courses.map((course) => (
-      <li
-        key={course.id}
+    const classes = this.props.courses.map((course) => {
+      console.log('course',course);
+      return (<li
+        key={course.id || course.courseId}
         className="course-button"
         onClick={() => (this.props.handleCourseClick(course)) }
       >
         {course.name}
-      </li>
-    ));
+      </li>);
+    });
     return classes;
   }
 
