@@ -56,6 +56,37 @@ export const extraCredit = [
   },
 ];
 
+export const barChartOptions = {
+  responsive: true,
+};
+
+export const barData1 = {
+  labels:
+  [
+    '0-10%',
+    '10-20%',
+    '20-30%',
+    '30-40%',
+    '40-50%',
+    '50-60%',
+    '60-70%',
+    '70-80%',
+    '80-90%',
+    '90-100%',
+  ],
+  datasets: [
+    {
+      label: 'My First dataset',
+      fillColor: 'rgba(52, 152, 219, .28)',
+      borderWidth: 0,
+      hoverBackgroundColor: '#2980b9',
+      hoverBorderColor: '#2980b9',
+      xAxisID: 'funy',
+      data: [0, 2, 3, 4, 5, 10, 3, 0, 10, 4],
+    },
+  ],
+};
+
 
 export const barData = {
   labels:
@@ -74,16 +105,13 @@ export const barData = {
   datasets: [
     {
       label: 'My First dataset',
-      fillColor: '#3498DB',
+      fillColor: 'rgba(52, 152, 219, .28)',
       color: '#3498DB',
+      borderColor: '#3498DB',
       borderWidth: 0,
       hoverBackgroundColor: '#2980b9',
       hoverBorderColor: '#2980b9',
       data: [0, 0, 1, 0, 0, 2, 3, 10, 10, 4],
     },
   ],
-};
-
-export const barChartOptions = {
-  // responsive: true,
 };
