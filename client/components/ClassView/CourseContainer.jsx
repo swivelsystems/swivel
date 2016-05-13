@@ -7,7 +7,6 @@ const CourseContainer = () => (
     <div>
         <h4>Course Health</h4>
         <hr />
-        <DoughnutChart />
     </div>
     <CourseInfo />
   </div>

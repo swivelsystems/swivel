@@ -1,86 +1,47 @@
 import React, { Component, PropTypes } from 'react';
 import ChartJS from 'chart.js';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import { Doughnut } from 'react-chartjs';
+import * as ChartOptions from '../../constants/ChartOptions.js';
 
 
 class DoughnutChart extends Component {
 
+  customizeStudentChartInfo() {
+    if (this.props.demoType === 'student') {
+      ChartOptions.infoTitle1 = 'Your Grade';
+      ChartOptions.infoDescription1 = 'Shows the grade in this course';
+      ChartOptions.infoTitle2 = 'Daily Participation';
+      ChartOptions.infoDescription2 = 'Shows your average participation per day';
+      ChartOptions.infoTitle3 = 'Extra Credit';
+      ChartOptions.infoDescription3 = 'The amount of extra credit you have completed';
+    }
+  }
+
   render() {
-    const chartOptions = {
-      segmentShowStroke: true,
-      responsive: true,
-      animation: false,
-      segmentStrokeColor : "#ECF0F1",
-      segmentStrokeWidth : 1,
-    };
-
-    const gradesData = [
-      {
-        value: 24,
-        color: '#2ecc71',
-        highlight: '#27ae60',
-        label: 'Passing',
-      },
-      {
-        value: 3,
-        color: '#e95849',
-        highlight: '#c0392b',
-        label: 'Failing',
-      },
-    ];
-
-    const participationData = [
-      {
-        value: 19,
-        color: '#2ecc71',
-        highlight: '#27ae60',
-        label: '1-5x per day',
-      },
-      {
-        value: 8,
-        color: '#e95849',
-        highlight: '#c0392b',
-        label: '0x per day',
-      },
-    ];
-
-    const extraCredit = [
-      {
-        value: 15,
-        color: '#2ecc71',
-        highlight: '#27ae60',
-        label: 'No missing',
-      },
-      {
-        value: 12,
-        color: '#e95849',
-        highlight: '#c0392b',
-        label: 'At least 1 missing',
-      },
-    ];
-
+    this.customizeStudentChartInfo();
     return (
       <div className="row">
         <div className="doughnut-container col-md-4">
-          <Doughnut data={gradesData} options={chartOptions} />
+          <Doughnut data={ChartOptions.gradesData} options={ChartOptions.doughnutChartOptions} />
           <div className="doughnut-container-info">
-            <div className="doughnut-container-info-title">Students Passing</div>
-            <div className="doughnut-container-info-description">Shows the number of students passing based on assignments that should have been submitted.</div>
+            <div className="doughnut-container-info-title">{ChartOptions.infoTitle1}</div>
+            <div className="doughnut-container-info-description">{ChartOptions.infoDescription1}</div>
           </div>
         </div>
         <div className="doughnut-container col-md-4">
-          <Doughnut data={participationData} options={chartOptions} />
+          <Doughnut data={ChartOptions.participationData} options={ChartOptions.doughnutChartOptions} />
           <div className="doughnut-container-info">
-            <div className="doughnut-container-info-title">Daily Participation</div>
-            <div className="doughnut-container-info-description">Shows the number of students who participate at least once per day.</div>
+            <div className="doughnut-container-info-title">{ChartOptions.infoTitle2}</div>
+            <div className="doughnut-container-info-description">{ChartOptions.infoDescription2}</div>
           </div>
         </div>
         <div className="doughnut-container col-md-4">
-          <Doughnut data={extraCredit} options={chartOptions} />
+          <Doughnut data={ChartOptions.extraCredit} options={ChartOptions.doughnutChartOptions} />
           <div className="doughnut-container-info">
-            <div className="doughnut-container-info-title">Missing Submissions</div>
-            <div className="doughnut-container-info-description">Shows the number of students who have not submitted at least one assignment.</div>
+            <div className="doughnut-container-info-title">{ChartOptions.infoTitle3}</div>
+            <div className="doughnut-container-info-description">{ChartOptions.infoDescription3}</div>
           </div>
         </div>
       </div>
@@ -88,4 +49,15 @@ class DoughnutChart extends Component {
   }
 }
 
-export default DoughnutChart;
+const mapStateToProps = (state) => (
+  { demoType: state.demoType }
+);
+
+DoughnutChart.propTypes = {
+  demoType: PropTypes.string,
+};
+
+export default connect(
+  mapStateToProps
+)(DoughnutChart);
+
