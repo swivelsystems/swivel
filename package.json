@@ -10,7 +10,7 @@
     "build-server": "babel -d ./server/build ./server",
     "dev-start": "webpack -p -d && babel-node server/server.js & webpack --watch",
     "aws-es6": "sudo cp /home/ec2-user/constants/server.js /home/ec2-user/swivel/server/build",
-    "prod-start": "npm run clean-build && npm run build-server && npm run aws-es6 && webpack -p && PORT=80 forever server/build/server.js"
+    "prod-start": "npm run clean-build && npm run build-server && npm run aws-es6 && webpack -p && PORT=80 forever start server/build/server.js"
   },
   "repository": {
     "type": "git",
