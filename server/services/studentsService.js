@@ -107,10 +107,16 @@ export const retrieve = (req, res) => {
         counter++;
       }
     }
-
-    res.send(masterResults);
   })
+  .then(() => (
+    res.send(masterResults)
+  ))
   .catch((err) => {
-    throw err;
+    res.status(500).json(
+      {
+        success: false,
+        message: 'Internal server error',
+        err,
+      });
   });
 };
