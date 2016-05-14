@@ -3,6 +3,8 @@ import * as Courses from '../controllers/courses.js';
 import * as Announcements from '../controllers/announcements';
 import * as Assignments from '../controllers/assignments.js';
 import * as Submissions from '../controllers/submissions.js';
+import redisCtrl from '../controllers/redisCtrl.js';
+// import * as redis from '../
 
 
 export const retrieve = (req, res) => {
@@ -17,7 +19,7 @@ export const retrieve = (req, res) => {
     })
     .catch((err) => {
       console.err('failed to retrieve info for student: ', studentId);
-      res.status(500).send('failed to retrieve info for student: ' + studentId);
+      res.status(500).send('failed to retrieve info for student: ', studentId);
     })
     .then((courses) => {
       studentPackage.courses = courses;
