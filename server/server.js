@@ -4,7 +4,6 @@ import morgan from 'morgan';
 import compression from 'compression';
 import studentsRouter from './routers/studentsRouter.js';
 import teachersRouter from './routers/teachersRouter.js';
-import instructorsRouter from './routers/instructorsRouter.js';
 // import passport from 'passport';
 
 // const authenticate = require('./controllers/auth.js').authenticate;
@@ -22,7 +21,6 @@ app.use((req, res, next) => {
 
 app.use('/api/students', studentsRouter);
 app.use('/api/teachers', teachersRouter);
-app.use('/api/instructors', instructorsRouter);
 
 // app.use(session({ secret: 'keyboard cat' }));
 app.use(morgan('dev'));

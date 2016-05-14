@@ -5,145 +5,78 @@ import * as Assignments from '../controllers/assignments.js';
 import * as Submissions from '../controllers/submissions.js';
 import * as Students from '../controllers/students.js';
 
-export const retrieveMainpage = (req, res) => {
-  const teacherId = req.params.id;
-  let arrOfCourses = [];
+export const retrieveHome = (req, res) => {
+  const instructorId = req.params.id;
 
+  let homePackage = {};
+
+  Courses.findAllByTeacher(instructorId)
+    .then((courses) => {
+
+      homePackage.courses = courses;
+
+      //Async Waterfall
+      const coursesWaterfall = homePackage.courses.map((course) => {
+        return Announcements.findAllByCourse(course.id)
+          .then((announcements) => {
+            course.announcements = announcements;
+            return Assignments.findAllByCourse(course.id);
+          })
+          .catch((err) => {
+            console.err('failed at finding announcements', err);
+            res.status(500).send('failed at finding announcements for', course.name);
+          })
+          .then((assignments) => {
+            course.assignments = assignments;
+          })
+          .catch((err) => {
+            console.err('failed at finding assignments', err);
+            res.status(500).send('failed at finding assignments for', course.name);
+          });
+      });
+      return Promise.all(coursesWaterfall);
+    })
+    .catch((err) => {
+      console.err("can't find teacher", err);
+      res.status(500).send('failed at finding teacher: ', instructorId);
+    })
+    .then((waterfallSuccess) => {
+      res.send(homePackage);
+    })
+    .catch((err) => {
+      console.err("can't compile courses", err);
+      res.status(500).send('failed at compiling all data for teacher', instructorId);
+    });
 }
 
-export const retrieve = (req, res) => {
-  const teacherId = req.params.id;
+export const retrieveCourse = (req, res) => {
+  const courseId = req.params.id;
 
-  const masterResults = {};
-  let closureForStudents;
-
-  Teachers.findById(teacherId)
-  .then((teacherInfo) => {
-    masterResults.teacher = teacherInfo;
-
-    return Courses.findAllByTeacher(teacherId);
-  })
-  .then((teacherCourses) => {
-    masterResults.courses = teacherCourses;
-    // Below, we are setting up the skeleton of the courses array
-    // This will make it easier for us later to populate the array
-    // We can just push data into the relevant empty array
-    for (let i = 0; i < masterResults.courses.length; i++) {
-      masterResults.courses[i].announcements = [];
-      masterResults.courses[i].assignments = [];
-      masterResults.courses[i].students = [];
-    }
-  })
-  .then(() => {
-    const arrOfAnnouncements = masterResults.courses.map((course) => (
-      Announcements.findAllByCourse(course.id)
-    ));
-
-    return Promise.all(arrOfAnnouncements);
-  })
-  .then((arrOfAnnouncements) => {
-    for (let i = 0; i < arrOfAnnouncements.length; i++) {
-      for (let j = 0; j < arrOfAnnouncements[i].length; j++) {
-        masterResults.courses[i].announcements.push({
-          title: arrOfAnnouncements[i][j].title,
-          body: arrOfAnnouncements[i][j].body,
-        });
-      }
-    }
-  })
-  .then(() => {
-    const arrOfAssignments = masterResults.courses.map((course) => (
-      Assignments.findAllByCourse(course.id)
-    ));
-
-    return Promise.all(arrOfAssignments);
-  })
-  .then((arrOfAssignments) => {
-    for (let i = 0; i < arrOfAssignments.length; i++) {
-      for (let j = 0; j < arrOfAssignments[i].length; j++) {
-        masterResults.courses[i].assignments.push({
-          id: arrOfAssignments[i][j].id,
-          name: arrOfAssignments[i][j].name,
-          dueDate: arrOfAssignments[i][j].dueDate,
-          weight: arrOfAssignments[i][j].weight,
-          courseId: arrOfAssignments[i][j].courseId,
-          description: arrOfAssignments[i][j].description,
-        });
-      }
-    }
-  })
-  .then(() => {
-    const arrOfArrOfSubmissions = masterResults.courses.map((course) => {
-      return course.assignments.map((assignment) => (
-        Submissions.findByAssignmentId(assignment.id)
-      ));
+  let coursePackage = {};
+  Courses.findAllStudents(courseId)
+    .then((students) => {
+      coursePackage.students = []
+      const studentsWaterfall = students.map((student) => {
+        return Students.findById(student.studentId)
+                  .then((studentInfo) => {
+                    coursePackage.students.push(studentInfo)
+                  })
+                  .catch((err) => {
+                    console.err("Error loading student info for student: " , student.studentId, err)
+                    res.status(500).send("Error loading student info for student: " , student.studentId)
+                  });
+      });
+      return Promise.all(studentsWaterfall);
+    })
+    .catch((err) => {
+      console.err("failed at retrieving students list for course ID: ", courseId);
+      res.status(500).send('failed at retrieving students list for course ID: ' + courseId);
+    })
+    .then((waterfallSuccess) => {
+      res.send(coursePackage);
+    })
+    .catch((err) => {
+      console.err("Can't compile course info", err);
+      res.status(500).send("can't compile course info for:" + courseId);
     });
-    const arrOfSubmissions = [].concat.apply([], arrOfArrOfSubmissions);
-    return Promise.all(arrOfSubmissions);
-  })
-  .then((arrOfSubmissions) => {
-    let counter = 0;
-    for (let i = 0; i < masterResults.courses.length; i++) {
-      for (let j = 0; j < masterResults.courses[i].assignments.length; j++) {
-        masterResults.courses[i].assignments[j].submissions = arrOfSubmissions[counter];
-        counter++;
-      }
-    }
-  })
-  .then(() => {
-    const arrOfArrStudents = masterResults.courses.map((course) => (
-      Courses.findAllStudents(course.id)
-    ));
-
-    return Promise.all(arrOfArrStudents);
-  })
-  .then((arrOfArrOfStudents) => {
-    const arrOfArrOfStudentsInfo = arrOfArrOfStudents.map((courseStudents) => {
-      return courseStudents.map((student) => (
-        Students.findById(student.studentId)
-      ));
-    });
-
-    closureForStudents = arrOfArrOfStudentsInfo;
-
-    const arrOfStudentsInfo = [].concat.apply([], arrOfArrOfStudentsInfo);
-
-    return Promise.all(arrOfStudentsInfo);
-  })
-  .then((arrOfStudentsInfo) => {
-    let counter = 0;
-    for (let i = 0; i < closureForStudents.length; i++) {
-      for (let j = 0; j < closureForStudents[i].length; j++) {
-        masterResults.courses[i].students.push(arrOfStudentsInfo[counter]);
-        counter++;
-      }
-    }
-  })
-  .then(() => {
-    const arrOfArrOfGrades = masterResults.courses.map((course) => {
-      return course.students.map((student) => (
-        Students.findCourseGrade(course.id, student.id)
-      ));
-    });
-
-    closureForStudents = arrOfArrOfGrades;
-
-    const arrOfGrades = [].concat.apply([], arrOfArrOfGrades);
-    return Promise.all(arrOfGrades);
-  })
-  .then((arrOfGrades) => {
-    let counter = 0;
-    for (let i = 0; i < closureForStudents.length; i++) {
-      for (let j = 0; j < closureForStudents[i].length; j++) {
-        masterResults.courses[i].students[j].courseGrade = arrOfGrades[counter];
-        counter++;
-      }
-    }
-  })
-  .then(() => (
-    res.send(masterResults)
-  ))
-  .catch((err) => {
-    console.log(err);
-  });
 };
