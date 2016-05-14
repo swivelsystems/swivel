@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions/index.js';
 import AllStudentsTab from './StudentsTab/AllStudentsTab.jsx';
 import AssignmentsTab from './AssignmentsTab/AssignmentsTab.jsx';
-import StudentCard from './StudentsTab/StudentCard.jsx';
+import StudentChatContainer from './StudentsTab/StudentChatContainer.jsx';
 import Assignment from './AssignmentsTab/Assignment.jsx';
 import DoughnutChart from './Charts/DoughnutChart.jsx';
 import BarChart from './Charts/BarChart.jsx';
@@ -16,7 +16,7 @@ class CourseInfo extends Component {
         <AllStudentsTab />
       );
     } else if (this.props.tabView === 'Student') {
-      return <StudentCard />;
+      return <StudentChatContainer />;
     } else if (this.props.tabView === 'Assignment') {
       return <Assignment />;
     }
