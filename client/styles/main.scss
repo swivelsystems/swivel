@@ -19,7 +19,8 @@ html, body {
   background-color: $color-white;
   padding: $spacing-large;
   border: 1px solid $color-divider;
-  margin: $spacing-medium 0;
+  margin: $spacing-medium;
+  position: relative;
 }
 
 .card-clickable:hover {

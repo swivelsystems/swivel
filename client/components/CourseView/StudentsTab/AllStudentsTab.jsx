@@ -5,23 +5,31 @@ import { connect } from 'react-redux';
 class AllStudentsTab extends Component {
 
   displayAllStudents() {
-    return this.props.students.map((student) => (
-      <div
-        key={student.id}
-        className="card card-clickable"
-        onClick={ () => this.props.handleClickedStudent(student)}
-      >
-        <div key="studentCardBlock" className="card-block">
-          <h4 key="studentCardHeader" className="card-title">{student.name}</h4>
-          <p key="studentDescription" className="card-text">Pitchfork tousled meditation meggings shoreditch, direct trade taxidermy DIY kinfolk viral squid green juice twee selvage polaroid. Celiac biodiesel etsy leggings normcore kogi.</p>
+    return this.props.students.map((student, index) => {
+      const avatarGender = index % 2 === 0 ? 'men' : 'women';
+      return (
+        <div
+          key={student.id}
+          className="col-md-4"
+        >
+          <div key="studentCardBlock" className="student-card row card-block">
+            <div className="student-card-avatar-container col-md-12">
+              <img className="student-card-avatar-container-img" role="presentation" src={`https://randomuser.me/api/portraits/${avatarGender}/${index}.jpg`} />
+            </div>
+            <div className="col-md-12 student-card-info-container">
+              <h5 key="studentCardHeader" className="card-title">{student.name}</h5>
+              <p>Year {student.year} · GPA {student.GPA}</p>
+            </div>
+            <a onClick={ () => this.props.handleClickedStudent(student)} className="btn btn-outline" >Chat</a>
+          </div>
         </div>
-      </div>
-    ));
+      );
+    });
   }
 
   render() {
     return (
-      <div>
+      <div className="tab-content-container">
         {this.displayAllStudents()}
       </div>
     );

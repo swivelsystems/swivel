@@ -1,0 +1,33 @@
+.student-card {
+  @extend .card;
+  margin: $spacing-small;
+  padding: 0;
+  text-align: center;
+  min-height: 240px;
+}
+
+.student-card-avatar-container {
+  border-bottom: 1px solid $color-divider;
+  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/sayagata-400px.png');
+  background-size: cover;
+}
+.student-card-avatar-container-img {
+  border: 1px solid $color-divider;
+  margin: 0 auto;
+  max-width: 50%;
+  border-radius: 999px;
+  margin: $spacing-large auto;
+}
+
+.student-card-info-container {
+  padding-top: $spacing-small;
+}
+
+.btn-outline {
+  @extend .btn-nav;
+  padding: $spacing-small;
+}
+
+.btn-outline:hover {
+  @extend .btn-nav:hover;
+}
