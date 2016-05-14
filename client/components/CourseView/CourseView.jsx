@@ -11,18 +11,16 @@ import BarChart from './Charts/BarChart.jsx';
 class CourseInfo extends Component {
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
-    if (this.props.tabView === 'Students') {
-      return (
-        <AllStudentsTab />
-      );
-    } else if (this.props.tabView === 'Student') {
-      return <StudentChatContainer />;
-    } else if (this.props.tabView === 'Assignment') {
-      return <Assignment />;
+    switch (this.props.tabView) {
+      case 'Students':
+        return <AllStudentsTab />;
+      case 'Student':
+        return <StudentChatContainer />;
+      case 'Assignment':
+        return <Assignment />;
+      default:
+        return <AssignmentsTab />;
     }
-    return (
-      <AssignmentsTab />
-    );
   }
 
   handleCharts() {
