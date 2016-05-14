@@ -5,6 +5,12 @@ import * as Assignments from '../controllers/assignments.js';
 import * as Submissions from '../controllers/submissions.js';
 import * as Students from '../controllers/students.js';
 
+export const retrieveMainpage = (req, res) => {
+  const teacherId = req.params.id;
+  let arrOfCourses = [];
+
+}
+
 export const retrieve = (req, res) => {
   const teacherId = req.params.id;
 
