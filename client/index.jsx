@@ -8,6 +8,8 @@ import configureStore from './store/configureStore';
 import styles from './styles/entry.scss';
 import actions from './actions/index.js';
 import requestMethods from './utils/requestMethods.js';
+import socket from './utils/socket.js';
+
 const store = configureStore();
 
 requestMethods.loadTeacherData((error, teacherData) => {

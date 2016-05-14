@@ -3,8 +3,7 @@ import ChartJS from 'chart.js';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Doughnut } from 'react-chartjs';
-import * as ChartOptions from '../../constants/ChartOptions.js';
-
+import * as ChartOptions from '../../../constants/ChartOptions.js';
 
 class DoughnutChart extends Component {
 
@@ -81,4 +80,3 @@ DoughnutChart.propTypes = {
 export default connect(
   mapStateToProps
 )(DoughnutChart);
-

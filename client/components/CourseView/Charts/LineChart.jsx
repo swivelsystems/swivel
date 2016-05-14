@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ChartJS from 'chart.js';
 import { Line as Chart } from 'react-chartjs';
 
-
 class LineChart extends Component {
 
   render() {
