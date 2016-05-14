@@ -1,16 +1,17 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-// import passport from 'passport';
 import morgan from 'morgan';
 import compression from 'compression';
 import studentsRouter from './routers/studentsRouter.js';
 import teachersRouter from './routers/teachersRouter.js';
+// import passport from 'passport';
 
 // const authenticate = require('./controllers/auth.js').authenticate;
 // const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 const port = process.env.PORT || 8080;
+
 app.use(compression());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

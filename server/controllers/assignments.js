@@ -21,7 +21,7 @@ export function findAllByCourse(courseId) {
       resolve(results);
     })
     .catch((err) => (
-      console.log(err)
+      console.err(err)
     ));
   });
 
