@@ -20,7 +20,7 @@ class AllStudentsTab extends Component {
               <h5 key="studentCardHeader" className="card-title">{student.name}</h5>
               <p>Year {student.year} · GPA {student.GPA}</p>
             </div>
-            <a onClick={ () => this.props.handleClickedStudent(student)} className="btn btn-outline" >Chat</a>
+            <a onClick={ () => this.props.handleClickedStudent(student)} className="btn btn-outline btn-chat" >Chat</a>
           </div>
         </div>
       );
