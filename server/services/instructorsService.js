@@ -16,7 +16,7 @@ export const retrieveHome = (req, res) => {
       homePackage.courses = courses;
 
       //Async Waterfall
-      const arrOfCoursePromises = homePackage.courses.map((course) => {
+      const coursesWaterfall = homePackage.courses.map((course) => {
         return Announcements.findAllByCourse(course.id)
           .then((announcements) => {
             course.announcements = announcements;
@@ -34,13 +34,13 @@ export const retrieveHome = (req, res) => {
             res.status(500).send('failed at finding assignments for', course.name);
           });
       });
-      return Promise.all(arrOfCoursePromises);
+      return Promise.all(coursesWaterfall);
     })
     .catch((err) => {
       console.err("can't find teacher", err);
       res.status(500).send('failed at finding teacher: ', instructorId);
     })
-    .then((arrOfCoursePromises) => {
+    .then((waterfallSuccess) => {
       res.send(homePackage);
     })
     .catch((err) => {
@@ -53,5 +53,30 @@ export const retrieveCourse = (req, res) => {
   const courseId = req.params.id;
 
   let coursePackage = {};
-
+  Courses.findAllStudents(courseId)
+    .then((students) => {
+      coursePackage.students = []
+      const studentsWaterfall = students.map((student) => {
+        return Students.findById(student.studentId)
+                  .then((studentInfo) => {
+                    coursePackage.students.push(studentInfo)
+                  })
+                  .catch((err) => {
+                    console.err("Error loading student info for student: " , student.studentId, err)
+                    res.status(500).send("Error loading student info for student: " , student.studentId)
+                  });
+      });
+      return Promise.all(studentsWaterfall);
+    })
+    .catch((err) => {
+      console.err("failed at retrieving students list for course ID: ", courseId);
+      res.status(500).send('failed at retrieving students list for course ID: ' + courseId);
+    })
+    .then((waterfallSuccess) => {
+      res.send(coursePackage);
+    })
+    .catch((err) => {
+      console.err("Can't compile course info", err);
+      res.status(500).send("can't compile course info for:" + courseId);
+    });
 };
