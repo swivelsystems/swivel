@@ -20,12 +20,10 @@ export const retrieve = (req, res) => {
       res.status(500).send('failed to retrieve info for student: ' + studentId);
     })
     .then((courses) => {
-      console.log("firing", courses);
       studentPackage.courses = courses;
       const coursesWaterfall = studentPackage.courses.map((course) => {
         return Announcements.findAllByCourse(course.courseId)
           .then((announcements) => {
-            console.log(announcements);
             course.announcements = announcements;
             return Assignments.findAllByCourse(course.courseId);
           })
