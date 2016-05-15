@@ -33,10 +33,15 @@ export const retrieve = (req, res) => {
           })
           .then((assignments) => {
             course.assignments = assignments;
+            return Courses.findNameByCourseId(course.courseId);
           })
           .catch((err) => {
             console.err('failed at finding assignments', err);
             res.status(500).send('failed at finding assignments for', course.name);
+          })
+          .then((courseInfo) => {
+            course.name = courseInfo[0].name;
+            course.description = courseInfo[0].description;
           });
       });
       return Promise.all(coursesWaterfall);
