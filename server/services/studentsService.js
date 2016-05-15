@@ -29,7 +29,7 @@ export const retrieve = (req, res) => {
           })
           .catch((err) => {
             console.err('failed at finding announcements', err);
-            res.status(500).send('failed at finding announcements for', course.name);
+            res.status(500).send('failed at finding announcements for:', course.name);
           })
           .then((assignments) => {
             course.assignments = assignments;
@@ -37,11 +37,15 @@ export const retrieve = (req, res) => {
           })
           .catch((err) => {
             console.err('failed at finding assignments', err);
-            res.status(500).send('failed at finding assignments for', course.name);
+            res.status(500).send('failed at finding assignments for:', course.name);
           })
           .then((courseInfo) => {
             course.name = courseInfo[0].name;
             course.description = courseInfo[0].description;
+          })
+          .catch((err) => {
+            console.err('failed at finding course name and information', err);
+            res.status(500).send('failed at finding course name and infomation for:', course.name);
           });
       });
       return Promise.all(coursesWaterfall);
