@@ -3,64 +3,28 @@ import * as Courses from '../controllers/courses.js';
 import * as Announcements from '../controllers/announcements';
 import * as Assignments from '../controllers/assignments.js';
 import * as Submissions from '../controllers/submissions.js';
-import redisCtrl from '../controllers/redisCtrl.js';
-// import * as redis from '../
+import * as studentsHomeView from '../controllers/studentsHomeView.js';
+import * as redis from '../db/redis.js';
 
 
 export const retrieve = (req, res) => {
   const studentId = req.params.id;
+  const key = `student${studentId}`;
 
-  let studentPackage = {};
-
-  Students.findById(studentId)
-    .then((studentInfo) => {
-      studentPackage.student = studentInfo;
-      return Courses.findAllByStudent(studentId);
-    })
-    .catch((err) => {
-      console.err('failed to retrieve info for student: ', studentId);
-      res.status(500).send('failed to retrieve info for student: ', studentId);
-    })
-    .then((courses) => {
-      studentPackage.courses = courses;
-      const coursesWaterfall = studentPackage.courses.map((course) => {
-        return Announcements.findAllByCourse(course.courseId)
-          .then((announcements) => {
-            course.announcements = announcements;
-            return Assignments.findAllByCourse(course.courseId);
-          })
-          .catch((err) => {
-            console.err('failed at finding announcements', err);
-            res.status(500).send('failed at finding announcements for:', course.name);
-          })
-          .then((assignments) => {
-            course.assignments = assignments;
-            return Courses.findNameByCourseId(course.courseId);
-          })
-          .catch((err) => {
-            console.err('failed at finding assignments', err);
-            res.status(500).send('failed at finding assignments for:', course.name);
-          })
-          .then((courseInfo) => {
-            course.name = courseInfo[0].name;
-            course.description = courseInfo[0].description;
-          })
-          .catch((err) => {
-            console.err('failed at finding course name and information', err);
-            res.status(500).send('failed at finding course name and infomation for:', course.name);
-          });
+  redis.readURI.get(key, (err, data) => {
+    if(err) {
+      res.status(500).send('Our server\'s not perfect, but we still love it. Give it another try!');
+    } else if (data) {
+      res.send(JSON.parse(data));
+    } else {
+      studentsHomeView.sqlQuery(studentId)
+      .then((studentsPackage) => {
+        res.send(studentsPackage);
+        redis.writeUri.set(key, JSON.stringify(studentsPackage));
+      })
+      .catch((err) => {
+        res.status(500).send('Our server\'s not perfect, but we still love it. Give it another try!');
       });
-      return Promise.all(coursesWaterfall);
-    })
-    .catch((err) => {
-      console.err("can't find courses", err);
-      res.status(500).send('failed at finding courses for student: ', studentId);
-    })
-    .then((waterfallSuccess) => {
-      res.send(studentPackage);
-    })
-    .catch((err) => {
-      console.err("can't compile courses", err);
-      res.status(500).send('failed at compiling all data for student: ' + studentId);
-    });
+    }
+  });
 };

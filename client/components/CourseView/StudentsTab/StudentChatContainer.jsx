@@ -17,7 +17,7 @@ class StudentChatContainer extends Component {
     // )));
 
     // add a socket listener for new messages from this student
-    socket.on('newMessage', function(message) {
+    socket.on('newMessage', (message) => {
       this.props.addMessage(message, this.props.displayedStudent.id);
     });
   }

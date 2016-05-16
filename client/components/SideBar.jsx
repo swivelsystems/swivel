@@ -6,7 +6,6 @@ class SideBar extends Component {
 
   displayCourses() {
     const classes = this.props.courses.map((course) => {
-      console.log('course',course);
       return (<li
         key={course.id || course.courseId}
         className="course-button"
