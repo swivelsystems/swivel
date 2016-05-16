@@ -1,7 +1,7 @@
 import React from 'react';
 import AnnouncementsContainer from './AnnouncementsContainer.jsx';
 import DeadlinesContainer from './DeadlinesContainer.jsx';
-import LineChart from './../ClassView/LineChart.jsx';
+import LineChart from './../CourseView/Charts/LineChart.jsx';
 
 const HomeContainer = () => (
   <div className="home-container">

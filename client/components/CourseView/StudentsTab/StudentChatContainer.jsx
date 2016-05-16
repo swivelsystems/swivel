@@ -3,18 +3,21 @@ import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
 import socket from '../../../utils/socket.js';
 
+let messages = [{ author: 'Joel', body: 'Hey it is Joel' }, { author: 'Lizard', body: 'Tisk tisk' }];
+
 class StudentChatContainer extends Component {
   constructor(props) {
     super(props);
     // open a socket connection and emit that the conversation was started
     const teacherId = 5;
-    socket.emit('openChat', teacherId, this.props.displayedStudent.id, function(data) {
-      console.log(data); // render chat bubbles
-      // get the messages and update the ui with them
-    });
+    socket.emit('loadMessages', teacherId, this.props.displayedStudent.id);
+    socket.on('loadMessages', (data) => (data.map(message) => {
+      // update messages in state
+    }));
+
     // add a socket listener for new messages from this student
     socket.on('newMessage', function(data) {
-      console.log(data); // update the UI with the new message
+      // update messages in state
     });
   }
 
@@ -25,9 +28,19 @@ class StudentChatContainer extends Component {
       console.log(data);
     });
   }
-  // when a single student is clicked
-  // get the current student and display their info
+
+  sendMessage(message) {
+    socket.emit('newMessage', message);
+    // update messages in state
+  }
+
   render() {
+    const displayMessages = messages.map((message) => (
+      <div>
+        <h6>{message.author}</h6>
+        <p>{message.body}</p>
+      </div>
+    ));
     return (
       <div>
         <button
@@ -38,6 +51,7 @@ class StudentChatContainer extends Component {
           Back
         </button>
         {this.props.displayedStudent.name}
+        {displayMessages}
       </div>
     );
   }

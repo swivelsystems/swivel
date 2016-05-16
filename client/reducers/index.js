@@ -6,15 +6,17 @@ import goHome from './goHome.js';
 import tabView from './tabView.js';
 import displayedAssignment from './displayedAssignment.js';
 import demoType from './demoType.js';
+import chat from './messages.js';
 
 const rootReducer = combineReducers({
+  chat,
   courses,
+  demoType,
+  displayedAssignment,
   displayedCourse,
   displayedStudent,
   goHome,
   tabView,
-  displayedAssignment,
-  demoType,
 });
 
 export default rootReducer;
