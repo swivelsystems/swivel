@@ -1,11 +1,23 @@
 import * as types from '../constants/ActionTypes.js';
 
 module.exports = {
-  goHome: (goHome) => (
-    { type: types.GO_HOME, goHome }
+  addNewMessage: (message) => (
+    { type: types.ADD_NEW_MESSAGE, message }
+  ),
+  loadMessages: (messages) => (
+    { type: types.LOAD_MESSAGES, messages }
+  ),
+  displayAssignment: (displayedAssignment) => (
+    { type: types.DISPLAY_ASSIGNMENT, displayedAssignment }
   ),
   displayCourse: (displayedCourse) => (
     { type: types.DISPLAY_COURSE, displayedCourse }
+  ),
+  displayStudent: (displayedStudent) => (
+    { type: types.DISPLAY_STUDENT, displayedStudent }
+  ),
+  goHome: (goHome) => (
+    { type: types.GO_HOME, goHome }
   ),
   receiveCourses: (courses) => (
     { type: types.RECEIVE_COURSES_DATA, courses }
@@ -15,12 +27,6 @@ module.exports = {
   ),
   switchTabs: (tabView) => (
     { type: types.SWITCH_TABS, tabView }
-  ),
-  displayStudent: (displayedStudent) => (
-    { type: types.DISPLAY_STUDENT, displayedStudent }
-  ),
-  displayAssignment: (displayedAssignment) => (
-   { type: types.DISPLAY_ASSIGNMENT, displayedAssignment }
   ),
   toggleDemoType: (demoType) => (
     { type: types.TOGGLE_DEMO_TYPE, demoType }
