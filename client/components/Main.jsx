@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import CourseContainer from './ClassView/CourseContainer.jsx';
+import CourseView from './CourseView/CourseView.jsx';
 import HomeContainer from './HomeView/HomeContainer.jsx';
 import SideBar from './SideBar.jsx';
 
@@ -10,7 +10,7 @@ class Main extends Component {
     if (this.props.goHome) {
       return <HomeContainer />;
     }
-    return <CourseContainer />;
+    return <CourseView />;
   }
 
   render() {

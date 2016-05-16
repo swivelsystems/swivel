@@ -7,6 +7,15 @@
   border-radius: 4px;
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: $color-success;
+}
+
 hr {
   margin: $spacing-medium 0;
   border-top: 1px solid $color-divider;
@@ -16,4 +25,8 @@ hr {
   border-radius: 0;
   background-color: $color-divider;
   cursor: pointer;
+}
+
+.nav-tabs > li > a {
+  color: $color-primary;
 }

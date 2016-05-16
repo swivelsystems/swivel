@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import actions from '../../actions/index.js';
+import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
 
 class AssignmentsTab extends Component {

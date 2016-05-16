@@ -1,6 +1,7 @@
 .sidebar {
   background-color: $color-white;
   border-right: 1px solid $color-divider;
+  border-radius: $border-radius-default;
 
   @media (min-width: $media-breakpoint-large) {
     position: fixed;
@@ -38,6 +39,8 @@ li.sidebar-section-header:hover {
 }
 
 .sidebar-school {
+  border-top-left-radius: $border-radius-default;
+  border-top-right-radius: $border-radius-default;
   text-align: center;
   border-bottom: 1px solid $color-divider;
   background-image: url('http://kendall.ipsd.org/_img/School.jpg');

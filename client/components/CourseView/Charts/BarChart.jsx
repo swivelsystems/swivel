@@ -3,7 +3,7 @@ import ChartJS from 'chart.js';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Bar } from 'react-chartjs';
-import * as ChartOptions from '../../constants/ChartOptions.js';
+import * as ChartOptions from '../../../constants/ChartOptions.js';
 
 class BarChart extends Component {
   shuffleChartData() {
@@ -53,4 +53,3 @@ BarChart.propTypes = {
 export default connect(
   mapStateToProps
 )(BarChart);
-

@@ -1,29 +1,26 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../actions/index.js';
-import AllStudentsTab from './AllStudentsTab.jsx';
-import AssignmentsTab from './AssignmentsTab.jsx';
-import Student from './Student.jsx';
-import Assignment from './Assignment.jsx';
-import DoughnutChart from './DoughnutChart.jsx';
-import BarChart from './BarChart.jsx';
-
+import AllStudentsTab from './StudentsTab/AllStudentsTab.jsx';
+import AssignmentsTab from './AssignmentsTab/AssignmentsTab.jsx';
+import StudentChatContainer from './StudentsTab/StudentChatContainer.jsx';
+import Assignment from './AssignmentsTab/Assignment.jsx';
+import DoughnutChart from './Charts/DoughnutChart.jsx';
+import BarChart from './Charts/BarChart.jsx';
 
 class CourseInfo extends Component {
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
-    if (this.props.tabView === 'Students') {
-      return (
-        <AllStudentsTab />
-      );
-    } else if (this.props.tabView === 'Student') {
-      return <Student />;
-    } else if (this.props.tabView === 'Assignment') {
-      return <Assignment />;
+    switch (this.props.tabView) {
+      case 'Students':
+        return <AllStudentsTab />;
+      case 'Student':
+        return <StudentChatContainer />;
+      case 'Assignment':
+        return <Assignment />;
+      default:
+        return <AssignmentsTab />;
     }
-    return (
-      <AssignmentsTab />
-    );
   }
 
   handleCharts() {
@@ -51,22 +48,26 @@ class CourseInfo extends Component {
 
   render() {
     return (
-      <div className="course-info">
-        <div>
-          {this.handleCharts()}
-        </div>
-        <ul className="course-info-nav nav nav-tabs">
-          <li
-            role="presentation"
-            className="course-info-nav-tab assignments-tab"
-            onClick={ () => this.props.handleTab('Assignments') }
-          >
-            <a>View Assignments</a>
-          </li>
-          { this.displayStudentsTab() }
-        </ul>
-        <div className="course-info-content">
-          { this.handleTabs() }
+      <div className="container-fluid">
+        <h4>Course Health</h4>
+        <hr />
+        <div className="course-info">
+          <div>
+            {this.handleCharts()}
+          </div>
+          <ul className="course-info-nav nav nav-tabs">
+            <li
+              role="presentation"
+              className="course-info-nav-tab assignments-tab"
+              onClick={ () => this.props.handleTab('Assignments') }
+              >
+              <a>View Assignments</a>
+            </li>
+            { this.displayStudentsTab() }
+          </ul>
+          <div className="course-info-content">
+            { this.handleTabs() }
+          </div>
         </div>
       </div>
     );
