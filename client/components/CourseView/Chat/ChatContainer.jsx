@@ -1,17 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
-import { getPreviousMessages, listenForNewMessages, disconnect, sendMessage } from 'chatSockets.js';
+import { getPreviousMessages, listenForNewMessages, disconnect, sendMessage } from './utils/chatSockets.js';
 
 class ChatContainer extends Component {
   constructor(props) {
     super(props);
 
     // request chat history and listen for new messages
-    this.props.sender = { id: 5, type: 'teacher' };
-    this.props.recipient = { id: this.props.displayedStudent.id, type: 'student' };
-    getPreviousMessages(this.props.sender, this.props.recipient, this.props.addMessage);
-    listenForNewMessages(this.props.sender, this.props.recipient, this.props.addMessage);
+    if (this.props.currentUser.type === 'teacher') {
+      this.props.otherUser = { id: this.props.displayedStudent.id, type: 'student' };
+    }
+    getPreviousMessages(this.props.currentUser, this.props.otherUser, this.props.addMessage);
+    listenForNewMessages(this.props.otherUser, this.props.addMessage);
   }
 
   componentWillUnmount() {
@@ -20,15 +21,15 @@ class ChatContainer extends Component {
   }
 
   handleSendMessage(messageBody) {
-    const message = { timestamp: Date.now(), body: messageBody };
-    sendMessage(this.props.sender, this.props.recipient, message, this.props.addMessage);
+    const message = { timestamp: Date.now(), body: messageBody, author: 'Teacher Name' };
+    sendMessage(this.props.currentUser, this.props.otherUser, message, this.props.addMessage);
   }
 
   render() {
-    const displayMessages = this.props.messages[this.props.displayedStudent.id].map((message) => (
+    const displayMessages = this.props.messages[this.props.otherUser.id].map((message) => (
       <div>
-        <h6>{message.author}</h6>
-        <p>{message.body}</p>
+        <h5>{message.body}</h5>
+        <p>{message.author} · {message.timestamp}</p>
       </div>
     ));
 
@@ -72,8 +73,8 @@ ChatContainer.propTypes = {
   messages: PropTypes.object,
   handleBackButton: PropTypes.func,
   addMessage: PropTypes.func,
-  sender: PropTypes.object,
-  recipient: PropTypes.object,
+  currentUser: PropTypes.object,
+  otherUser: PropTypes.object,
 };
 
 export default connect(

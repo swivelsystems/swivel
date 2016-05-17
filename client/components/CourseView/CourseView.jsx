@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions/index.js';
 import AllStudentsTab from './StudentsTab/AllStudentsTab.jsx';
 import AssignmentsTab from './AssignmentsTab/AssignmentsTab.jsx';
-import StudentChatContainer from './StudentsTab/StudentChatContainer.jsx';
+import ChatContainer from './Chat/ChatContainer.jsx';
 import Assignment from './AssignmentsTab/Assignment.jsx';
 import DoughnutChart from './Charts/DoughnutChart.jsx';
 import BarChart from './Charts/BarChart.jsx';
@@ -15,7 +15,7 @@ class CourseInfo extends Component {
       case 'Students':
         return <AllStudentsTab />;
       case 'Student':
-        return <StudentChatContainer />;
+        return <ChatContainer currentUser={{ id: 5, type: 'teacher' }} />;
       case 'Assignment':
         return <Assignment />;
       default:
