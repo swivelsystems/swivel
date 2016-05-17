@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import * as teachersService from '../services/teachersService.js';
 const teachersRouter = express.Router();
 
