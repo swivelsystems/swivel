@@ -12,7 +12,7 @@ export const retrieve = (req, res) => {
   const key = `student${studentId}`;
 
   redis.readURI.get(key, (err, data) => {
-    if(err) {
+    if (err) {
       res.status(500).send('Our server\'s not perfect, but we still love it. Give it another try!');
     } else if (data) {
       res.send(JSON.parse(data));

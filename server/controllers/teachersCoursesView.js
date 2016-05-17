@@ -13,7 +13,7 @@ export const sqlQuery = (courseId) => {
                     coursePackage.students.push(studentInfo);
                   })
                   .catch((err) => {
-                    console.err('Error loading student info for student: ', student.studentId, err);
+                    console.error('Error loading student info for student: ', student.studentId, err);
                     reject(err);
                     // res.status(500).send('Error loading student info for student: ', student.studentId);
                   });
@@ -24,7 +24,7 @@ export const sqlQuery = (courseId) => {
         resolve(coursePackage);
       })
       .catch((err) => {
-        console.err('failed at retrieving students list for course ID: ', courseId);
+        console.error('failed at retrieving students list for course ID: ', courseId);
         reject(err);
         // res.status(500).send('failed at retrieving students list for course ID: ', courseId);
       });

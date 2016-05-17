@@ -27,7 +27,7 @@ export const retrieveCourse = (req, res) => {
 
   redis.readURI.get(key, (err, data) => {
     if (err) {
-      console.err('failed at querying Redis for:', key);
+      console.error('failed at querying Redis for:', key);
       res.status(500).send('Internal server error. Please try again.');
     } else if (data) {
       res.send(JSON.parse(data));
@@ -36,7 +36,10 @@ export const retrieveCourse = (req, res) => {
       .then((coursePackage) => {
         res.send(coursePackage);
         redis.writeURI.set(key, JSON.stringify(coursePackage));
-      });
+      })
+      .catch((err) => {
+        res.status(500).send('Our server\'s not perfect, but we still love it. Give it another try!');
+      })
     }
   });
 };
