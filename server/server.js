@@ -16,12 +16,13 @@ const app = express();
 app.use(compression());
 
 const port = process.env.PORT || 8080;
+
+// Sockets
 const server = app.listen(port, (err) => {
   if (err) { throw new Error(err); }
   console.log('Swivel server listening on port: ', port);
 });
 
-// Sockets
 sockets.socketServer(app, server);
 
 app.use(compression());
@@ -37,7 +38,6 @@ app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/../client/`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 // passport.use(new LocalStrategy({
 //   usernameField: 'email',
