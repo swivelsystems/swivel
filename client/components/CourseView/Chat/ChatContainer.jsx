@@ -8,21 +8,20 @@ class ChatContainer extends Component {
     super(props);
 
     // request chat history and listen for new messages
-    const teacherId = 5;
-    const studentId = this.props.displayedStudent.id;
-    getPreviousMessages(studentId, this.props.addMessage);
-    listenForNewMessages(studentId, this.props.addMessage);
+    this.props.sender = { id: 5, type: 'teacher' };
+    this.props.recipient = { id: this.props.displayedStudent.id, type: 'student' };
+    getPreviousMessages(this.props.sender, this.props.recipient, this.props.addMessage);
+    listenForNewMessages(this.props.sender, this.props.recipient, this.props.addMessage);
   }
 
   componentWillUnmount() {
     // close the socket connection and any listeners
-    const teacherId = 5;
-    const studentId = this.props.displayedStudent.id;
     disconnect((data) => (console.log(data)));
   }
 
-  handleSendMessage(message) {
-    sendMessage(message, this.props.addMessage);
+  handleSendMessage(messageBody) {
+    const message = { timestamp: Date.now(), body: messageBody };
+    sendMessage(this.props.sender, this.props.recipient, message, this.props.addMessage);
   }
 
   render() {
@@ -73,6 +72,8 @@ ChatContainer.propTypes = {
   messages: PropTypes.object,
   handleBackButton: PropTypes.func,
   addMessage: PropTypes.func,
+  sender: PropTypes.object,
+  recipient: PropTypes.object,
 };
 
 export default connect(
