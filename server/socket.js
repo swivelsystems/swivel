@@ -10,7 +10,7 @@ export const socketServer = (app, server) => {
   io.on('connection', (socket) => {
     // Login, Authentication, and logout
 
-    console.log('auser connected', socket.id);
+    console.log('a user connected', socket.id);
     socket.emit('authenticate');
 
     socket.on('authenticated', (data) => {
