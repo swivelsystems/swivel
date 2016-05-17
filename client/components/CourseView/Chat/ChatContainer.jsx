@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
 import { getPreviousMessages, listenForNewMessages, disconnect, sendMessage } from './utils/chatSockets.js';
+import ChatEntry from './ChatEntry.jsx';
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -25,25 +26,30 @@ class ChatContainer extends Component {
     sendMessage(this.props.currentUser, this.props.otherUser, message, this.props.addMessage);
   }
 
-  render() {
-    const displayMessages = this.props.messages[this.props.otherUser.id].map((message) => (
-      <div>
-        <h5>{message.body}</h5>
-        <p>{message.author} · {message.timestamp}</p>
-      </div>
-    ));
+  displayBackButton() {
+    if (this.props.currentUser.type === 'teacher') {
+      return (<button type="button"
+        className="btn btn-small btn-danger back"
+        onClick={ this.props.handleBackButton }
+      >
+        Close
+      </button>);
+    }
+    return '';
+  }
 
+  displayMessages() {
+    return this.props.messages[this.props.otherUser.id].map((message) => (
+      <ChatEntry message={message} />
+    ));
+  }
+
+  render() {
     return (
       <div>
-        <button
-          type="button"
-          className="btn btn-small btn-danger back"
-          onClick={ this.props.handleBackButton }
-        >
-          Close
-        </button>
+        { this.displayBackButton() }
         <h5>Conversation between you and {this.props.displayedStudent.name}</h5>
-        {displayMessages}
+        { this.displayMessages() }
       </div>
     );
   }
