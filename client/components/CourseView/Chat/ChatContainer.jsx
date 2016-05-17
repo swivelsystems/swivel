@@ -7,13 +7,13 @@ import ChatEntry from './ChatEntry.jsx';
 class ChatContainer extends Component {
   constructor(props) {
     super(props);
-
+    this.otherUser = this.props.otherUser || {};
     // request chat history and listen for new messages
     if (this.props.currentUser.type === 'teacher') {
-      this.props.otherUser = { id: this.props.displayedStudent.id, type: 'student' };
+      this.otherUser = { id: this.props.displayedStudent.id, type: 'student' };
     }
-    getPreviousMessages(this.props.currentUser, this.props.otherUser, this.props.addMessage);
-    listenForNewMessages(this.props.otherUser, this.props.addMessage);
+    getPreviousMessages(this.props.currentUser, this.otherUser, this.props.addMessage);
+    listenForNewMessages(this.otherUser, this.props.addMessage);
   }
 
   componentWillUnmount() {
@@ -23,7 +23,7 @@ class ChatContainer extends Component {
 
   handleSendMessage(messageBody) {
     const message = { timestamp: Date.now(), body: messageBody, author: 'Teacher Name' };
-    sendMessage(this.props.currentUser, this.props.otherUser, message, this.props.addMessage);
+    sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
   }
 
   displayBackButton() {
@@ -39,7 +39,10 @@ class ChatContainer extends Component {
   }
 
   displayMessages() {
-    return this.props.messages[this.props.otherUser.id].map((message) => (
+    if (!this.props.messages[this.otherUser.id]) {
+      return <p>There are no messages to display. Send a message!</p>;
+    }
+    return this.props.messages[this.otherUser.id].map((message) => (
       <ChatEntry message={message} />
     ));
   }

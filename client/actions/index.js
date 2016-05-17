@@ -25,6 +25,9 @@ module.exports = {
   receiveCoursesError: (error) => (
     { type: types.RECEIVE_COURSES_ERROR, error }
   ),
+  retrieveMessages: (id) => (
+    { type: types.RETRIEVE_MESSAGES, id }
+  ),
   switchTabs: (tabView) => (
     { type: types.SWITCH_TABS, tabView }
   ),

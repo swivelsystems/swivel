@@ -3,7 +3,8 @@ import * as types from '../constants/ActionTypes.js';
 const initialState = { 1: [{
   author: 'Joel',
   body: 'Hi this is Joel',
-}]};
+}],
+};
 
 /*
  * structure is...
@@ -17,6 +18,8 @@ export default function chat(state = initialState, action) {
   switch (action.type) {
     case types.ADD_NEW_MESSAGE:
       return state[action.id].push(action.message);
+    case types.RETRIEVE_MESSAGES:
+      return state[action.id];
     default:
       return state;
   }
