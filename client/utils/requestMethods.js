@@ -12,6 +12,7 @@ exports.loadTeacherData = (callback) => {
   })
   .then((response) => {
     const data = response.data;
+    console.log(data);
     callback(null, data);
 
     return data.courses.map((course, index) => (

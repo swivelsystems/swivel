@@ -14,6 +14,8 @@ class ChatContainer extends Component {
     }
     getPreviousMessages(this.props.currentUser, this.otherUser, this.props.addMessage);
     listenForNewMessages(this.otherUser, this.props.addMessage);
+
+    this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
   componentWillUnmount() {
@@ -21,8 +23,8 @@ class ChatContainer extends Component {
     disconnect((data) => (console.log(data)));
   }
 
-  handleSendMessage(messageBody) {
-    const message = { timestamp: Date.now(), body: messageBody, author: 'Teacher Name' };
+  handleSendMessage() {
+    const message = { timestamp: Date.now(), body: this.refs.messageBody.value, author: 'Lizzy Smells' };
     sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
   }
 
@@ -53,6 +55,22 @@ class ChatContainer extends Component {
         { this.displayBackButton() }
         <h5>Conversation between you and {this.props.displayedStudent.name}</h5>
         { this.displayMessages() }
+        <form id="chatForm" className="form-inline">
+          <div className="form-group">
+            <input type="text"
+              ref="messageBody"
+              className="form-control input-lg"
+              placeholder="Your message" id="msg"
+            />
+          </div>
+          <input type="submit"
+            onClick={ this.handleSendMessage }
+            name="send"
+            id="send"
+            value="Send"
+            className="btn btn-success btn-lg"
+          />
+        </form>
       </div>
     );
   }
