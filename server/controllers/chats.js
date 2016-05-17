@@ -1,7 +1,4 @@
 import Chat from '../models/Chat.js';
-// sender: { id: 1, type: 'teacher'}
-// recipient {id: 2, type: 'student'}
-// message { body: , timestamp: , author:}
 
 export const saveChats = (chats, teacher, student) => {
   for (let i = 0; i < chats.length; i++) {
