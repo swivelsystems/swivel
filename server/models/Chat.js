@@ -8,27 +8,18 @@ const Chat = db.define('chats',
       defaultValue: Sequelize.UUIDV1,
       primaryKey: true,
     },
-    author: {
-      type: Sequelize.STRING,
-    },
-    chatroom: {
+    authorId: {
       type: Sequelize.STRING,
     },
     timestamp: {
       type: Sequelize.STRING,
     },
-    participant1: {
+    teacherId: {
       type: Sequelize.INTEGER,
     },
-    particapnt2: {
+    StudentId: {
       type: Sequelize.INTEGER,
     },
-    p1type: {
-      type: Sequelize.STRING,
-    },
-    p2type: {
-      type: Sequelize.STRING,
-    }
     body: {
       type: Sequelize.STRING,
     }
