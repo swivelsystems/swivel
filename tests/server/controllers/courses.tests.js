@@ -1,51 +1,57 @@
-import * as courses from '../../../server/controllers/courses.js';
+import * as Courses from '../../../server/controllers/courses.js';
 
 describe('Course Controller', () => {
-  // it('should create new courses', (done) => {
-  //   done();
-  // });
+  it('should retrieve courses for a student', (done) => {
+    Courses.findAllByStudent(1)
+    .then((result) => {
+      expect(result.length).toBeGreaterThan(0);
+      expect(result[0].name).toBeDefined();
+      expect(result[0].description).toBeDefined();
+      expect(result[0].department).toBeDefined();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+    done();
+  });
 
-  // describe('Retrieving courses', () => {
-  //   it('should retrieve courses for a student', (done) => {
-  //     new Promise((resolve) => (
-  //       resolve(courses.findAllByStudent(1))
-  //     ))
-  //     .then((result) => {
-  //       expect(result.length).toBeGreaterThan(0);
-  //       expect(result[0].name).toBeDefined();
-  //       expect(result[0].description).toBeDefined();
-  //       expect(result[0].department).toBeDefined();
-  //     })
-  //     .catch((err) => {
-  //       throw new Error(err);
-  //     });
-  //     done();
-  //   });
-  //
-  //   it('should retrieve courses for a teacher', (done) => {
-  //     new Promise((resolve) => (
-  //       resolve(courses.findAllByTeacher(1))
-  //     ))
-  //     .then((result) => {
-  //       expect(result.length).toBeGreaterThan(0);
-  //       expect(result[0].name).toBeDefined();
-  //       expect(result[0].description).toBeDefined();
-  //       expect(result[0].department).toBeDefined();
-  //     })
-  //     .catch((err) => {
-  //       throw new Error(err);
-  //     });
-  //     done();
-  //   });
-  // });
+  it('should retrieve a course\'s name and description by its id', (done) => {
+    Courses.findNameByCourseId(1)
+    .then((result) => {
+      expect(result.length).toBeGreaterThan(0);
+      expect(result[0].name).toBeDefined();
+      expect(result[0].description).toBeDefined();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+    done();
+  });
 
 
+  it('should retrieve courses for a teacher', (done) => {
+    Courses.findAllByTeacher(1)
+    .then((result) => {
+      expect(result.length).toBeGreaterThan(0);
+      expect(result[0].name).toBeDefined();
+      expect(result[0].description).toBeDefined();
+      expect(result[0].department).toBeDefined();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+    done();
+  });
 
-  // it('should update existing courses', (done) => {
-  //   done();
-  // });
-  //
-  // it('should remove courses from the database', (done) => {
-  //   done();
-  // });
+  it('should find all students taking a given course', (done) => {
+    Courses.findAllStudents(1)
+    .then((result) => {
+      expect(result.length).toBeGreaterThan(0);
+      expect(result[0].studentId).toBeDefined();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+    done();
+  });
 });

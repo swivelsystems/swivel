@@ -1,5 +1,4 @@
 import Assignments from '../models/Assignment.js';
-
 /*
 * Returns an array of all assignments for a given course.
 */
@@ -14,15 +13,14 @@ export function findAllByCourse(courseId) {
       attributes: ['id', 'name', 'dueDate', 'weight', 'courseId', 'description'],
     })
     .then((data) => {
-      let results = [];
+      const results = [];
       for (let i = 0; i < data.length; i++) {
         results[i] = data[i].dataValues;
       }
       resolve(results);
     })
     .catch((err) => (
-      console.err(err)
+      reject(err)
     ));
   });
-
 }
