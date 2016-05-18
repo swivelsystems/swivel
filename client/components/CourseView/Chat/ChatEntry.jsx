@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
 const ChatEntry = (props) => (
-  <div>
-    <h5>{props.message.body}</h5>
-    <p>{props.message.author} · {props.message.timestamp}</p>
+  <div className="chat-entry">
+    <p className="chat-entry-message-body">{props.message.body}</p>
+    <p className="chat-entry-message-metadata">{props.message.author}</p>
   </div>
 );
 

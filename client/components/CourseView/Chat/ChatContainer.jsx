@@ -33,10 +33,10 @@ class ChatContainer extends Component {
   displayBackButton() {
     if (this.props.currentUser.type === 'teacher') {
       return (<button type="button"
-        className="btn btn-small btn-danger back"
+        className="btn btn-small btn-default back"
         onClick={ this.props.handleBackButton }
       >
-        Close
+        Go Back
       </button>);
     }
     return '';
@@ -53,18 +53,21 @@ class ChatContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="chat-container">
         {this.displayBackButton()}
 
-        <h5>Your Conversation with {this.props.displayedStudent.name}</h5>
-        {this.displayMessages()}
+        <h4>Your Conversation with {this.props.displayedStudent.name}</h4>
+        <div className="chat-container-messages-container">
+          {this.displayMessages()}
+        </div>
 
-        <form id="chatForm" className="form-inline">
-          <div className="form-group">
+        <form className="chat-container-form form-inline">
+          <div className="chat-container-form-inputs form-group">
             <input type="text"
               ref="messageBody"
-              className="form-control input-lg"
-              placeholder="Your message" id="msg"
+              className="chat-container-form-inputs-message form-control"
+              placeholder="Write your message here" id="msg"
+              autocomplete="off"
             />
           </div>
           <input type="submit"
@@ -72,7 +75,7 @@ class ChatContainer extends Component {
             name="send"
             id="send"
             value="Send"
-            className="btn btn-success btn-lg"
+            className="chat-container-form-inputs-send btn btn-success"
           />
         </form>
       </div>

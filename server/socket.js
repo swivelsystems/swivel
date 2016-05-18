@@ -24,13 +24,14 @@ export const socketServer = (app, server) => {
       delete clients[socket.username];
     });
 
-    socket.on('loadMessages', (data) => {
-      console.log('Messages Loaded');
-
+    socket.on('loadMessages', (currentUser, otherUser) => {
+      console.log('Attempting to load messages...');
+      console.log('Current user is...', currentUser);
+      console.log('Other user is...', otherUser);
     });
 
-    socket.on('newMessage', (message) => {
-      console.log('newMessage');
+    socket.on('newMessage', (currentUser, otherUser, message) => {
+      console.log('Received new message...', message);
     });
 
   });
