@@ -1,9 +1,6 @@
 import * as types from '../constants/ActionTypes.js';
 
-const initialState = { 1: [{
-  author: 'Joel',
-  body: 'Hi this is Joel',
-}]};
+const initialState = {};
 
 /*
  * structure is...
@@ -15,8 +12,14 @@ const initialState = { 1: [{
 
 export default function chat(state = initialState, action) {
   switch (action.type) {
-    case types.ADD_NEW_MESSAGE:
-      return state[action.id].push(action.message);
+    case types.ADD_MESSAGE: {
+      const copy = Array.prototype.slice.call(state);
+      if (!copy[action.id]) { copy[action.id] = []; }
+      copy[action.id].push(action.message);
+      return copy;
+    }
+    case types.RETRIEVE_MESSAGES:
+      return state[action.id];
     default:
       return state;
   }

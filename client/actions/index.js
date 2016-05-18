@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes.js';
 
 module.exports = {
-  addNewMessage: (message) => (
-    { type: types.ADD_NEW_MESSAGE, message }
+  addMessage: (message, id) => (
+    { type: types.ADD_MESSAGE, message, id }
   ),
   loadMessages: (messages) => (
     { type: types.LOAD_MESSAGES, messages }
@@ -24,6 +24,9 @@ module.exports = {
   ),
   receiveCoursesError: (error) => (
     { type: types.RECEIVE_COURSES_ERROR, error }
+  ),
+  retrieveMessages: (id) => (
+    { type: types.RETRIEVE_MESSAGES, id }
   ),
   switchTabs: (tabView) => (
     { type: types.SWITCH_TABS, tabView }
