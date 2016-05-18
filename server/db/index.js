@@ -5,6 +5,7 @@ import Course from '../models/Course.js';
 import Student from '../models/Student.js';
 import Submission from '../models/Submission.js';
 import Teacher from '../models/Teacher.js';
+import Chat from '../models/Chat.js';
 // import StudentsCoursesGrade from '../models/StudentsCoursesGrade.js';
 
 const initDatabase = () => {
