@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes.js';
 
 module.exports = {
-  addNewMessage: (message) => (
-    { type: types.ADD_NEW_MESSAGE, message }
+  addMessage: (message, id) => (
+    { type: types.ADD_MESSAGE, message, id }
   ),
   loadMessages: (messages) => (
     { type: types.LOAD_MESSAGES, messages }

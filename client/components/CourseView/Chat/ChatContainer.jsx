@@ -41,6 +41,7 @@ class ChatContainer extends Component {
   }
 
   displayMessages() {
+    console.log(this.props.messages, this.otherUser.id);
     if (!this.props.messages[this.otherUser.id]) {
       return <p>There are no messages to display. Send a message!</p>;
     }
@@ -86,12 +87,12 @@ const mapStateToProps = (state) => (
 // go back to all students when back is pressed
 const mapDispatchToProps = (dispatch) => (
   {
-    handleBackButton: () => {
-      dispatch(actions.switchTabs('Students'));
-    },
-    addMessage: (message, id) => {
-      dispatch(actions.addMessage(message, id));
-    },
+    handleBackButton: () => (
+      dispatch(actions.switchTabs('Students'))
+    ),
+    addMessage: (message, id) => (
+      dispatch(actions.addMessage(message, id))
+    ),
   }
 );
 
