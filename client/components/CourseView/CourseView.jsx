@@ -46,15 +46,10 @@ class CourseInfo extends Component {
     return tab;
   }
 
-  render() {
-    return (
-      <div className="container-fluid">
-        <h4>Course Health</h4>
-        <hr />
-        <div className="course-info">
-          <div>
-            {this.handleCharts()}
-          </div>
+  loadStudentOrTeacherView() {
+    if (this.props.demoType === 'teacher') {
+      return (
+        <div>
           <ul className="course-info-nav nav nav-tabs">
             <li
               role="presentation"
@@ -68,6 +63,40 @@ class CourseInfo extends Component {
           <div className="course-info-content">
             { this.handleTabs() }
           </div>
+        </div>
+      );
+    }
+    return (
+      <div className="col-md-12">
+        <div className="col-md-8">
+          <h4>Your Assignments</h4>
+          <hr />
+          <div className="course-info-content">
+            { this.handleTabs() }
+          </div>
+        </div>
+        <div className="col-md-4">
+          <h4>Your Teacher</h4>
+          <hr />
+          <div>
+            <img src="//placekitten.com/200/200" role="presentation" />
+            <p>Ms. Elsa Bonnie Highman</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <h4>Course Health</h4>
+        <hr />
+        <div className="course-info">
+          <div>
+            {this.handleCharts()}
+          </div>
+          {this.loadStudentOrTeacherView()}
         </div>
       </div>
     );
