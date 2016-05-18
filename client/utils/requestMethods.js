@@ -12,7 +12,6 @@ exports.loadTeacherData = (callback) => {
   })
   .then((response) => {
     const data = response.data;
-    console.log(data);
     callback(null, data);
 
     return data.courses.map((course, index) => (
@@ -44,7 +43,6 @@ exports.loadStudentData = (callback) => {
     data: id,
   })
   .then((response) => {
-    console.log(response.data);
     callback(null, response.data);
   })
   .catch((error) => {

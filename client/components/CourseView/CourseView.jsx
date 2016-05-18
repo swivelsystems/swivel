@@ -60,7 +60,7 @@ class CourseInfo extends Component {
               role="presentation"
               className="course-info-nav-tab assignments-tab"
               onClick={ () => this.props.handleTab('Assignments') }
-              >
+            >
               <a>View Assignments</a>
             </li>
             { this.displayStudentsTab() }

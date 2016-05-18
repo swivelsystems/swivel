@@ -1,17 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
-import { getPreviousMessages, listenForNewMessages, disconnect, sendMessage } from './utils/chatSockets.js';
+import { getPreviousMessages, listenForNewMessages, disconnect, sendMessage }
+       from './utils/chatSockets.js';
 import ChatEntry from './ChatEntry.jsx';
 
 class ChatContainer extends Component {
   constructor(props) {
     super(props);
-    this.otherUser = this.props.otherUser || {};
-    // request chat history and listen for new messages
-    if (this.props.currentUser.type === 'teacher') {
-      this.otherUser = { id: this.props.displayedStudent.id, type: 'student' };
-    }
+
+    // specify the user the current user is chatting with,
+    // get chat history, and listen for incoming messages
+    this.otherUser = this.props.otherUser
+      || { id: this.props.displayedStudent.id, type: 'student' };
     getPreviousMessages(this.props.currentUser, this.otherUser, this.props.addMessage);
     listenForNewMessages(this.otherUser, this.props.addMessage);
 
@@ -19,13 +20,14 @@ class ChatContainer extends Component {
   }
 
   componentWillUnmount() {
-    // close the socket connection and any listeners
-    disconnect((data) => (console.log(data)));
+    disconnect();
   }
 
-  handleSendMessage() {
-    const message = { timestamp: Date.now(), body: this.refs.messageBody.value, author: 'Lizzy Smells' };
+  handleSendMessage(e) {
+    e.preventDefault();
+    const message = { timestamp: Date.now(), body: this.refs.messageBody.value, author: 'Bonnie Lohman' };
     sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
+    this.displayMessages();
   }
 
   displayBackButton() {
@@ -41,7 +43,6 @@ class ChatContainer extends Component {
   }
 
   displayMessages() {
-    console.log(this.props.messages, this.otherUser.id);
     if (!this.props.messages[this.otherUser.id]) {
       return <p>There are no messages to display. Send a message!</p>;
     }
@@ -53,9 +54,11 @@ class ChatContainer extends Component {
   render() {
     return (
       <div>
-        { this.displayBackButton() }
-        <h5>Conversation between you and {this.props.displayedStudent.name}</h5>
-        { this.displayMessages() }
+        {this.displayBackButton()}
+
+        <h5>Your Conversation with {this.props.displayedStudent.name}</h5>
+        {this.displayMessages()}
+
         <form id="chatForm" className="form-inline">
           <div className="form-group">
             <input type="text"
