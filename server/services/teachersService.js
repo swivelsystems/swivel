@@ -39,7 +39,7 @@ export const retrieveCourse = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send('Our server\'s not perfect, but we still love it. Give it another try!');
-      })
+      });
     }
   });
 };
