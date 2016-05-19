@@ -19,7 +19,6 @@ class DoughnutChart extends Component {
   }
 
   shuffleChartData() {
-      console.log('we out heres', this.props.displayedCourse);
     if (this.props.displayedCourse) {
       let randomVal = Math.floor(Math.random() * (30 - 15)) + 15;
       ChartOptions.gradesData[0].value = randomVal;
