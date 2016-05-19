@@ -9,6 +9,7 @@ import DoughnutChart from './Charts/DoughnutChart.jsx';
 import BarChart from './Charts/BarChart.jsx';
 
 class CourseInfo extends Component {
+
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
     switch (this.props.tabView) {
@@ -66,6 +67,7 @@ class CourseInfo extends Component {
         </div>
       );
     }
+
     return (
       <div className="col-md-12">
         <div className="col-md-8">
@@ -76,20 +78,12 @@ class CourseInfo extends Component {
           </div>
         </div>
         <div className="col-md-4">
-          <h4>Your Teacher</h4>
-          <hr />
-          <div className="teacher-card">
-            <div className="teacher-card-avatar-container">
-              <img className="teacher-card-avatar-container-img"
-                src="//placekitten.com/200/200"
-                role="presentation"
-              />
-            </div>
-            <div className="teacher-card-info-container">
-              <h5 key="teacherCardHeader" className="card-title">Ms. Clyde</h5>
-            </div>
-          </div>
-          <ChatContainer currentUser={{ id: 30, type: 'student', name: 'Ella Truong' }} otherUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />
+          <ChatContainer
+            currentUser={{ id: 30, type: 'student', name: 'Ella Truong' }}
+            otherUser={{ id: this.props.displayedCourse.teacherId,
+              type: 'teacher',
+              name: this.props.displayedCourse.teacherName }}
+          />
         </div>
       </div>
     );

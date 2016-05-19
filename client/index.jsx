@@ -8,6 +8,7 @@ import configureStore from './store/configureStore';
 import styles from './styles/entry.scss';
 import actions from './actions/index.js';
 import requestMethods from './utils/requestMethods.js';
+import socket from './utils/socket.js';
 
 const store = configureStore();
 
@@ -17,6 +18,14 @@ requestMethods.loadTeacherData((error, teacherData) => {
   }
   store.dispatch(actions.receiveCourses(teacherData.courses));
   store.dispatch(actions.updateUser(teacherData.teacher));
+
+  const establishConnection = () => {
+    socket.connect();
+    socket.on('authenticate', () => {
+      socket.emit('authenticated', teacherData.teacher.name, teacherData.teacher.id);
+    });
+  };
+  establishConnection();
 });
 
 ReactDOM.render(

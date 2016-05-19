@@ -1,6 +1,7 @@
 // this is for the sake of org/best practices
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const LOAD_MESSAGES = 'LOAD_MESSAGES';
+export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
 export const DISPLAY_ASSIGNMENT = 'DISPLAY_ASSIGNMENT';
 export const DISPLAY_COURSE = 'DISPLAY_COURSE';
 export const DISPLAY_STUDENT = 'DISPLAY_STUDENT';

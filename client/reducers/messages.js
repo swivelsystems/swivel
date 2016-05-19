@@ -13,10 +13,14 @@ const initialState = {};
 export default function chat(state = initialState, action) {
   switch (action.type) {
     case types.ADD_MESSAGE: {
+      console.log(action);
       const copy = Array.prototype.slice.call(state);
       if (!copy[action.id]) { copy[action.id] = []; }
       copy[action.id].push(action.message);
       return copy;
+    }
+    case types.CLEAR_MESSAGES: {
+      return initialState;
     }
     case types.RETRIEVE_MESSAGES:
       return state[action.id];

@@ -16,6 +16,10 @@
     background-color: $color-success;
 }
 
+.btn-link, .btn-link:hover {
+  color: $color-primary;
+}
+
 hr {
   margin: $spacing-medium 0;
   border-top: 1px solid $color-divider;

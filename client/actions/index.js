@@ -4,6 +4,9 @@ module.exports = {
   addMessage: (message, id) => (
     { type: types.ADD_MESSAGE, message, id }
   ),
+  clearMessages: () => (
+    { type: types.CLEAR_MESSAGES }
+  ),
   loadMessages: (messages) => (
     { type: types.LOAD_MESSAGES, messages }
   ),

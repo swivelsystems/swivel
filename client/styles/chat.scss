@@ -1,6 +1,10 @@
 .chat-container {
-  padding: $spacing-small;
-  margin-top: $spacing-small;
+  padding: 0 $spacing-small $spacing-small $spacing-small;
+}
+
+.chat-container-back-button {
+  margin: $spacing-medium 0 !important;
+  padding: $spacing-medium 0 !important;
 }
 
 .chat-container-form {

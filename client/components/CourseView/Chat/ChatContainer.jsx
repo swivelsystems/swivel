@@ -13,29 +13,35 @@ class ChatContainer extends Component {
     // get chat history, and listen for incoming messages
     this.otherUser = this.props.otherUser
       || { id: this.props.displayedStudent.id, type: 'student' };
-    getPreviousMessages(this.props.currentUser, this.otherUser, this.props.addMessage);
+    getPreviousMessages(this.props.user, this.otherUser, this.props.addMessage);
     listenForNewMessages(this.otherUser, this.props.addMessage);
 
     this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
+  componentDidUpdate() {
+    this.otherUser = this.props.otherUser
+    || { id: this.props.displayedStudent.id, type: 'student' };
+  }
+
   componentWillUnmount() {
+
     disconnect();
   }
 
   handleSendMessage(e) {
     e.preventDefault();
     if (this.refs.messageBody.value === '') { return; } // prevent empty messages
-    const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.currentUser.name };
-    sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
+    const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.user.name };
+    sendMessage(this.props.user, this.otherUser, message, this.props.addMessage);
     this.refs.messageBody.value = '';
     this.displayMessages();
   }
 
   displayBackButton() {
-    if (this.props.currentUser.type === 'teacher') {
+    if (this.props.demoType === 'teacher') {
       return (<button type="button"
-        className="btn btn-small btn-default back"
+        className="btn btn-small btn-link chat-container-back-button"
         onClick={ this.props.handleBackButton }
       >
         Go Back
@@ -58,8 +64,10 @@ class ChatContainer extends Component {
       <div className="chat-container">
         {this.displayBackButton()}
 
-        <h4>Your Conversation with {this.props.displayedStudent.name
-            || this.props.otherUser.name }</h4>
+        <h4>Message {this.props.demoType === 'teacher' ?
+          this.props.displayedStudent.name :
+          this.props.otherUser.name}
+        </h4>
           { this.props.displayedStudent && this.props.displayedStudent.name ? <hr /> : '' }
         <div className="chat-container-messages-container">
           {this.displayMessages()}
@@ -90,7 +98,10 @@ class ChatContainer extends Component {
 const mapStateToProps = (state) => (
   {
     displayedStudent: state.displayedStudent,
+    displayedCourse: state.displayedCourse,
     messages: state.messages,
+    user: state.user,
+    demoType: state.demoType,
   }
 );
 
@@ -111,8 +122,10 @@ ChatContainer.propTypes = {
   messages: PropTypes.object,
   handleBackButton: PropTypes.func,
   addMessage: PropTypes.func,
-  currentUser: PropTypes.object,
+  user: PropTypes.object,
   otherUser: PropTypes.object,
+  demoType: PropTypes.string,
+  displayedCourse: PropTypes.object,
 };
 
 export default connect(
