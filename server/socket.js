@@ -14,10 +14,11 @@ export const socketServer = (app, server) => {
     console.log('a user connected', socket.id);
     socket.emit('authenticate');
 
-    socket.on('authenticated', (data) => {
-      console.log(data.username, 'is authenticated');
-      socket.username = data.username;
+    socket.on('authenticated', (username, id) => {
+      console.log(username, 'is authenticated with id', id);
+      socket.username = username;
       clients[socket.username] = socket.id;
+      console.log('connected', clients);
     });
 
     socket.on('disconnect', () => {
@@ -38,10 +39,40 @@ export const socketServer = (app, server) => {
         // emit messages back to user that requested messages
       });
     });
+    // socket.on('newMessage', (currentUser, otherUser, message) => {
+    //   console.log('Received new message...', message);
 
-    socket.on('newMessage', (sender, recipient, message) => {
-      console.log('Received new message...', message);
+    socket.on('newMessage', (package) => {
+      var sender = package[0];
+      var recipient = package[1];
+      var message = package[2];
+
+      //redis handler
       chatMethods.sendMessage(sender, recipient, message);
+
+      var time = new Date();
+      var hours = 0;
+      var amPM = ' AM';
+      if (time.getHours() > 12) {
+        hours = time.getHours() - 12;
+        amPM = ' PM';
+      };
+
+      var now = hours + ":" + time.getMinutes() + amPM;
+
+      var package = {
+        author: package["author"],
+        body: package["body"],
+        timestamp: time,
+        formatted: now,
+      };
+
+      socket.emit('newMessage', package);
+      socket.broadcast.to(clients[author]).emit(package);
+
     });
+
+
   });
 };
+
