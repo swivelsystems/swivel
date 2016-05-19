@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import actions from '../../../actions/index.js';
 import { connect } from 'react-redux';
 
 class AssignmentsTab extends Component {
@@ -8,8 +7,7 @@ class AssignmentsTab extends Component {
     return this.props.assignments.map((assignment) => (
       <div
         key={assignment.id}
-        className="card card-clickable assignment"
-        onClick={ () => this.props.handleClickedAssignment(assignment)}
+        className="card assignment"
       >
         <h4 className="assignment-title">Assignment: {assignment.name}</h4>
         <p>{assignment.description}</p>
@@ -32,21 +30,10 @@ const mapStateToProps = (state) => (
   { assignments: state.displayedCourse.assignments }
 );
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    handleClickedAssignment: (assignment) => {
-      dispatch(actions.displayAssignment(assignment));
-      dispatch(actions.switchTabs('Assignment'));
-    },
-  }
-);
-
 AssignmentsTab.propTypes = {
   assignments: PropTypes.array,
-  handleClickedAssignment: PropTypes.func,
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(AssignmentsTab);

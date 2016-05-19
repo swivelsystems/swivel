@@ -22,6 +22,21 @@
   float: right;
 }
 
+.col-md-4 .chat-container-form-inputs-message {
+  width: 100% !important;
+  display: block;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: none;
+}
+
+.col-md-4 .chat-container-form-inputs-send {
+  width: 100% !important;
+  float: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .chat-container-messages-container {
   height: 200px;
   overflow: scroll;

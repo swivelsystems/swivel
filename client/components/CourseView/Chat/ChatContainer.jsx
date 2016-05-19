@@ -25,8 +25,10 @@ class ChatContainer extends Component {
 
   handleSendMessage(e) {
     e.preventDefault();
-    const message = { timestamp: Date.now(), body: this.refs.messageBody.value, author: 'Bonnie Lohman' };
+    if (this.refs.messageBody.value === '') { return; } // prevent empty messages
+    const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.currentUser.name };
     sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
+    this.refs.messageBody.value = '';
     this.displayMessages();
   }
 
@@ -56,7 +58,9 @@ class ChatContainer extends Component {
       <div className="chat-container">
         {this.displayBackButton()}
 
-        <h4>Your Conversation with {this.props.displayedStudent.name}</h4>
+        <h4>Your Conversation with {this.props.displayedStudent.name
+            || this.props.otherUser.name }</h4>
+          { this.props.displayedStudent && this.props.displayedStudent.name ? <hr /> : '' }
         <div className="chat-container-messages-container">
           {this.displayMessages()}
         </div>
@@ -66,17 +70,17 @@ class ChatContainer extends Component {
             <input type="text"
               ref="messageBody"
               className="chat-container-form-inputs-message form-control"
-              placeholder="Write your message here" id="msg"
-              autocomplete="off"
+              placeholder="Write a message" id="msg"
+              autoComplete="off"
+            />
+            <input type="submit"
+              onClick={ this.handleSendMessage }
+              name="send"
+              id="send"
+              value="Send"
+              className="chat-container-form-inputs-send btn btn-success"
             />
           </div>
-          <input type="submit"
-            onClick={ this.handleSendMessage }
-            name="send"
-            id="send"
-            value="Send"
-            className="chat-container-form-inputs-send btn btn-success"
-          />
         </form>
       </div>
     );
