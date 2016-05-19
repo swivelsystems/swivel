@@ -1,10 +1,22 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ChartJS from 'chart.js';
+import { connect } from 'react-redux';
 import { Line as Chart } from 'react-chartjs';
 
 class LineChart extends Component {
 
+  randomizeChartData() {
+    const AttendenceData = [];
+    const onTimeData = [];
+    for (let i = 0; i < 30; i++) {
+      AttendenceData.push(Math.floor(Math.random() * (30 - 20 + 1)) + 20);
+      onTimeData.push(Math.floor(Math.random() * (30 - 20 + 1)) + 20);
+    }
+    return [AttendenceData, onTimeData];
+  }
+
   render() {
+    const [AttendenceData, onTimeData] = this.randomizeChartData();
     const lineData = {
       labels: [ 'Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12', 'Week 13', 'Week 14', 'Week 15', 'Week 16', 'Week 17', 'Week 18'],
       datasets: [
@@ -16,7 +28,7 @@ class LineChart extends Component {
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
           pointHighlightStroke: '#3498db',
-          data: [24, 29, 20, 28, 29, 27, 30, 20, 21, 26, 27, 26, 29, 27, 20, 21, 26, 27, 26, 29, 27],
+          data: AttendenceData,
         },
         {
           label: 'Students on Time',
@@ -26,7 +38,7 @@ class LineChart extends Component {
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
           pointHighlightStroke: '#2ecc71',
-          data: [23, 28, 15, 25, 28, 26, 26, 20, 20, 26, 27, 20, 25, 25, 20, 21, 25, 26, 25, 25, 25],
+          data: onTimeData,
         },
       ],
     };
