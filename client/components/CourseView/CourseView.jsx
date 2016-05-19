@@ -15,7 +15,7 @@ class CourseInfo extends Component {
       case 'Students':
         return <AllStudentsTab />;
       case 'Student':
-        return <ChatContainer currentUser={{ id: 5, type: 'teacher' }} />;
+        return <ChatContainer currentUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />;
       case 'Assignment':
         return <Assignment />;
       default:
@@ -78,10 +78,18 @@ class CourseInfo extends Component {
         <div className="col-md-4">
           <h4>Your Teacher</h4>
           <hr />
-          <div>
-            <img src="//placekitten.com/200/200" role="presentation" />
-            <p>Ms. Elsa Bonnie Highman</p>
+          <div className="teacher-card">
+            <div className="teacher-card-avatar-container">
+              <img className="teacher-card-avatar-container-img"
+                src="//placekitten.com/200/200"
+                role="presentation"
+              />
+            </div>
+            <div className="teacher-card-info-container">
+              <h5 key="teacherCardHeader" className="card-title">Ms. Clyde</h5>
+            </div>
           </div>
+          <ChatContainer currentUser={{ id: 30, type: 'student', name: 'Ella Truong' }} otherUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />
         </div>
       </div>
     );
@@ -107,6 +115,7 @@ const mapStateToProps = (state) => (
   {
     tabView: state.tabView,
     demoType: state.demoType,
+    displayedCourse: state.displayedCourse,
   }
 );
 
@@ -122,6 +131,7 @@ CourseInfo.propTypes = {
   tabView: PropTypes.string,
   handleTab: PropTypes.func,
   demoType: PropTypes.string,
+  displayedCourse: PropTypes.object,
 };
 
 export default connect(

@@ -1,0 +1,15 @@
+.teacher-card {
+  @extend .student-card;
+  min-height: 160px;
+}
+
+.teacher-card-avatar-container {
+  @extend .student-card-avatar-container;
+}
+.teacher-card-avatar-container-img {
+  @extend .student-card-avatar-container-img;
+}
+
+.teacher-card-info-container {
+  @extend .student-card-info-container;
+}
