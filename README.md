@@ -88,7 +88,7 @@ There are three API endpoints that serve data for students and teachers.
 ## Deployment
 Swivel is hosted on Amazon Web Services. Our Web/API server resides on an EC2 instance. The EC2 instance is connected to a mySQL version of AWS’ Relational Database Service offering. This is where the majority of Swivel’s data persists.
 
-Swivel’s architecture also includes two separate AWS ElastiCache Redis clusters. The first instance ElastiCache cluster enhances Swivel’s chat feature, while the second cluster optimizes the UU rendering across the application.
+Swivel’s architecture also includes two separate AWS ElastiCache Redis clusters. The first ElastiCache cluster enhances Swivel’s chat feature, while the second cluster optimizes the UI rendering across the application.
 <!--
 ### Current Build Health [![Build Status](https://travis-ci.org/HolisticParallelogram/crunchy-tunes.svg?branch=master)](https://travis-ci.org/HolisticParallelogram/crunchy-tunes)
 View the build [history](https://travis-ci.org/HolisticParallelogram/crunchy-tunes/builds) -->
