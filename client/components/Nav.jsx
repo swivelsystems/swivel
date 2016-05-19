@@ -36,8 +36,6 @@ class Nav extends Component {
             </a>
             <div className="navbar-links">
               <a className="navbar-link" href="#">About</a>
-              <a className="navbar-link" href="#">Services</a>
-              <a className="navbar-link" href="#">Pricing</a>
               <a className="navbar-link" href="#">Contact</a>
               {this.displayDemoButton()}
             </div>
