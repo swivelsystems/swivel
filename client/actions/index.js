@@ -34,5 +34,7 @@ module.exports = {
   toggleDemoType: (demoType) => (
     { type: types.TOGGLE_DEMO_TYPE, demoType }
   ),
-
+  updateUser: (user) => (
+    { type: types.UPDATE_USER, user }
+  ),
 };

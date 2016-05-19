@@ -57,12 +57,13 @@ const mapDispatchToProps = (dispatch) => (
     },
 
     handleHttpRequests: (demoType) => {
-      // we dont need this but I thought going back to home would be best practice
       dispatch(actions.goHome(true));
       const callback = (error, data) => {
         if (error) {
           return `Server Could Not load teacher information ${error}`;
         }
+        const user = data.teacher || data.student;
+        dispatch(actions.updateUser(user));
         dispatch(actions.receiveCourses(data.courses));
       };
 
