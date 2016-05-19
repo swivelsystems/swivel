@@ -30,26 +30,29 @@ export const socketServer = (app, server) => {
       console.log('Attempting to load messages...');
       console.log('Current user is...', sender);
       console.log('Other user is...', recipient);
-      chatMethods.getUserMessages(sender, recipient, (messages) => {
+      //chatMethods.getUserMessages(sender, recipient, (messages) => {
         // might need to parse messages
         // messages.map( (message) => {
           // return JSON.parse(message);
         // })
-        console.log('messages', messages);
+      //console.log('messages', messages);
         // emit messages back to user that requested messages
-      });
-      socket.emit('messages', messages);
+      //socket.emit('messages', messages);
     });
     // socket.on('newMessage', (currentUser, otherUser, message) => {
     //   console.log('Received new message...', message);
 
-    socket.on('newMessage', (package) => {
-      var sender = package[0];
-      var recipient = package[1];
-      var message = package[2];
+    socket.on('newMessage', (messageArray) => {
+      console.log(messageArray);
 
-      //redis handler
-      chatMethods.sendMessage(sender, recipient, message);
+      var author = messageArray[0];
+      var body = messageArray[1];
+      var recipient = messageArray[2];
+      var timeStamp = messageArray[3];
+      var senderId = messageArray[4];
+      var senderType = messageArray[5];
+      var recipientId = messageArray[6];
+      var recipientType = messageArray[7];
 
       var time = new Date();
       var hours = 0;
@@ -61,18 +64,30 @@ export const socketServer = (app, server) => {
 
       var now = hours + ":" + time.getMinutes() + amPM;
 
-      var package = {
-        author: package["author"],
-        body: package["body"],
-        timestamp: time,
-        formatted: now,
-      };
+      messageArray.push(now);
 
-      socket.emit('newMessage', package);
-      socket.broadcast.to(clients[author]).emit(package);
+      socket.emit('newMessage', messageArray);
+      socket.broadcast.to(clients[author]).emit(messageArray);
+      //Redis
+
+      var sender = {
+        id: senderId,
+        type: senderType
+      };
+      var recipient = {
+        id: recipientId,
+        type: recipientType
+      };
+      var message = {
+        author: author,
+        body: body,
+        timeStamp: time
+      }
+      //redis handler
+      chatMethods.sendMessage(sender, recipient, message);
+
 
     });
-
 
   });
 };
