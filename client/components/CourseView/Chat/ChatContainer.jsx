@@ -64,11 +64,8 @@ class ChatContainer extends Component {
       <div className="chat-container">
         {this.displayBackButton()}
 
-        <h4>Message {this.props.demoType === 'teacher' ?
-          this.props.displayedStudent.name :
-          this.props.otherUser.name}
-        </h4>
-          { this.props.displayedStudent && this.props.displayedStudent.name ? <hr /> : '' }
+        <h4>Chat Your Teacher</h4>
+          { this.props.demoType === 'student' ? <hr /> : '' }
         <div className="chat-container-messages-container">
           {this.displayMessages()}
         </div>
