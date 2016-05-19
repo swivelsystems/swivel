@@ -15,6 +15,7 @@ Open-source education management technology for K-12 schools.
 1. [Development](#development)
 1. [Team](#legacy-team)
 1. [Contributing](#contributing)
+1. [Deployment](#deployment)
 
 
 ## Requirements
@@ -83,6 +84,11 @@ There are three API endpoints that serve data for students and teachers.
 ![Sorry, the architecture image cannot be displayed. View it at http://i.imgur.com/QCvItta.png](http://i.imgur.com/QCvItta.png)
 ### Schema Design
 ![Sorry, the schema image cannot be displayed. View it at http://i.imgur.com/U91qHnb.png](http://i.imgur.com/n70VL9F.png)
+
+## Deployment
+Swivel is hosted on Amazon Web Services. Our Web/API server resides on an EC2 instance. The EC2 instance is connected to a mySQL version of AWS’ Relational Database Service offering. This is where the majority of Swivel’s data persists.
+
+Swivel’s architecture also includes two separate AWS ElastiCache Redis clusters. The first instance ElastiCache cluster enhances Swivel’s chat feature, while the second cluster optimizes the UU rendering across the application.
 <!--
 ### Current Build Health [![Build Status](https://travis-ci.org/HolisticParallelogram/crunchy-tunes.svg?branch=master)](https://travis-ci.org/HolisticParallelogram/crunchy-tunes)
 View the build [history](https://travis-ci.org/HolisticParallelogram/crunchy-tunes/builds) -->
