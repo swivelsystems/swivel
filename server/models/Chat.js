@@ -22,7 +22,7 @@ const Chat = db.define('chats',
     },
     body: {
       type: Sequelize.STRING,
-    }
+    },
   },
   {
     freezeTableName: true,

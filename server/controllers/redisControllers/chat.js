@@ -1,6 +1,5 @@
-import redis from 'redis';
-import client from '../../db/messagesStore.js';
-import * as chats from '../chats.js';
+// import * as chats from '../chats.js';
+import * as redis from '../../db/redis.js';
 
 
 // anticipated sender, recipient, message format
@@ -24,14 +23,14 @@ export const sendMessage = (sender, recipient, message) => {
   const [teacher, student] = teacherOrStudent(sender, recipient);
   const chat = JSON.stringify(message);
 
-  client.on('error', (err) => (
-    console.log('Error connecting to redis server in sendMessage ', err)
+  redis.chatWriteURI.on('error', (err) => (
+    console.error('Error connecting to redis server in sendMessage ', err)
   ));
 
   // put sent message into redis store
-  client.lpush(`${teacher}and${student}`, chat, (err, reply) => {
+  redis.chatWriteURI.lpush(`${teacher}and${student}`, chat, (err, reply) => {
     if (err) {
-      return console.log('Error pushing message to redis store');
+      return console.error('Error pushing message to redis store');
     }
     return reply;
   });
@@ -40,15 +39,15 @@ export const sendMessage = (sender, recipient, message) => {
 export const getUserMessages = (sender, recipient, callback) => {
   const [teacher, student] = teacherOrStudent(sender, recipient);
 
-  client.on('error', (err) => (
-    console.log('Error connecting to redis server in getUserMessages ', err)
+  redis.chatReadURI.on('error', (err) => (
+    console.error('Error connecting to redis server in getUserMessages ', err)
   ));
-  client.lrange(`${teacher}and${student}`, 0, 100, (err, replies) => {
+  redis.chatReadURI.lrange(`${teacher}and${student}`, 0, 100, (err, replies) => {
     if (err) {
-      return console.log('Error in getUserMessages', err);
+      return console.error('Error in getUserMessages', err);
     }
     if (replies === 0) {
-      return console.log('This student has no chat history!');
+      return console.error('This student has no chat history!');
     }
     callback(replies);
   });
