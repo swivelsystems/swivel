@@ -6,11 +6,6 @@ import { Line as Chart } from 'react-chartjs';
 class LineChart extends Component {
 
   randomizeChartData() {
-    // if (this.props.demoType === 'student') {
-
-    // } else {
-
-    // }
     const AttendenceData = [];
     const onTimeData = [];
     for (let i = 0; i < 30; i++) {
@@ -60,17 +55,4 @@ class LineChart extends Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  {
-    demoType: state.demoType,
-  }
-);
-
-LineChart.propTypes = {
-  demoType: PropTypes.string,
-};
-
-export default connect(
-  mapStateToProps
-)(LineChart);
-
+export default LineChart;
