@@ -23,9 +23,11 @@ Node v5.8
 Webpack
 
 ## Tech Stack
-- [React](https://facebook.github.io/react/)
+- [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/docs/basics/UsageWithReact.html)
 - [Node](https://nodejs.org/en/) and [Express](http://expressjs.com/)
-- [Sequelize ORM](http://docs.sequelizejs.com/en/latest/) and [MySQL](https://www.mysql.com/)
+- [MySQL](https://www.mysql.com/) and [Sequelize ORM](http://docs.sequelizejs.com/en/latest/)
+- [Redis](http://redis.io/)
+- [Jasmine](http://jasmine.github.io/), [Mocha](https://mochajs.org/), and [Karma](https://karma-runner.github.io/0.13/index.html)
 
 ## Development
 
@@ -69,12 +71,13 @@ This script uses web pack to bundle your js and jsx files (with source maps), wa
 Navigate your browser to localhost: 8080 to view the app.
 
 ### API Endpoints
-There are two API endpoints that serve data for students and teachers.
+There are three API endpoints that serve data for students and teachers.
 
 | API Endpoint        | Description           |
 | :------------- |:-------- |
-| /api/student/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, assignments, and submissions. |
-| /api/teacher/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, assignments, submissions, and students.      |  
+| /api/students/:studentId      | Returns a JSON object with a single student's identifying information and their courses, including meta data, announcement, assignments, and submissions. |
+| /api/teachers/home/:teacherId      | Returns a JSON object with a single teacher's identifying information and their courses, including meta data, anouncements and assignments.      |  
+| /api/teachers/course/:courseId      | Returns a JSON object with a single courses's identifying information and the students associated with that course.      | 
 
 ## High Level Architecture
 ![Sorry, the architecture image cannot be displayed. View it at http://i.imgur.com/QCvItta.png](http://i.imgur.com/QCvItta.png)
