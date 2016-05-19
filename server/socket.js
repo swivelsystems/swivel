@@ -38,6 +38,7 @@ export const socketServer = (app, server) => {
         console.log('messages', messages);
         // emit messages back to user that requested messages
       });
+      socket.emit('messages', messages);
     });
     // socket.on('newMessage', (currentUser, otherUser, message) => {
     //   console.log('Received new message...', message);
