@@ -31,7 +31,9 @@ export const socketServer = (app, server) => {
       console.log('Other user is...', recipient);
       chatMethods.getUserMessages(sender, recipient, (messages) => {
         // might need to parse messages
-        // const parsedMessages = JSON.parse(messages);
+        // messages.map( (message) => {
+          // return JSON.parse(message);
+        // })
         console.log('messages', messages);
         // emit messages back to user that requested messages
       });
