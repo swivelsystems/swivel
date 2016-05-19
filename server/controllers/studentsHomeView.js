@@ -2,6 +2,7 @@ import * as Students from './students.js';
 import * as Announcements from './announcements.js';
 import * as Courses from './courses.js';
 import * as Assignments from './assignments.js';
+import * as Teachers from './teachers.js';
 
 export const sqlQuery = (studentId) => {
   return new Promise((resolve, reject) => {
@@ -13,7 +14,7 @@ export const sqlQuery = (studentId) => {
       return Courses.findAllByStudent(studentId);
     })
     .catch((err) => {
-      console.err('failed to retrieve info for student: ', studentId);
+      console.error('failed to retrieve info for student: ', studentId);
       reject(err);
       // res.status(500).send('failed to retrieve info for student: ', studentId);
     })
@@ -26,7 +27,7 @@ export const sqlQuery = (studentId) => {
             return Assignments.findAllByCourse(course.courseId);
           })
           .catch((err) => {
-            console.err('failed at finding announcements', err);
+            console.error('failed at finding announcements', err);
             reject(err);
             // res.status(500).send('failed at finding announcements for:', course.name);
           })
@@ -35,19 +36,27 @@ export const sqlQuery = (studentId) => {
             return Courses.findNameByCourseId(course.courseId);
           })
           .catch((err) => {
-            console.err('failed at finding assignments', err);
+            console.error('failed at finding assignments', err);
             reject(err);
             // res.status(500).send('failed at finding assignments for:', course.name);
           })
           .then((courseInfo) => {
             course.name = courseInfo[0].name;
             course.description = courseInfo[0].description;
+            return Teachers.findById(courseInfo[0].teacherId);
           })
           .catch((err) => {
-            console.err('failed at finding course name and information', err);
+            console.error('failed at finding the teacher info', err);
+          })
+          .then((teacherInfo) => {
+            course.teacherId = teacherInfo.id;
+            course.teacherName = teacherInfo.name;
+          })
+          .catch((err) => {
+            console.error('failed at finding course name and information', err);
             reject(err);
             // res.status(500).send('failed at finding course name and infomation for:', course.name);
-          });
+          })
       });
       return Promise.all(coursesWaterfall);
     })
@@ -56,7 +65,7 @@ export const sqlQuery = (studentId) => {
       reject(err);
       // res.status(500).send('failed at finding courses for student: ', studentId);
     })
-    .then((waterfallSuccess) => {
+    .then(() => {
       resolve(studentPackage);
     })
     .catch((err) => {
