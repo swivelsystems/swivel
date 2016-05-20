@@ -53,7 +53,7 @@ const About = () => (
             </div>
             <div className="team-member-info-container">
               <h5 className="team-member-info-container-name card-title">Kevin Meraz</h5>
-              <p className="team-member-card-info">Kevin Meraz is a full-stack engineer. Complex and optimized architectures, coupled with artistic UX/UI’s are his perpetual goal.</p>
+              <p className="team-member-card-info">Kevin Meraz is a full-stack engineer. Complex and optimized architectures, coupled with user-driven UX/UI’s are his perpetual goal.</p>
               <a href="https://github.com/kmeraz">Github</a>
               <span> | </span>
               <a href="https://www.linkedin.com/in/kmeraz">LinkedIn</a>
