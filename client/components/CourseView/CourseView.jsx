@@ -10,13 +10,16 @@ import BarChart from './Charts/BarChart.jsx';
 
 class CourseInfo extends Component {
 
+  componentDidUpdate() {
+    this.handleOtherUserUpdate();
+  }
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
     switch (this.props.tabView) {
       case 'Students':
         return <AllStudentsTab />;
       case 'Student':
-        return <ChatContainer currentUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />;
+        return <ChatContainer />;
       case 'Assignment':
         return <Assignment />;
       default:
@@ -45,6 +48,11 @@ class CourseInfo extends Component {
       );
     }
     return tab;
+  }
+
+  handleOtherUserUpdate() {
+    const otherUser = { id: this.props.displayedCourse.teacherId, name: this.props.displayedCourse.teacherName, type: 'teacher' };
+    this.props.updateOtherUser(otherUser);
   }
 
   loadStudentOrTeacherView() {
@@ -78,12 +86,7 @@ class CourseInfo extends Component {
           </div>
         </div>
         <div className="col-md-4">
-          <ChatContainer
-            user={{ id: 30, type: 'student', name: 'Ella Truong' }}
-            otherUser={{ id: this.props.displayedCourse.teacherId,
-              type: 'teacher',
-              name: this.props.displayedCourse.teacherName }}
-          />
+          <ChatContainer />
         </div>
       </div>
     );
@@ -118,12 +121,16 @@ const mapDispatchToProps = (dispatch) => (
     handleTab: (tab) => {
       dispatch(actions.switchTabs(tab));
     },
+    updateOtherUser: (user) => {
+      dispatch(actions.updateOtherUser(user));
+    },
   }
 );
 
 CourseInfo.propTypes = {
   tabView: PropTypes.string,
   handleTab: PropTypes.func,
+  updateOtherUser: PropTypes.func,
   demoType: PropTypes.string,
   displayedCourse: PropTypes.object,
 };

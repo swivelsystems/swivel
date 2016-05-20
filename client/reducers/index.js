@@ -7,6 +7,7 @@ import tabView from './tabView.js';
 import displayedAssignment from './displayedAssignment.js';
 import demoType from './demoType.js';
 import messages from './messages.js';
+import otherUser from './otherUser.js';
 import user from './user.js';
 
 const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   displayedStudent,
   goHome,
   messages,
+  otherUser,
   tabView,
   user,
 });

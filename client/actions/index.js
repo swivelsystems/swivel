@@ -7,6 +7,9 @@ module.exports = {
   clearMessages: () => (
     { type: types.CLEAR_MESSAGES }
   ),
+  clearCourse: () => (
+    { type: types.CLEAR_COURSE }
+  ),
   loadMessages: (messages) => (
     { type: types.LOAD_MESSAGES, messages }
   ),
@@ -39,5 +42,8 @@ module.exports = {
   ),
   updateUser: (user) => (
     { type: types.UPDATE_USER, user }
+  ),
+  updateOtherUser: (user) => (
+    { type: types.UPDATE_OTHER_USER, user }
   ),
 };
