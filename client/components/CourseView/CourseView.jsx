@@ -79,7 +79,7 @@ class CourseInfo extends Component {
         </div>
         <div className="col-md-4">
           <ChatContainer
-            currentUser={{ id: 30, type: 'student', name: 'Ella Truong' }}
+            user={{ id: 30, type: 'student', name: 'Ella Truong' }}
             otherUser={{ id: this.props.displayedCourse.teacherId,
               type: 'teacher',
               name: this.props.displayedCourse.teacherName }}

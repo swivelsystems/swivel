@@ -16,6 +16,8 @@ class ChatContainer extends Component {
     getPreviousMessages(this.props.user, this.otherUser, this.props.addMessage);
     listenForNewMessages(this.otherUser, this.props.addMessage);
 
+    this.render = this.render.bind(this);
+    this.displayMessages = this.displayMessages.bind(this);
     this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
@@ -25,7 +27,6 @@ class ChatContainer extends Component {
   }
 
   componentWillUnmount() {
-
     disconnect();
   }
 
@@ -35,7 +36,6 @@ class ChatContainer extends Component {
     const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.user.name };
     sendMessage(this.props.user, this.otherUser, message, this.props.addMessage);
     this.refs.messageBody.value = '';
-    this.displayMessages();
   }
 
   displayBackButton() {
@@ -51,20 +51,22 @@ class ChatContainer extends Component {
   }
 
   displayMessages() {
+    // console.log('rerendering', this.props.messages[this.otherUser.id]);
     if (!this.props.messages[this.otherUser.id]) {
       return <p>There are no messages to display. Send a message!</p>;
     }
     return this.props.messages[this.otherUser.id].map((message) => (
-      <ChatEntry message={message} />
+      <ChatEntry key={message.timestamp} message={message} />
     ));
   }
 
   render() {
+    console.log('calling render method');
     return (
       <div className="chat-container">
         {this.displayBackButton()}
 
-        <h4>Chat Your Teacher</h4>
+        <h4>Chat</h4>
           { this.props.demoType === 'student' ? <hr /> : '' }
         <div className="chat-container-messages-container">
           {this.displayMessages()}

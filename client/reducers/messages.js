@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes.js';
+import _ from 'lodash';
 
 const initialState = {};
 
@@ -13,9 +14,8 @@ const initialState = {};
 export default function chat(state = initialState, action) {
   switch (action.type) {
     case types.ADD_MESSAGE: {
-      console.log(action);
-      const copy = Array.prototype.slice.call(state);
-      if (!copy[action.id]) { copy[action.id] = []; }
+      const copy = _.clone(state);
+      copy[action.id] = copy[action.id] || [];
       copy[action.id].push(action.message);
       return copy;
     }
