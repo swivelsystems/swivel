@@ -11,10 +11,14 @@ class ChatContainer extends Component {
 
     // specify the user the current user is chatting with,
     // get chat history, and listen for incoming messages
-    this.otherUser = this.props.otherUser
-      || { id: this.props.displayedStudent.id, type: 'student' };
-    getPreviousMessages(this.props.currentUser, this.otherUser, this.props.addMessage);
-    listenForNewMessages(this.otherUser, this.props.addMessage);
+    let otherUser = { id: this.props.displayedStudent.id, type: 'student' };
+    if (this.props.demoType === 'student') {
+      otherUser = { id: this.props.displayedCourse.teacherId, name: this.props.displayedCourse.teacherName, type: 'teacher' };
+    }
+    this.props.updateOtherUser(otherUser);
+
+    getPreviousMessages(this.props.user, this.props.otherUser, this.props.addMessage);
+    listenForNewMessages(this.props.otherUser, this.props.addMessage);
 
     this.handleSendMessage = this.handleSendMessage.bind(this);
   }
@@ -26,16 +30,15 @@ class ChatContainer extends Component {
   handleSendMessage(e) {
     e.preventDefault();
     if (this.refs.messageBody.value === '') { return; } // prevent empty messages
-    const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.currentUser.name };
-    sendMessage(this.props.currentUser, this.otherUser, message, this.props.addMessage);
+    const message = { timestamp: new Date().toUTCString(), body: this.refs.messageBody.value, author: this.props.user.name };
+    sendMessage(this.props.user, this.props.otherUser, message, this.props.addMessage);
     this.refs.messageBody.value = '';
-    this.displayMessages();
   }
 
   displayBackButton() {
-    if (this.props.currentUser.type === 'teacher') {
+    if (this.props.demoType === 'teacher') {
       return (<button type="button"
-        className="btn btn-small btn-default back"
+        className="btn btn-small btn-link chat-container-back-button"
         onClick={ this.props.handleBackButton }
       >
         Go Back
@@ -45,22 +48,22 @@ class ChatContainer extends Component {
   }
 
   displayMessages() {
-    if (!this.props.messages[this.otherUser.id]) {
+    if (!this.props.messages[this.props.otherUser.id] || !this.props.displayedCourse) {
       return <p>There are no messages to display. Send a message!</p>;
     }
-    return this.props.messages[this.otherUser.id].map((message) => (
-      <ChatEntry message={message} />
+    return this.props.messages[this.props.otherUser.id].map((message) => (
+      <ChatEntry key={message.timestamp} message={message} />
     ));
   }
 
   render() {
+    console.log('calling render method');
     return (
       <div className="chat-container">
         {this.displayBackButton()}
 
-        <h4>Your Conversation with {this.props.displayedStudent.name
-            || this.props.otherUser.name }</h4>
-          { this.props.displayedStudent && this.props.displayedStudent.name ? <hr /> : '' }
+        <h4>Chat</h4>
+          { this.props.demoType === 'student' ? <hr /> : '' }
         <div className="chat-container-messages-container">
           {this.displayMessages()}
         </div>
@@ -90,7 +93,12 @@ class ChatContainer extends Component {
 const mapStateToProps = (state) => (
   {
     displayedStudent: state.displayedStudent,
+    displayedCourse: state.displayedCourse,
+    updateCourse: state.updateCourse,
     messages: state.messages,
+    user: state.user,
+    demoType: state.demoType,
+    otherUser: state.otherUser,
   }
 );
 
@@ -100,9 +108,16 @@ const mapDispatchToProps = (dispatch) => (
     handleBackButton: () => (
       dispatch(actions.switchTabs('Students'))
     ),
-    addMessage: (message, id) => (
-      dispatch(actions.addMessage(message, id))
-    ),
+    addMessage: (message, id) => {
+      dispatch(actions.addMessage(message, id));
+    },
+    updateCourse: (displayedCourse) => {
+      dispatch(actions.clearCourse());
+      dispatch(actions.displayCourse(displayedCourse));
+    },
+    updateOtherUser: (user) => {
+      dispatch(actions.updateOtherUser(user));
+    },
   }
 );
 
@@ -111,8 +126,11 @@ ChatContainer.propTypes = {
   messages: PropTypes.object,
   handleBackButton: PropTypes.func,
   addMessage: PropTypes.func,
-  currentUser: PropTypes.object,
+  user: PropTypes.object,
   otherUser: PropTypes.object,
+  demoType: PropTypes.string,
+  displayedCourse: PropTypes.object,
+  updateOtherUser: PropTypes.func,
 };
 
 export default connect(

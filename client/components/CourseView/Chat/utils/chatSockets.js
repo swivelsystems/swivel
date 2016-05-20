@@ -18,6 +18,6 @@ export function disconnect(callback) {
 }
 
 export function sendMessage(currentUser, otherUser, message, callback) {
-  socket.emit('newMessage', currentUser, otherUser, message);
+  socket.emit('newMessage', [message.author, message.body, otherUser.name, message.timestamp, currentUser.id, currentUser.type, otherUser.id, otherUser.type]);
   callback(message, otherUser.id);
 }

@@ -1,6 +1,8 @@
 // this is for the sake of org/best practices
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const LOAD_MESSAGES = 'LOAD_MESSAGES';
+export const CLEAR_COURSE = 'CLEAR_COURSE';
+export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
 export const DISPLAY_ASSIGNMENT = 'DISPLAY_ASSIGNMENT';
 export const DISPLAY_COURSE = 'DISPLAY_COURSE';
 export const DISPLAY_STUDENT = 'DISPLAY_STUDENT';
@@ -10,3 +12,5 @@ export const RECEIVE_COURSES_ERROR = 'RECEIVE_COURSES_ERROR';
 export const RETRIEVE_MESSAGES = 'RETRIEVE_MESSAGES';
 export const SWITCH_TABS = 'SWITCH_TABS';
 export const TOGGLE_DEMO_TYPE = 'TOGGLE_DEMO_TYPE';
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_OTHER_USER = 'UPDATE_OTHER_USER';

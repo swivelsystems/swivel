@@ -7,13 +7,11 @@ exports.loadTeacherData = (callback) => {
     url,
     timeout: 20000,
     method: 'get',
-    // responseType: 'json',
     data: id,
   })
   .then((response) => {
     const data = response.data;
     callback(null, data);
-
     return data.courses.map((course, index) => (
       axios({
         url: `http://www.swivelsystems.org/api/teachers/course/${course.id}`,

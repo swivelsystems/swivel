@@ -4,6 +4,12 @@ module.exports = {
   addMessage: (message, id) => (
     { type: types.ADD_MESSAGE, message, id }
   ),
+  clearMessages: () => (
+    { type: types.CLEAR_MESSAGES }
+  ),
+  clearCourse: () => (
+    { type: types.CLEAR_COURSE }
+  ),
   loadMessages: (messages) => (
     { type: types.LOAD_MESSAGES, messages }
   ),
@@ -34,5 +40,10 @@ module.exports = {
   toggleDemoType: (demoType) => (
     { type: types.TOGGLE_DEMO_TYPE, demoType }
   ),
-
+  updateUser: (user) => (
+    { type: types.UPDATE_USER, user }
+  ),
+  updateOtherUser: (user) => (
+    { type: types.UPDATE_OTHER_USER, user }
+  ),
 };

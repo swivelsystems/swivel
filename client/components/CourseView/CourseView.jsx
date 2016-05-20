@@ -9,13 +9,17 @@ import DoughnutChart from './Charts/DoughnutChart.jsx';
 import BarChart from './Charts/BarChart.jsx';
 
 class CourseInfo extends Component {
+
+  componentDidUpdate() {
+    this.handleOtherUserUpdate();
+  }
   // depending on which tab is clicked, render Assignments, AllStudents, or Student component
   handleTabs() {
     switch (this.props.tabView) {
       case 'Students':
         return <AllStudentsTab />;
       case 'Student':
-        return <ChatContainer currentUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />;
+        return <ChatContainer />;
       case 'Assignment':
         return <Assignment />;
       default:
@@ -46,6 +50,11 @@ class CourseInfo extends Component {
     return tab;
   }
 
+  handleOtherUserUpdate() {
+    const otherUser = { id: this.props.displayedCourse.teacherId, name: this.props.displayedCourse.teacherName, type: 'teacher' };
+    this.props.updateOtherUser(otherUser);
+  }
+
   loadStudentOrTeacherView() {
     if (this.props.demoType === 'teacher') {
       return (
@@ -66,6 +75,7 @@ class CourseInfo extends Component {
         </div>
       );
     }
+
     return (
       <div className="col-md-12">
         <div className="col-md-8">
@@ -76,20 +86,7 @@ class CourseInfo extends Component {
           </div>
         </div>
         <div className="col-md-4">
-          <h4>Your Teacher</h4>
-          <hr />
-          <div className="teacher-card">
-            <div className="teacher-card-avatar-container">
-              <img className="teacher-card-avatar-container-img"
-                src="//placekitten.com/200/200"
-                role="presentation"
-              />
-            </div>
-            <div className="teacher-card-info-container">
-              <h5 key="teacherCardHeader" className="card-title">Ms. Clyde</h5>
-            </div>
-          </div>
-          <ChatContainer currentUser={{ id: 30, type: 'student', name: 'Ella Truong' }} otherUser={{ id: 5, type: 'teacher', name: 'Ms. Clyde' }} />
+          <ChatContainer />
         </div>
       </div>
     );
@@ -124,12 +121,16 @@ const mapDispatchToProps = (dispatch) => (
     handleTab: (tab) => {
       dispatch(actions.switchTabs(tab));
     },
+    updateOtherUser: (user) => {
+      dispatch(actions.updateOtherUser(user));
+    },
   }
 );
 
 CourseInfo.propTypes = {
   tabView: PropTypes.string,
   handleTab: PropTypes.func,
+  updateOtherUser: PropTypes.func,
   demoType: PropTypes.string,
   displayedCourse: PropTypes.object,
 };

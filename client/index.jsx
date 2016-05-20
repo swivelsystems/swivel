@@ -8,6 +8,7 @@ import configureStore from './store/configureStore';
 import styles from './styles/entry.scss';
 import actions from './actions/index.js';
 import requestMethods from './utils/requestMethods.js';
+import socket from './utils/socket.js';
 
 const store = configureStore();
 
@@ -16,10 +17,17 @@ requestMethods.loadTeacherData((error, teacherData) => {
     return 'Server Could Not load teacher information ${error}';
   }
   store.dispatch(actions.receiveCourses(teacherData.courses));
-  // sketchy to move this in here? I can move it out if necessary.
-  // this just makes the onload not happen until the data is ready
+  store.dispatch(actions.updateUser(teacherData.teacher));
+
+  const establishConnection = () => {
+    socket.connect();
+    socket.on('authenticate', () => {
+      socket.emit('authenticated', teacherData.teacher.name, teacherData.teacher.id);
+    });
+  };
+  establishConnection();
 });
-// load data with teacher id, made it up but right now can change once we have auth
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>

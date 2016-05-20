@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import actions from '../actions/index.js';
 import { connect } from 'react-redux';
 import requestMethods from '../utils/requestMethods.js';
+import socket from '../utils/socket.js';
 
 class Nav extends Component {
   handleClick() {
@@ -35,9 +36,7 @@ class Nav extends Component {
             </a>
             <div className="navbar-links">
               <a className="navbar-link" href="#">About</a>
-              <a className="navbar-link" href="#">Services</a>
-              <a className="navbar-link" href="#">Pricing</a>
-              <a className="navbar-link" href="#">Contact</a>
+              <a className="navbar-link" href="mailto:admin@swivelsystems.org">Contact</a>
               {this.displayDemoButton()}
             </div>
           </div>
@@ -53,17 +52,27 @@ const mapStateToProps = (state) => (
 const mapDispatchToProps = (dispatch) => (
   {
     handleDemoToggle: (demoType) => {
+      dispatch(actions.clearMessages());
       dispatch(actions.toggleDemoType(demoType));
     },
 
     handleHttpRequests: (demoType) => {
-      // we dont need this but I thought going back to home would be best practice
       dispatch(actions.goHome(true));
       const callback = (error, data) => {
         if (error) {
           return `Server Could Not load teacher information ${error}`;
         }
+        const user = data.teacher || data.student;
+        dispatch(actions.updateUser(user));
         dispatch(actions.receiveCourses(data.courses));
+        socket.disconnect();
+        const establishConnection = () => {
+          socket.connect();
+          socket.on('authenticate', () => {
+            socket.emit('authenticated', user.name, user.id);
+          });
+        };
+        establishConnection();
       };
 
       if (demoType === 'teacher') {
