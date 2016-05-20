@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import App from './components/App.jsx';
 import Landing from './components/Landing.jsx';
+import About from './components/About.jsx';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import styles from './styles/entry.scss';
@@ -33,6 +34,7 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path="/" component={Landing} />
       <Route path="/demo" component={App} />
+      <Route path="/about" component={About} />
     </Router>
   </Provider>,
   document.getElementById('app')

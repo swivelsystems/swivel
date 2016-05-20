@@ -3,7 +3,7 @@ import Nav from './Nav.jsx';
 
 const Landing = () => (
   <div>
-     <Nav page={'landing'} />
+     <Nav page={'view-demo'} />
      <div className="intro-header">
          <div className="container">
              <div className="row">
