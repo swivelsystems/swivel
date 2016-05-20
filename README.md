@@ -1,6 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/SwivelSystems/Swivel.png?label=ready&title=Ready)](https://waffle.io/HolisticParallelogram/SwivelSystems/Swivel)
 # Swivel Systems 
-Education management technology for K-12 schools.
+Education management software for K-12 schools
 
 ## Engineering Team
 
