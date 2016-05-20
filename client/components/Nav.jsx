@@ -17,7 +17,7 @@ class Nav extends Component {
   }
 
   displayDemoButton() {
-    if (this.props.page && this.props.page === 'landing') {
+    if (this.props.page && this.props.page === 'view-demo') {
       return (<a className="btn btn-nav" href="#/demo">View Demo</a>);
     }
     const buttonText = this.props.demoType === 'teacher' ? 'View Student Demo' : 'View Teacher Demo';
@@ -35,8 +35,12 @@ class Nav extends Component {
               </div>
             </a>
             <div className="navbar-links">
-              <a className="navbar-link" href="#">About</a>
               <a className="navbar-link" href="mailto:admin@swivelsystems.org">Contact</a>
+              <a className="navbar-link" href="/#/about">About</a>
+              <a className="navbar-link" href="#">Services</a>
+              <a className="navbar-link" href="#">Pricing</a>
+              <a className="navbar-link" href="#">Contact</a>
+
               {this.displayDemoButton()}
             </div>
           </div>
