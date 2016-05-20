@@ -57,7 +57,6 @@ class ChatContainer extends Component {
   }
 
   render() {
-    console.log('calling render method');
     return (
       <div className="chat-container">
         {this.displayBackButton()}

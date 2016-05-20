@@ -17,20 +17,19 @@
   text-align: center;
 }
 
+.team-member-info-container-name {
+  font-size: $font-size-huge;
+}
+
 .team-member-card-info {
   text-align: center;
 }
 
-.card {
-  display: inline-block;
-}
-
 .team-header {
+  margin-top: $spacing-xxlarge;
   text-align: center;
 }
 
 .about-us-header {
   text-align: center;
 }
-
-

@@ -35,11 +35,8 @@ class Nav extends Component {
               </div>
             </a>
             <div className="navbar-links">
-              <a className="navbar-link" href="mailto:admin@swivelsystems.org">Contact</a>
               <a className="navbar-link" href="/#/about">About</a>
-              <a className="navbar-link" href="#">Services</a>
-              <a className="navbar-link" href="#">Pricing</a>
-              <a className="navbar-link" href="#">Contact</a>
+              <a className="navbar-link" href="mailto:admin@swivelsystems.org">Contact</a>
 
               {this.displayDemoButton()}
             </div>
