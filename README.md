@@ -1,6 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/SwivelSystems/Swivel.png?label=ready&title=Ready)](https://waffle.io/HolisticParallelogram/SwivelSystems/Swivel)
-# SwivelSystems Education Management Software
-Open-source education management technology for K-12 schools.
+# Swivel Systems 
+Education management technology for K-12 schools.
 
 ## Engineering Team
 
@@ -28,7 +28,8 @@ Webpack
 - [Node](https://nodejs.org/en/) and [Express](http://expressjs.com/)
 - [MySQL](https://www.mysql.com/) and [Sequelize ORM](http://docs.sequelizejs.com/en/latest/)
 - [Redis](http://redis.io/)
-- [Jasmine](http://jasmine.github.io/), [Mocha](https://mochajs.org/), and [Karma](https://karma-runner.github.io/0.13/index.html)
+- [Jasmine](http://jasmine.github.io/), [Mocha](https://mochajs.org/), and
+- [Karma](https://karma-runner.github.io/0.13/index.html)
 
 ## Development
 
