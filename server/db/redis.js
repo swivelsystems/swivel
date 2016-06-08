@@ -1,11 +1,11 @@
 import redis from 'redis';
 
 const port = 6379;
-const sqlReadEndpoint = 'swivelredis-001.kxlall.0001.usw2.cache.amazonaws.com';
-const sqlPrimaryEndpoint = 'swivelredis.kxlall.ng.0001.usw2.cache.amazonaws.com';
+const sqlReadEndpoint = 'swivel-redis.kxlall.0001.usw2.cache.amazonaws.com';
+const sqlPrimaryEndpoint = 'swivel-redis.kxlall.0001.usw2.cache.amazonaws.com';
 
-const chatReadEndpoint = 'swivelchat-001.kxlall.0001.usw2.cache.amazonaws.com';
-const chatPrimaryEndpoint = 'swivelchat.kxlall.ng.0001.usw2.cache.amazonaws.com';
+const chatReadEndpoint = 'swivel-redis.kxlall.0001.usw2.cache.amazonaws.com';
+const chatPrimaryEndpoint = 'swivel-redis.kxlall.0001.usw2.cache.amazonaws.com';
 
 // export const readURI = redis.createClient({
 //   retry_strategy: (options) => {
